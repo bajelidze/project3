@@ -57,6 +57,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Game.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -64,18 +65,19 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
+    <None Include="Properties\DataSources\Game.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -87,12 +89,19 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon1.ico" />
+    <None Include="Resources\menuButtonSelected.jpg" />
+    <None Include="Resources\menuButton.jpg" />
+    <None Include="Resources\gameTexture.jpg" />
+    <None Include="Resources\sfxMuted.jpg" />
+    <None Include="Resources\sfx.jpg" />
+    <None Include="Resources\musicMuted.jpg" />
+    <None Include="Resources\music.jpg" />
+    <None Include="Resources\playMenu.jpg" />
     <None Include="Resources\exitSelected.jpg" />
     <None Include="Resources\exit.jpg" />
     <None Include="Resources\selected.jpg" />
-    <None Include="Resources\notSelected1.jpg" />
     <None Include="Resources\notSelected.jpg" />
-    <None Include="Resources\Webp.net-gifmaker.gif" />
+    <None Include="Resources\tetrisAnimated.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

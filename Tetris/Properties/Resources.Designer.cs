@@ -83,6 +83,56 @@ namespace Tetris.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap gameTexture {
+            get {
+                object obj = ResourceManager.GetObject("gameTexture", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap menuButton {
+            get {
+                object obj = ResourceManager.GetObject("menuButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap menuButtonSelected {
+            get {
+                object obj = ResourceManager.GetObject("menuButtonSelected", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap music {
+            get {
+                object obj = ResourceManager.GetObject("music", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap musicMuted {
+            get {
+                object obj = ResourceManager.GetObject("musicMuted", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap notSelected {
             get {
                 object obj = ResourceManager.GetObject("notSelected", resourceCulture);
@@ -93,9 +143,9 @@ namespace Tetris.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap notSelected1 {
+        internal static System.Drawing.Bitmap playMenu {
             get {
-                object obj = ResourceManager.GetObject("notSelected1", resourceCulture);
+                object obj = ResourceManager.GetObject("playMenu", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,9 +163,29 @@ namespace Tetris.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Webp_net_gifmaker {
+        internal static System.Drawing.Bitmap sfx {
             get {
-                object obj = ResourceManager.GetObject("Webp.net-gifmaker", resourceCulture);
+                object obj = ResourceManager.GetObject("sfx", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sfxMuted {
+            get {
+                object obj = ResourceManager.GetObject("sfxMuted", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap tetrisAnimated {
+            get {
+                object obj = ResourceManager.GetObject("tetrisAnimated", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
