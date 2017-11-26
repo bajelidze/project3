@@ -13,9 +13,12 @@ namespace Tetris
 {
     public partial class Form : System.Windows.Forms.Form
     {
-        private SoundPlayer Player = new SoundPlayer();
-        private bool sfxMuted = false;
-        private bool musicMuted = false;
+        SoundPlayer Player = new SoundPlayer();
+        bool sfxMuted = false;
+        bool musicMuted = false;
+        Game game = new Game();
+        PictureBox[,] nextPiece = new PictureBox[4, 4];
+
 
         public Form()
         {
@@ -26,7 +29,28 @@ namespace Tetris
             sfxButton1.BackgroundImage = global::Tetris.Properties.Resources.sfx;
             sfxButton2.BackgroundImage = global::Tetris.Properties.Resources.sfx;
             sfxButton3.BackgroundImage = global::Tetris.Properties.Resources.sfx;
-            Game game = new Game();
+
+            // add all 16 picture boxes to the array
+            nextPiece[0, 0] = n1;
+            nextPiece[0, 1] = n2;
+            nextPiece[0, 2] = n3;
+            nextPiece[0, 3] = n4;
+            nextPiece[1, 0] = n5;
+            nextPiece[1, 1] = n6;
+            nextPiece[1, 2] = n7;
+            nextPiece[1, 3] = n8;
+            nextPiece[2, 0] = n9;
+            nextPiece[2, 1] = n10;
+            nextPiece[2, 2] = n11;
+            nextPiece[2, 3] = n12;
+            nextPiece[3, 0] = n13;
+            nextPiece[3, 1] = n14;
+            nextPiece[3, 2] = n15;
+            nextPiece[3, 3] = n16;
+
+            game.rndNextPiece();
+            renderNextPiece();
+
             try
             {
                 this.Player.SoundLocation = Environment.CurrentDirectory + @"\sound\theme1.wav";
@@ -228,6 +252,48 @@ namespace Tetris
                 sfxButton1.BackgroundImage = global::Tetris.Properties.Resources.sfx;
                 sfxButton2.BackgroundImage = global::Tetris.Properties.Resources.sfx;
                 sfxButton3.BackgroundImage = global::Tetris.Properties.Resources.sfx;
+            }
+        }
+
+        private void renderNextPiece()
+        {
+            for(int i = 0; i < 4; i++)
+            {
+                for(int j = 0; j < 4; j++)
+                {
+                    if(game.piece[i, j] == 0)
+                    {
+                        nextPiece[i, j].BackgroundImage = null;
+                    }
+                    else if(game.piece[i, j] == 1)
+                    {
+                        nextPiece[i, j].BackgroundImage = global::Tetris.Properties.Resources.Block_LightBlue;
+                    }
+                    else if (game.piece[i, j] == 2)
+                    {
+                        nextPiece[i, j].BackgroundImage = global::Tetris.Properties.Resources.Block_Purple;
+                    }
+                    else if (game.piece[i, j] == 3)
+                    {
+                        nextPiece[i, j].BackgroundImage = global::Tetris.Properties.Resources.Block_Orange;
+                    }
+                    else if (game.piece[i, j] == 4)
+                    {
+                        nextPiece[i, j].BackgroundImage = global::Tetris.Properties.Resources.Block_Blue;
+                    }
+                    else if (game.piece[i, j] == 5)
+                    {
+                        nextPiece[i, j].BackgroundImage = global::Tetris.Properties.Resources.Block_Red;
+                    }
+                    else if (game.piece[i, j] == 6)
+                    {
+                        nextPiece[i, j].BackgroundImage = global::Tetris.Properties.Resources.Block_Green;
+                    }
+                    else if (game.piece[i, j] == 7)
+                    {
+                        nextPiece[i, j].BackgroundImage = global::Tetris.Properties.Resources.Block_Yellow;
+                    }
+                }
             }
         }
     }

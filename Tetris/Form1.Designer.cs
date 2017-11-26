@@ -33,8 +33,29 @@ namespace Tetris
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form));
             this.mainMenuPanel = new System.Windows.Forms.Panel();
+            this.checkSurePanel = new System.Windows.Forms.Panel();
+            this.sureYesLabel = new System.Windows.Forms.Label();
+            this.sureNoLabel = new System.Windows.Forms.Label();
+            this.checkSureLabel = new System.Windows.Forms.Label();
             this.playMenuPanel = new System.Windows.Forms.Panel();
             this.gamePanel = new System.Windows.Forms.Panel();
+            this.n13 = new System.Windows.Forms.PictureBox();
+            this.n14 = new System.Windows.Forms.PictureBox();
+            this.n15 = new System.Windows.Forms.PictureBox();
+            this.n16 = new System.Windows.Forms.PictureBox();
+            this.n12 = new System.Windows.Forms.PictureBox();
+            this.n11 = new System.Windows.Forms.PictureBox();
+            this.n10 = new System.Windows.Forms.PictureBox();
+            this.n9 = new System.Windows.Forms.PictureBox();
+            this.n5 = new System.Windows.Forms.PictureBox();
+            this.n6 = new System.Windows.Forms.PictureBox();
+            this.n7 = new System.Windows.Forms.PictureBox();
+            this.n8 = new System.Windows.Forms.PictureBox();
+            this.n4 = new System.Windows.Forms.PictureBox();
+            this.n3 = new System.Windows.Forms.PictureBox();
+            this.n2 = new System.Windows.Forms.PictureBox();
+            this.n1 = new System.Windows.Forms.PictureBox();
+            this.mainMenuPictureBox = new System.Windows.Forms.PictureBox();
             this.menuButton = new Tetris.Custom();
             this.sfxButton3 = new Tetris.Custom();
             this.musicButton3 = new Tetris.Custom();
@@ -45,20 +66,31 @@ namespace Tetris
             this.newGameButton = new Tetris.Custom();
             this.musicButton1 = new Tetris.Custom();
             this.sfxButton1 = new Tetris.Custom();
-            this.checkSurePanel = new System.Windows.Forms.Panel();
-            this.sureYesLabel = new System.Windows.Forms.Label();
-            this.sureNoLabel = new System.Windows.Forms.Label();
-            this.checkSureLabel = new System.Windows.Forms.Label();
             this.exitButton = new Tetris.Custom();
             this.helpButton = new Tetris.Custom();
             this.scoresButton = new Tetris.Custom();
             this.playButton = new Tetris.Custom();
-            this.mainMenuPictureBox = new System.Windows.Forms.PictureBox();
             this.gameBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mainMenuPanel.SuspendLayout();
+            this.checkSurePanel.SuspendLayout();
             this.playMenuPanel.SuspendLayout();
             this.gamePanel.SuspendLayout();
-            this.checkSurePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.n13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.n14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.n15)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.n16)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.n12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.n11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.n10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.n9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.n5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.n6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.n7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.n8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.n4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.n3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.n2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.n1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainMenuPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -80,6 +112,60 @@ namespace Tetris
             this.mainMenuPanel.Size = new System.Drawing.Size(550, 550);
             this.mainMenuPanel.TabIndex = 1;
             // 
+            // checkSurePanel
+            // 
+            this.checkSurePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
+            this.checkSurePanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.checkSurePanel.Controls.Add(this.sureYesLabel);
+            this.checkSurePanel.Controls.Add(this.sureNoLabel);
+            this.checkSurePanel.Controls.Add(this.checkSureLabel);
+            this.checkSurePanel.Enabled = false;
+            this.checkSurePanel.Location = new System.Drawing.Point(100, 190);
+            this.checkSurePanel.Name = "checkSurePanel";
+            this.checkSurePanel.Size = new System.Drawing.Size(350, 150);
+            this.checkSurePanel.TabIndex = 0;
+            this.checkSurePanel.Visible = false;
+            // 
+            // sureYesLabel
+            // 
+            this.sureYesLabel.AutoSize = true;
+            this.sureYesLabel.Font = new System.Drawing.Font("Ode to Idle Gaming", 18F);
+            this.sureYesLabel.ForeColor = System.Drawing.Color.DimGray;
+            this.sureYesLabel.Location = new System.Drawing.Point(67, 87);
+            this.sureYesLabel.Name = "sureYesLabel";
+            this.sureYesLabel.Size = new System.Drawing.Size(81, 42);
+            this.sureYesLabel.TabIndex = 1;
+            this.sureYesLabel.Text = "YES";
+            this.sureYesLabel.Click += new System.EventHandler(this.sureYesLabel_Click);
+            this.sureYesLabel.MouseEnter += new System.EventHandler(this.button_MouseEnter);
+            this.sureYesLabel.MouseLeave += new System.EventHandler(this.button_MouseLeave);
+            // 
+            // sureNoLabel
+            // 
+            this.sureNoLabel.AutoSize = true;
+            this.sureNoLabel.Font = new System.Drawing.Font("Ode to Idle Gaming", 18F);
+            this.sureNoLabel.ForeColor = System.Drawing.Color.DimGray;
+            this.sureNoLabel.Location = new System.Drawing.Point(210, 87);
+            this.sureNoLabel.Name = "sureNoLabel";
+            this.sureNoLabel.Size = new System.Drawing.Size(60, 42);
+            this.sureNoLabel.TabIndex = 2;
+            this.sureNoLabel.Text = "NO";
+            this.sureNoLabel.Click += new System.EventHandler(this.sureNoLabel_Click);
+            this.sureNoLabel.MouseEnter += new System.EventHandler(this.button_MouseEnter);
+            this.sureNoLabel.MouseLeave += new System.EventHandler(this.button_MouseLeave);
+            // 
+            // checkSureLabel
+            // 
+            this.checkSureLabel.AutoSize = true;
+            this.checkSureLabel.Font = new System.Drawing.Font("Ode to Idle Gaming", 20F);
+            this.checkSureLabel.ForeColor = System.Drawing.Color.DimGray;
+            this.checkSureLabel.Location = new System.Drawing.Point(25, 15);
+            this.checkSureLabel.Name = "checkSureLabel";
+            this.checkSureLabel.Size = new System.Drawing.Size(304, 47);
+            this.checkSureLabel.TabIndex = 0;
+            this.checkSureLabel.Text = "Are you sure?";
+            this.checkSureLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // playMenuPanel
             // 
             this.playMenuPanel.BackgroundImage = global::Tetris.Properties.Resources.playMenu;
@@ -100,6 +186,22 @@ namespace Tetris
             // gamePanel
             // 
             this.gamePanel.BackgroundImage = global::Tetris.Properties.Resources.gameTexture;
+            this.gamePanel.Controls.Add(this.n13);
+            this.gamePanel.Controls.Add(this.n14);
+            this.gamePanel.Controls.Add(this.n15);
+            this.gamePanel.Controls.Add(this.n16);
+            this.gamePanel.Controls.Add(this.n12);
+            this.gamePanel.Controls.Add(this.n11);
+            this.gamePanel.Controls.Add(this.n10);
+            this.gamePanel.Controls.Add(this.n9);
+            this.gamePanel.Controls.Add(this.n5);
+            this.gamePanel.Controls.Add(this.n6);
+            this.gamePanel.Controls.Add(this.n7);
+            this.gamePanel.Controls.Add(this.n8);
+            this.gamePanel.Controls.Add(this.n4);
+            this.gamePanel.Controls.Add(this.n3);
+            this.gamePanel.Controls.Add(this.n2);
+            this.gamePanel.Controls.Add(this.n1);
             this.gamePanel.Controls.Add(this.menuButton);
             this.gamePanel.Controls.Add(this.sfxButton3);
             this.gamePanel.Controls.Add(this.musicButton3);
@@ -110,6 +212,161 @@ namespace Tetris
             this.gamePanel.Size = new System.Drawing.Size(550, 550);
             this.gamePanel.TabIndex = 6;
             this.gamePanel.Visible = false;
+            // 
+            // n13
+            // 
+            this.n13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
+            this.n13.Location = new System.Drawing.Point(375, 150);
+            this.n13.Name = "n13";
+            this.n13.Size = new System.Drawing.Size(25, 25);
+            this.n13.TabIndex = 8;
+            this.n13.TabStop = false;
+            // 
+            // n14
+            // 
+            this.n14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
+            this.n14.Location = new System.Drawing.Point(400, 150);
+            this.n14.Name = "n14";
+            this.n14.Size = new System.Drawing.Size(25, 25);
+            this.n14.TabIndex = 8;
+            this.n14.TabStop = false;
+            // 
+            // n15
+            // 
+            this.n15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
+            this.n15.Location = new System.Drawing.Point(425, 150);
+            this.n15.Name = "n15";
+            this.n15.Size = new System.Drawing.Size(25, 25);
+            this.n15.TabIndex = 8;
+            this.n15.TabStop = false;
+            // 
+            // n16
+            // 
+            this.n16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
+            this.n16.Location = new System.Drawing.Point(450, 150);
+            this.n16.Name = "n16";
+            this.n16.Size = new System.Drawing.Size(25, 25);
+            this.n16.TabIndex = 8;
+            this.n16.TabStop = false;
+            // 
+            // n12
+            // 
+            this.n12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
+            this.n12.Location = new System.Drawing.Point(450, 125);
+            this.n12.Name = "n12";
+            this.n12.Size = new System.Drawing.Size(25, 25);
+            this.n12.TabIndex = 8;
+            this.n12.TabStop = false;
+            // 
+            // n11
+            // 
+            this.n11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
+            this.n11.Location = new System.Drawing.Point(425, 125);
+            this.n11.Name = "n11";
+            this.n11.Size = new System.Drawing.Size(25, 25);
+            this.n11.TabIndex = 8;
+            this.n11.TabStop = false;
+            // 
+            // n10
+            // 
+            this.n10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
+            this.n10.Location = new System.Drawing.Point(400, 125);
+            this.n10.Name = "n10";
+            this.n10.Size = new System.Drawing.Size(25, 25);
+            this.n10.TabIndex = 8;
+            this.n10.TabStop = false;
+            // 
+            // n9
+            // 
+            this.n9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
+            this.n9.Location = new System.Drawing.Point(375, 125);
+            this.n9.Name = "n9";
+            this.n9.Size = new System.Drawing.Size(25, 25);
+            this.n9.TabIndex = 8;
+            this.n9.TabStop = false;
+            // 
+            // n5
+            // 
+            this.n5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
+            this.n5.Location = new System.Drawing.Point(375, 100);
+            this.n5.Name = "n5";
+            this.n5.Size = new System.Drawing.Size(25, 25);
+            this.n5.TabIndex = 8;
+            this.n5.TabStop = false;
+            // 
+            // n6
+            // 
+            this.n6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
+            this.n6.Location = new System.Drawing.Point(400, 100);
+            this.n6.Name = "n6";
+            this.n6.Size = new System.Drawing.Size(25, 25);
+            this.n6.TabIndex = 8;
+            this.n6.TabStop = false;
+            // 
+            // n7
+            // 
+            this.n7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
+            this.n7.Location = new System.Drawing.Point(425, 100);
+            this.n7.Name = "n7";
+            this.n7.Size = new System.Drawing.Size(25, 25);
+            this.n7.TabIndex = 8;
+            this.n7.TabStop = false;
+            // 
+            // n8
+            // 
+            this.n8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
+            this.n8.Location = new System.Drawing.Point(450, 100);
+            this.n8.Name = "n8";
+            this.n8.Size = new System.Drawing.Size(25, 25);
+            this.n8.TabIndex = 8;
+            this.n8.TabStop = false;
+            // 
+            // n4
+            // 
+            this.n4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
+            this.n4.Location = new System.Drawing.Point(450, 75);
+            this.n4.Name = "n4";
+            this.n4.Size = new System.Drawing.Size(25, 25);
+            this.n4.TabIndex = 8;
+            this.n4.TabStop = false;
+            // 
+            // n3
+            // 
+            this.n3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
+            this.n3.Location = new System.Drawing.Point(425, 75);
+            this.n3.Name = "n3";
+            this.n3.Size = new System.Drawing.Size(25, 25);
+            this.n3.TabIndex = 8;
+            this.n3.TabStop = false;
+            // 
+            // n2
+            // 
+            this.n2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
+            this.n2.Location = new System.Drawing.Point(400, 75);
+            this.n2.Name = "n2";
+            this.n2.Size = new System.Drawing.Size(25, 25);
+            this.n2.TabIndex = 8;
+            this.n2.TabStop = false;
+            // 
+            // n1
+            // 
+            this.n1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
+            this.n1.Location = new System.Drawing.Point(375, 75);
+            this.n1.Name = "n1";
+            this.n1.Size = new System.Drawing.Size(25, 25);
+            this.n1.TabIndex = 8;
+            this.n1.TabStop = false;
+            // 
+            // mainMenuPictureBox
+            // 
+            this.mainMenuPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainMenuPictureBox.Image = global::Tetris.Properties.Resources.tetrisAnimated;
+            this.mainMenuPictureBox.InitialImage = null;
+            this.mainMenuPictureBox.Location = new System.Drawing.Point(0, 0);
+            this.mainMenuPictureBox.Name = "mainMenuPictureBox";
+            this.mainMenuPictureBox.Size = new System.Drawing.Size(550, 550);
+            this.mainMenuPictureBox.TabIndex = 0;
+            this.mainMenuPictureBox.TabStop = false;
             // 
             // menuButton
             // 
@@ -217,60 +474,6 @@ namespace Tetris
             this.sfxButton1.TabIndex = 5;
             this.sfxButton1.Click += new System.EventHandler(this.sfxButton_Click);
             // 
-            // checkSurePanel
-            // 
-            this.checkSurePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
-            this.checkSurePanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.checkSurePanel.Controls.Add(this.sureYesLabel);
-            this.checkSurePanel.Controls.Add(this.sureNoLabel);
-            this.checkSurePanel.Controls.Add(this.checkSureLabel);
-            this.checkSurePanel.Enabled = false;
-            this.checkSurePanel.Location = new System.Drawing.Point(100, 190);
-            this.checkSurePanel.Name = "checkSurePanel";
-            this.checkSurePanel.Size = new System.Drawing.Size(350, 150);
-            this.checkSurePanel.TabIndex = 0;
-            this.checkSurePanel.Visible = false;
-            // 
-            // sureYesLabel
-            // 
-            this.sureYesLabel.AutoSize = true;
-            this.sureYesLabel.Font = new System.Drawing.Font("Ode to Idle Gaming", 18F);
-            this.sureYesLabel.ForeColor = System.Drawing.Color.DimGray;
-            this.sureYesLabel.Location = new System.Drawing.Point(67, 87);
-            this.sureYesLabel.Name = "sureYesLabel";
-            this.sureYesLabel.Size = new System.Drawing.Size(81, 42);
-            this.sureYesLabel.TabIndex = 1;
-            this.sureYesLabel.Text = "YES";
-            this.sureYesLabel.Click += new System.EventHandler(this.sureYesLabel_Click);
-            this.sureYesLabel.MouseEnter += new System.EventHandler(this.button_MouseEnter);
-            this.sureYesLabel.MouseLeave += new System.EventHandler(this.button_MouseLeave);
-            // 
-            // sureNoLabel
-            // 
-            this.sureNoLabel.AutoSize = true;
-            this.sureNoLabel.Font = new System.Drawing.Font("Ode to Idle Gaming", 18F);
-            this.sureNoLabel.ForeColor = System.Drawing.Color.DimGray;
-            this.sureNoLabel.Location = new System.Drawing.Point(210, 87);
-            this.sureNoLabel.Name = "sureNoLabel";
-            this.sureNoLabel.Size = new System.Drawing.Size(60, 42);
-            this.sureNoLabel.TabIndex = 2;
-            this.sureNoLabel.Text = "NO";
-            this.sureNoLabel.Click += new System.EventHandler(this.sureNoLabel_Click);
-            this.sureNoLabel.MouseEnter += new System.EventHandler(this.button_MouseEnter);
-            this.sureNoLabel.MouseLeave += new System.EventHandler(this.button_MouseLeave);
-            // 
-            // checkSureLabel
-            // 
-            this.checkSureLabel.AutoSize = true;
-            this.checkSureLabel.Font = new System.Drawing.Font("Ode to Idle Gaming", 20F);
-            this.checkSureLabel.ForeColor = System.Drawing.Color.DimGray;
-            this.checkSureLabel.Location = new System.Drawing.Point(25, 15);
-            this.checkSureLabel.Name = "checkSureLabel";
-            this.checkSureLabel.Size = new System.Drawing.Size(304, 47);
-            this.checkSureLabel.TabIndex = 0;
-            this.checkSureLabel.Text = "Are you sure?";
-            this.checkSureLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
             // exitButton
             // 
             this.exitButton.BackgroundImage = global::Tetris.Properties.Resources.exit;
@@ -322,17 +525,6 @@ namespace Tetris
             this.playButton.MouseEnter += new System.EventHandler(this.button_MouseEnter);
             this.playButton.MouseLeave += new System.EventHandler(this.button_MouseLeave);
             // 
-            // mainMenuPictureBox
-            // 
-            this.mainMenuPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainMenuPictureBox.Image = global::Tetris.Properties.Resources.tetrisAnimated;
-            this.mainMenuPictureBox.InitialImage = null;
-            this.mainMenuPictureBox.Location = new System.Drawing.Point(0, 0);
-            this.mainMenuPictureBox.Name = "mainMenuPictureBox";
-            this.mainMenuPictureBox.Size = new System.Drawing.Size(550, 550);
-            this.mainMenuPictureBox.TabIndex = 0;
-            this.mainMenuPictureBox.TabStop = false;
-            // 
             // gameBindingSource
             // 
             this.gameBindingSource.DataSource = typeof(Tetris.Game);
@@ -353,10 +545,26 @@ namespace Tetris
             this.Text = "Tetris";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.mainMenuPanel.ResumeLayout(false);
-            this.playMenuPanel.ResumeLayout(false);
-            this.gamePanel.ResumeLayout(false);
             this.checkSurePanel.ResumeLayout(false);
             this.checkSurePanel.PerformLayout();
+            this.playMenuPanel.ResumeLayout(false);
+            this.gamePanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.n13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.n14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.n15)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.n16)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.n12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.n11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.n10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.n9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.n5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.n6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.n7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.n8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.n4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.n3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.n2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.n1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainMenuPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -387,6 +595,22 @@ namespace Tetris
         private Custom sfxButton3;
         private Custom musicButton3;
         private Custom menuButton;
+        private System.Windows.Forms.PictureBox n13;
+        private System.Windows.Forms.PictureBox n14;
+        private System.Windows.Forms.PictureBox n15;
+        private System.Windows.Forms.PictureBox n16;
+        private System.Windows.Forms.PictureBox n12;
+        private System.Windows.Forms.PictureBox n11;
+        private System.Windows.Forms.PictureBox n10;
+        private System.Windows.Forms.PictureBox n9;
+        private System.Windows.Forms.PictureBox n5;
+        private System.Windows.Forms.PictureBox n6;
+        private System.Windows.Forms.PictureBox n7;
+        private System.Windows.Forms.PictureBox n8;
+        private System.Windows.Forms.PictureBox n4;
+        private System.Windows.Forms.PictureBox n3;
+        private System.Windows.Forms.PictureBox n2;
+        private System.Windows.Forms.PictureBox n1;
     }
 }
 

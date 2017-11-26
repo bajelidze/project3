@@ -89,6 +89,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon1.ico" />
+    <None Include="Resources\Block_Yellow.png" />
+    <None Include="Resources\Block_Red.png" />
+    <None Include="Resources\Block_Purple.png" />
+    <None Include="Resources\Block_Orange.png" />
+    <None Include="Resources\Block_LightBlue.png" />
+    <None Include="Resources\Block_Green.png" />
+    <None Include="Resources\Block_Blue.png" />
+    <None Include="Resources\Block_Grey.png" />
     <None Include="Resources\menuButtonSelected.jpg" />
     <None Include="Resources\menuButton.jpg" />
     <None Include="Resources\gameTexture.jpg" />
