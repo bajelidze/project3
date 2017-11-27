@@ -10,19 +10,19 @@ namespace Tetris
     {
         public bool saveExists = false;
         int score = 0;
+        public int[,] nextPiece = new int[4, 4];
         public int[,] piece = new int[4, 4];
-        //public int[,] nextPiece = new int[4, 4];
-        int[,] field = new int[21, 10];
+        public int[,] board = new int[21, 10];
 
         static Random rnd = new Random();
-        int roll;
+        public int roll;
 
         // These is the list of all picies with all possible
         // rotations, one of these are chosen at random
         int[,,] pieces = new int[19, 4, 4] {
             {                                // | piece
-                { 0, 0, 0, 0 },
                 { 1, 1, 1, 1 },
+                { 0, 0, 0, 0 },
                 { 0, 0, 0, 0 },
                 { 0, 0, 0, 0 },
             },
@@ -45,15 +45,15 @@ namespace Tetris
                 { 0, 0, 0, 0 },
             },
             {
-                { 0, 0, 0, 0 },
                 { 0, 2, 0, 0 },
                 { 2, 2, 2, 0 },
                 { 0, 0, 0, 0 },
+                { 0, 0, 0, 0 },
             },
             {
-                { 2, 0, 0, 0 },
-                { 2, 2, 0, 0 },
-                { 2, 0, 0, 0 },
+                { 0, 2, 0, 0 },
+                { 0, 2, 2, 0 },
+                { 0, 2, 0, 0 },
                 { 0, 0, 0, 0 },
             },
             {                       // |_ piece
@@ -69,15 +69,15 @@ namespace Tetris
                 { 0, 0, 0, 0 },
             },
             {
-                { 0, 0, 0, 0 },
                 { 0, 0, 3, 0 },
                 { 3, 3, 3, 0 },
                 { 0, 0, 0, 0 },
+                { 0, 0, 0, 0 },
             },
             {
-                { 3, 0, 0, 0 },
-                { 3, 0, 0, 0 },
-                { 3, 3, 0, 0 },
+                { 0, 3, 0, 0 },
+                { 0, 3, 0, 0 },
+                { 0, 3, 3, 0 },
                 { 0, 0, 0, 0 },
             },
             {                   // _| piece
@@ -93,15 +93,15 @@ namespace Tetris
                 { 0, 0, 0, 0 },
             },
             {
-                { 0, 0, 0, 0 },
                 { 4, 0, 0, 0 },
                 { 4, 4, 4, 0 },
                 { 0, 0, 0, 0 },
+                { 0, 0, 0, 0 },
             },
             {
-                { 4, 4, 0, 0 },
-                { 4, 0, 0, 0 },
-                { 4, 0, 0, 0 },
+                { 0, 4, 4, 0 },
+                { 0, 4, 0, 0 },
+                { 0, 4, 0, 0 },
                 { 0, 0, 0, 0 },
             },
             {                   // Z piece
@@ -111,9 +111,9 @@ namespace Tetris
                 { 0, 0, 0, 0 },
             },
             {
-                { 0, 0, 0, 0 },
                 { 5, 5, 0, 0 },
                 { 0, 5, 5, 0 },
+                { 0, 0, 0, 0 },
                 { 0, 0, 0, 0 },
             },
             {                   // Z piece reversed
@@ -123,9 +123,9 @@ namespace Tetris
                 { 0, 0, 0, 0 },
             },
             {
-                { 0, 0, 0, 0 },
-                { 0, 0, 6, 6 },
                 { 0, 6, 6, 0 },
+                { 6, 6, 0, 0 },
+                { 0, 0, 0, 0 },
                 { 0, 0, 0, 0 },
             },
             {                   // square piece
@@ -148,7 +148,7 @@ namespace Tetris
             {
                 for(int j = 0; j < 21; j++)
                 {
-                    field[i, j] = 0;
+                    board[i, j] = 0;
                 }
             }
         }
@@ -162,18 +162,33 @@ namespace Tetris
             {
                 for(int j = 0; j < 4; j++)
                 {
-                    piece[i, j] = pieces[roll, i, j];
+                    nextPiece[i, j] = pieces[roll, i, j];
                 }
             }
         }
 
-        // renders the field
-        private void RenderField()
+        public void CopyFromNext()
         {
-
+            for (int i = 0; i < 4; i++)
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    piece[i, j] = nextPiece[i, j];
+                }
+            }
         }
 
 
-
+        public void AddNewPiece()
+        {
+            CopyFromNext();
+            for(int i = 0; i < 4; i++)
+            {
+                for(int j = 0; j < 4; j++)
+                {
+                    board[i, j + 3] = piece[i, j];
+                }
+            }
+        }
     }
 }
