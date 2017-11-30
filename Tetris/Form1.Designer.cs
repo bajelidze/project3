@@ -231,6 +231,12 @@ namespace Tetris
             this.n3 = new System.Windows.Forms.PictureBox();
             this.n2 = new System.Windows.Forms.PictureBox();
             this.n1 = new System.Windows.Forms.PictureBox();
+            this.checkSurePanel = new System.Windows.Forms.Panel();
+            this.sureYesLabel = new System.Windows.Forms.Label();
+            this.sureNoLabel = new System.Windows.Forms.Label();
+            this.checkSureLabel = new System.Windows.Forms.Label();
+            this.mainMenuPictureBox = new System.Windows.Forms.PictureBox();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.menuButton = new Tetris.Custom();
             this.sfxButton3 = new Tetris.Custom();
             this.musicButton3 = new Tetris.Custom();
@@ -241,15 +247,10 @@ namespace Tetris
             this.newGameButton = new Tetris.Custom();
             this.musicButton1 = new Tetris.Custom();
             this.sfxButton1 = new Tetris.Custom();
-            this.checkSurePanel = new System.Windows.Forms.Panel();
-            this.sureYesLabel = new System.Windows.Forms.Label();
-            this.sureNoLabel = new System.Windows.Forms.Label();
-            this.checkSureLabel = new System.Windows.Forms.Label();
             this.exitButton = new Tetris.Custom();
             this.helpButton = new Tetris.Custom();
             this.scoresButton = new Tetris.Custom();
             this.playButton = new Tetris.Custom();
-            this.mainMenuPictureBox = new System.Windows.Forms.PictureBox();
             this.gameBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mainMenuPanel.SuspendLayout();
             this.playMenuPanel.SuspendLayout();
@@ -702,1772 +703,1842 @@ namespace Tetris
             // f1810
             // 
             this.f1810.BackColor = System.Drawing.Color.Transparent;
-            this.f1810.Location = new System.Drawing.Point(275, 475);
+            this.f1810.Location = new System.Drawing.Point(276, 475);
             this.f1810.Name = "f1810";
-            this.f1810.Size = new System.Drawing.Size(25, 25);
+            this.f1810.Size = new System.Drawing.Size(23, 23);
             this.f1810.TabIndex = 9;
             this.f1810.TabStop = false;
             // 
             // f1210
             // 
             this.f1210.BackColor = System.Drawing.Color.Transparent;
-            this.f1210.Location = new System.Drawing.Point(275, 325);
+            this.f1210.Location = new System.Drawing.Point(276, 325);
             this.f1210.Name = "f1210";
-            this.f1210.Size = new System.Drawing.Size(25, 25);
+            this.f1210.Size = new System.Drawing.Size(23, 23);
             this.f1210.TabIndex = 9;
             this.f1210.TabStop = false;
             // 
             // f610
             // 
             this.f610.BackColor = System.Drawing.Color.Transparent;
-            this.f610.Location = new System.Drawing.Point(275, 175);
+            this.f610.Location = new System.Drawing.Point(276, 175);
             this.f610.Name = "f610";
-            this.f610.Size = new System.Drawing.Size(25, 25);
+            this.f610.Size = new System.Drawing.Size(23, 23);
             this.f610.TabIndex = 9;
             this.f610.TabStop = false;
             // 
             // f1610
             // 
             this.f1610.BackColor = System.Drawing.Color.Transparent;
-            this.f1610.Location = new System.Drawing.Point(275, 425);
+            this.f1610.Location = new System.Drawing.Point(276, 425);
             this.f1610.Name = "f1610";
-            this.f1610.Size = new System.Drawing.Size(25, 25);
+            this.f1610.Size = new System.Drawing.Size(23, 23);
             this.f1610.TabIndex = 9;
             this.f1610.TabStop = false;
             // 
             // f1010
             // 
             this.f1010.BackColor = System.Drawing.Color.Transparent;
-            this.f1010.Location = new System.Drawing.Point(275, 275);
+            this.f1010.Location = new System.Drawing.Point(276, 275);
             this.f1010.Name = "f1010";
-            this.f1010.Size = new System.Drawing.Size(25, 25);
+            this.f1010.Size = new System.Drawing.Size(23, 23);
             this.f1010.TabIndex = 9;
             this.f1010.TabStop = false;
             // 
             // f410
             // 
             this.f410.BackColor = System.Drawing.Color.Transparent;
-            this.f410.Location = new System.Drawing.Point(275, 125);
+            this.f410.Location = new System.Drawing.Point(276, 125);
             this.f410.Name = "f410";
-            this.f410.Size = new System.Drawing.Size(25, 25);
+            this.f410.Size = new System.Drawing.Size(23, 23);
             this.f410.TabIndex = 9;
             this.f410.TabStop = false;
             // 
             // f1710
             // 
             this.f1710.BackColor = System.Drawing.Color.Transparent;
-            this.f1710.Location = new System.Drawing.Point(275, 450);
+            this.f1710.Location = new System.Drawing.Point(276, 450);
             this.f1710.Name = "f1710";
-            this.f1710.Size = new System.Drawing.Size(25, 25);
+            this.f1710.Size = new System.Drawing.Size(23, 23);
             this.f1710.TabIndex = 9;
             this.f1710.TabStop = false;
             // 
             // f1110
             // 
             this.f1110.BackColor = System.Drawing.Color.Transparent;
-            this.f1110.Location = new System.Drawing.Point(275, 300);
+            this.f1110.Location = new System.Drawing.Point(276, 300);
             this.f1110.Name = "f1110";
-            this.f1110.Size = new System.Drawing.Size(25, 25);
+            this.f1110.Size = new System.Drawing.Size(23, 23);
             this.f1110.TabIndex = 9;
             this.f1110.TabStop = false;
             // 
             // f510
             // 
             this.f510.BackColor = System.Drawing.Color.Transparent;
-            this.f510.Location = new System.Drawing.Point(275, 150);
+            this.f510.Location = new System.Drawing.Point(276, 150);
             this.f510.Name = "f510";
-            this.f510.Size = new System.Drawing.Size(25, 25);
+            this.f510.Size = new System.Drawing.Size(23, 23);
             this.f510.TabIndex = 9;
             this.f510.TabStop = false;
             // 
             // f1510
             // 
             this.f1510.BackColor = System.Drawing.Color.Transparent;
-            this.f1510.Location = new System.Drawing.Point(275, 400);
+            this.f1510.Location = new System.Drawing.Point(276, 400);
             this.f1510.Name = "f1510";
-            this.f1510.Size = new System.Drawing.Size(25, 25);
+            this.f1510.Size = new System.Drawing.Size(23, 23);
             this.f1510.TabIndex = 9;
             this.f1510.TabStop = false;
             // 
             // f910
             // 
             this.f910.BackColor = System.Drawing.Color.Transparent;
-            this.f910.Location = new System.Drawing.Point(275, 250);
+            this.f910.Location = new System.Drawing.Point(276, 250);
             this.f910.Name = "f910";
-            this.f910.Size = new System.Drawing.Size(25, 25);
+            this.f910.Size = new System.Drawing.Size(23, 23);
             this.f910.TabIndex = 9;
             this.f910.TabStop = false;
             // 
             // f310
             // 
             this.f310.BackColor = System.Drawing.Color.Transparent;
-            this.f310.Location = new System.Drawing.Point(275, 100);
+            this.f310.Location = new System.Drawing.Point(276, 100);
             this.f310.Name = "f310";
-            this.f310.Size = new System.Drawing.Size(25, 25);
+            this.f310.Size = new System.Drawing.Size(23, 23);
             this.f310.TabIndex = 9;
             this.f310.TabStop = false;
             // 
             // f1410
             // 
             this.f1410.BackColor = System.Drawing.Color.Transparent;
-            this.f1410.Location = new System.Drawing.Point(275, 375);
+            this.f1410.Location = new System.Drawing.Point(276, 375);
             this.f1410.Name = "f1410";
-            this.f1410.Size = new System.Drawing.Size(25, 25);
+            this.f1410.Size = new System.Drawing.Size(23, 23);
             this.f1410.TabIndex = 9;
             this.f1410.TabStop = false;
             // 
             // f810
             // 
             this.f810.BackColor = System.Drawing.Color.Transparent;
-            this.f810.Location = new System.Drawing.Point(275, 225);
+            this.f810.Location = new System.Drawing.Point(276, 225);
             this.f810.Name = "f810";
-            this.f810.Size = new System.Drawing.Size(25, 25);
+            this.f810.Size = new System.Drawing.Size(23, 23);
             this.f810.TabIndex = 9;
             this.f810.TabStop = false;
             // 
             // f210
             // 
             this.f210.BackColor = System.Drawing.Color.Transparent;
-            this.f210.Location = new System.Drawing.Point(275, 75);
+            this.f210.Location = new System.Drawing.Point(276, 75);
             this.f210.Name = "f210";
-            this.f210.Size = new System.Drawing.Size(25, 25);
+            this.f210.Size = new System.Drawing.Size(23, 23);
             this.f210.TabIndex = 9;
             this.f210.TabStop = false;
             // 
             // f189
             // 
             this.f189.BackColor = System.Drawing.Color.Transparent;
-            this.f189.Location = new System.Drawing.Point(250, 475);
+            this.f189.Location = new System.Drawing.Point(251, 475);
             this.f189.Name = "f189";
-            this.f189.Size = new System.Drawing.Size(25, 25);
+            this.f189.Size = new System.Drawing.Size(23, 23);
             this.f189.TabIndex = 9;
             this.f189.TabStop = false;
             // 
             // f129
             // 
             this.f129.BackColor = System.Drawing.Color.Transparent;
-            this.f129.Location = new System.Drawing.Point(250, 325);
+            this.f129.Location = new System.Drawing.Point(251, 325);
             this.f129.Name = "f129";
-            this.f129.Size = new System.Drawing.Size(25, 25);
+            this.f129.Size = new System.Drawing.Size(23, 23);
             this.f129.TabIndex = 9;
             this.f129.TabStop = false;
             // 
             // f69
             // 
             this.f69.BackColor = System.Drawing.Color.Transparent;
-            this.f69.Location = new System.Drawing.Point(250, 175);
+            this.f69.Location = new System.Drawing.Point(251, 175);
             this.f69.Name = "f69";
-            this.f69.Size = new System.Drawing.Size(25, 25);
+            this.f69.Size = new System.Drawing.Size(23, 23);
             this.f69.TabIndex = 9;
             this.f69.TabStop = false;
             // 
             // f169
             // 
             this.f169.BackColor = System.Drawing.Color.Transparent;
-            this.f169.Location = new System.Drawing.Point(250, 425);
+            this.f169.Location = new System.Drawing.Point(251, 425);
             this.f169.Name = "f169";
-            this.f169.Size = new System.Drawing.Size(25, 25);
+            this.f169.Size = new System.Drawing.Size(23, 23);
             this.f169.TabIndex = 9;
             this.f169.TabStop = false;
             // 
             // f109
             // 
             this.f109.BackColor = System.Drawing.Color.Transparent;
-            this.f109.Location = new System.Drawing.Point(250, 275);
+            this.f109.Location = new System.Drawing.Point(251, 275);
             this.f109.Name = "f109";
-            this.f109.Size = new System.Drawing.Size(25, 25);
+            this.f109.Size = new System.Drawing.Size(23, 23);
             this.f109.TabIndex = 9;
             this.f109.TabStop = false;
             // 
             // f49
             // 
             this.f49.BackColor = System.Drawing.Color.Transparent;
-            this.f49.Location = new System.Drawing.Point(250, 125);
+            this.f49.Location = new System.Drawing.Point(251, 125);
             this.f49.Name = "f49";
-            this.f49.Size = new System.Drawing.Size(25, 25);
+            this.f49.Size = new System.Drawing.Size(23, 23);
             this.f49.TabIndex = 9;
             this.f49.TabStop = false;
             // 
             // f1310
             // 
             this.f1310.BackColor = System.Drawing.Color.Transparent;
-            this.f1310.Location = new System.Drawing.Point(275, 350);
+            this.f1310.Location = new System.Drawing.Point(276, 350);
             this.f1310.Name = "f1310";
-            this.f1310.Size = new System.Drawing.Size(25, 25);
+            this.f1310.Size = new System.Drawing.Size(23, 23);
             this.f1310.TabIndex = 9;
             this.f1310.TabStop = false;
             // 
             // f710
             // 
             this.f710.BackColor = System.Drawing.Color.Transparent;
-            this.f710.Location = new System.Drawing.Point(275, 200);
+            this.f710.Location = new System.Drawing.Point(276, 200);
             this.f710.Name = "f710";
-            this.f710.Size = new System.Drawing.Size(25, 25);
+            this.f710.Size = new System.Drawing.Size(23, 23);
             this.f710.TabIndex = 9;
             this.f710.TabStop = false;
             // 
             // f110
             // 
             this.f110.BackColor = System.Drawing.Color.Transparent;
-            this.f110.Location = new System.Drawing.Point(275, 50);
+            this.f110.Location = new System.Drawing.Point(276, 50);
             this.f110.Name = "f110";
-            this.f110.Size = new System.Drawing.Size(25, 25);
+            this.f110.Size = new System.Drawing.Size(23, 23);
             this.f110.TabIndex = 9;
             this.f110.TabStop = false;
             // 
             // f179
             // 
             this.f179.BackColor = System.Drawing.Color.Transparent;
-            this.f179.Location = new System.Drawing.Point(250, 450);
+            this.f179.Location = new System.Drawing.Point(251, 450);
             this.f179.Name = "f179";
-            this.f179.Size = new System.Drawing.Size(25, 25);
+            this.f179.Size = new System.Drawing.Size(23, 23);
             this.f179.TabIndex = 9;
             this.f179.TabStop = false;
             // 
             // f119
             // 
             this.f119.BackColor = System.Drawing.Color.Transparent;
-            this.f119.Location = new System.Drawing.Point(250, 300);
+            this.f119.Location = new System.Drawing.Point(251, 300);
             this.f119.Name = "f119";
-            this.f119.Size = new System.Drawing.Size(25, 25);
+            this.f119.Size = new System.Drawing.Size(23, 23);
             this.f119.TabIndex = 9;
             this.f119.TabStop = false;
             // 
             // f59
             // 
             this.f59.BackColor = System.Drawing.Color.Transparent;
-            this.f59.Location = new System.Drawing.Point(250, 150);
+            this.f59.Location = new System.Drawing.Point(251, 150);
             this.f59.Name = "f59";
-            this.f59.Size = new System.Drawing.Size(25, 25);
+            this.f59.Size = new System.Drawing.Size(23, 23);
             this.f59.TabIndex = 9;
             this.f59.TabStop = false;
             // 
             // f159
             // 
             this.f159.BackColor = System.Drawing.Color.Transparent;
-            this.f159.Location = new System.Drawing.Point(250, 400);
+            this.f159.Location = new System.Drawing.Point(251, 400);
             this.f159.Name = "f159";
-            this.f159.Size = new System.Drawing.Size(25, 25);
+            this.f159.Size = new System.Drawing.Size(23, 23);
             this.f159.TabIndex = 9;
             this.f159.TabStop = false;
             // 
             // f99
             // 
             this.f99.BackColor = System.Drawing.Color.Transparent;
-            this.f99.Location = new System.Drawing.Point(250, 250);
+            this.f99.Location = new System.Drawing.Point(251, 250);
             this.f99.Name = "f99";
-            this.f99.Size = new System.Drawing.Size(25, 25);
+            this.f99.Size = new System.Drawing.Size(23, 23);
             this.f99.TabIndex = 9;
             this.f99.TabStop = false;
             // 
             // f39
             // 
             this.f39.BackColor = System.Drawing.Color.Transparent;
-            this.f39.Location = new System.Drawing.Point(250, 100);
+            this.f39.Location = new System.Drawing.Point(251, 100);
             this.f39.Name = "f39";
-            this.f39.Size = new System.Drawing.Size(25, 25);
+            this.f39.Size = new System.Drawing.Size(23, 23);
             this.f39.TabIndex = 9;
             this.f39.TabStop = false;
             // 
             // f149
             // 
             this.f149.BackColor = System.Drawing.Color.Transparent;
-            this.f149.Location = new System.Drawing.Point(250, 375);
+            this.f149.Location = new System.Drawing.Point(251, 375);
             this.f149.Name = "f149";
-            this.f149.Size = new System.Drawing.Size(25, 25);
+            this.f149.Size = new System.Drawing.Size(23, 23);
             this.f149.TabIndex = 9;
             this.f149.TabStop = false;
             // 
             // f89
             // 
             this.f89.BackColor = System.Drawing.Color.Transparent;
-            this.f89.Location = new System.Drawing.Point(250, 225);
+            this.f89.Location = new System.Drawing.Point(251, 225);
             this.f89.Name = "f89";
-            this.f89.Size = new System.Drawing.Size(25, 25);
+            this.f89.Size = new System.Drawing.Size(23, 23);
             this.f89.TabIndex = 9;
             this.f89.TabStop = false;
             // 
             // f29
             // 
             this.f29.BackColor = System.Drawing.Color.Transparent;
-            this.f29.Location = new System.Drawing.Point(250, 75);
+            this.f29.Location = new System.Drawing.Point(251, 75);
             this.f29.Name = "f29";
-            this.f29.Size = new System.Drawing.Size(25, 25);
+            this.f29.Size = new System.Drawing.Size(23, 23);
             this.f29.TabIndex = 9;
             this.f29.TabStop = false;
             // 
             // f188
             // 
             this.f188.BackColor = System.Drawing.Color.Transparent;
-            this.f188.Location = new System.Drawing.Point(225, 475);
+            this.f188.Location = new System.Drawing.Point(226, 475);
             this.f188.Name = "f188";
-            this.f188.Size = new System.Drawing.Size(25, 25);
+            this.f188.Size = new System.Drawing.Size(23, 23);
             this.f188.TabIndex = 9;
             this.f188.TabStop = false;
             // 
             // f128
             // 
             this.f128.BackColor = System.Drawing.Color.Transparent;
-            this.f128.Location = new System.Drawing.Point(225, 325);
+            this.f128.Location = new System.Drawing.Point(226, 325);
             this.f128.Name = "f128";
-            this.f128.Size = new System.Drawing.Size(25, 25);
+            this.f128.Size = new System.Drawing.Size(23, 23);
             this.f128.TabIndex = 9;
             this.f128.TabStop = false;
             // 
             // f168
             // 
             this.f168.BackColor = System.Drawing.Color.Transparent;
-            this.f168.Location = new System.Drawing.Point(225, 425);
+            this.f168.Location = new System.Drawing.Point(226, 425);
             this.f168.Name = "f168";
-            this.f168.Size = new System.Drawing.Size(25, 25);
+            this.f168.Size = new System.Drawing.Size(23, 23);
             this.f168.TabIndex = 9;
             this.f168.TabStop = false;
             // 
             // f68
             // 
             this.f68.BackColor = System.Drawing.Color.Transparent;
-            this.f68.Location = new System.Drawing.Point(225, 175);
+            this.f68.Location = new System.Drawing.Point(226, 175);
             this.f68.Name = "f68";
-            this.f68.Size = new System.Drawing.Size(25, 25);
+            this.f68.Size = new System.Drawing.Size(23, 23);
             this.f68.TabIndex = 9;
             this.f68.TabStop = false;
             // 
             // f108
             // 
             this.f108.BackColor = System.Drawing.Color.Transparent;
-            this.f108.Location = new System.Drawing.Point(225, 275);
+            this.f108.Location = new System.Drawing.Point(226, 275);
             this.f108.Name = "f108";
-            this.f108.Size = new System.Drawing.Size(25, 25);
+            this.f108.Size = new System.Drawing.Size(23, 23);
             this.f108.TabIndex = 9;
             this.f108.TabStop = false;
             // 
             // f139
             // 
             this.f139.BackColor = System.Drawing.Color.Transparent;
-            this.f139.Location = new System.Drawing.Point(250, 350);
+            this.f139.Location = new System.Drawing.Point(251, 350);
             this.f139.Name = "f139";
-            this.f139.Size = new System.Drawing.Size(25, 25);
+            this.f139.Size = new System.Drawing.Size(23, 23);
             this.f139.TabIndex = 9;
             this.f139.TabStop = false;
             // 
             // f48
             // 
             this.f48.BackColor = System.Drawing.Color.Transparent;
-            this.f48.Location = new System.Drawing.Point(225, 125);
+            this.f48.Location = new System.Drawing.Point(226, 125);
             this.f48.Name = "f48";
-            this.f48.Size = new System.Drawing.Size(25, 25);
+            this.f48.Size = new System.Drawing.Size(23, 23);
             this.f48.TabIndex = 9;
             this.f48.TabStop = false;
             // 
             // f79
             // 
             this.f79.BackColor = System.Drawing.Color.Transparent;
-            this.f79.Location = new System.Drawing.Point(250, 200);
+            this.f79.Location = new System.Drawing.Point(251, 200);
             this.f79.Name = "f79";
-            this.f79.Size = new System.Drawing.Size(25, 25);
+            this.f79.Size = new System.Drawing.Size(23, 23);
             this.f79.TabIndex = 9;
             this.f79.TabStop = false;
             // 
             // f178
             // 
             this.f178.BackColor = System.Drawing.Color.Transparent;
-            this.f178.Location = new System.Drawing.Point(225, 450);
+            this.f178.Location = new System.Drawing.Point(226, 450);
             this.f178.Name = "f178";
-            this.f178.Size = new System.Drawing.Size(25, 25);
+            this.f178.Size = new System.Drawing.Size(23, 23);
             this.f178.TabIndex = 9;
             this.f178.TabStop = false;
             // 
             // f19
             // 
             this.f19.BackColor = System.Drawing.Color.Transparent;
-            this.f19.Location = new System.Drawing.Point(250, 50);
+            this.f19.Location = new System.Drawing.Point(251, 50);
             this.f19.Name = "f19";
-            this.f19.Size = new System.Drawing.Size(25, 25);
+            this.f19.Size = new System.Drawing.Size(23, 23);
             this.f19.TabIndex = 9;
             this.f19.TabStop = false;
             // 
             // f118
             // 
             this.f118.BackColor = System.Drawing.Color.Transparent;
-            this.f118.Location = new System.Drawing.Point(225, 300);
+            this.f118.Location = new System.Drawing.Point(226, 300);
             this.f118.Name = "f118";
-            this.f118.Size = new System.Drawing.Size(25, 25);
+            this.f118.Size = new System.Drawing.Size(23, 23);
             this.f118.TabIndex = 9;
             this.f118.TabStop = false;
             // 
             // f158
             // 
             this.f158.BackColor = System.Drawing.Color.Transparent;
-            this.f158.Location = new System.Drawing.Point(225, 400);
+            this.f158.Location = new System.Drawing.Point(226, 400);
             this.f158.Name = "f158";
-            this.f158.Size = new System.Drawing.Size(25, 25);
+            this.f158.Size = new System.Drawing.Size(23, 23);
             this.f158.TabIndex = 9;
             this.f158.TabStop = false;
             // 
             // f58
             // 
             this.f58.BackColor = System.Drawing.Color.Transparent;
-            this.f58.Location = new System.Drawing.Point(225, 150);
+            this.f58.Location = new System.Drawing.Point(226, 150);
             this.f58.Name = "f58";
-            this.f58.Size = new System.Drawing.Size(25, 25);
+            this.f58.Size = new System.Drawing.Size(23, 23);
             this.f58.TabIndex = 9;
             this.f58.TabStop = false;
             // 
             // f98
             // 
             this.f98.BackColor = System.Drawing.Color.Transparent;
-            this.f98.Location = new System.Drawing.Point(225, 250);
+            this.f98.Location = new System.Drawing.Point(226, 250);
             this.f98.Name = "f98";
-            this.f98.Size = new System.Drawing.Size(25, 25);
+            this.f98.Size = new System.Drawing.Size(23, 23);
             this.f98.TabIndex = 9;
             this.f98.TabStop = false;
             // 
             // f148
             // 
             this.f148.BackColor = System.Drawing.Color.Transparent;
-            this.f148.Location = new System.Drawing.Point(225, 375);
+            this.f148.Location = new System.Drawing.Point(226, 375);
             this.f148.Name = "f148";
-            this.f148.Size = new System.Drawing.Size(25, 25);
+            this.f148.Size = new System.Drawing.Size(23, 23);
             this.f148.TabIndex = 9;
             this.f148.TabStop = false;
             // 
             // f38
             // 
             this.f38.BackColor = System.Drawing.Color.Transparent;
-            this.f38.Location = new System.Drawing.Point(225, 100);
+            this.f38.Location = new System.Drawing.Point(226, 100);
             this.f38.Name = "f38";
-            this.f38.Size = new System.Drawing.Size(25, 25);
+            this.f38.Size = new System.Drawing.Size(23, 23);
             this.f38.TabIndex = 9;
             this.f38.TabStop = false;
             // 
             // f88
             // 
             this.f88.BackColor = System.Drawing.Color.Transparent;
-            this.f88.Location = new System.Drawing.Point(225, 225);
+            this.f88.Location = new System.Drawing.Point(226, 225);
             this.f88.Name = "f88";
-            this.f88.Size = new System.Drawing.Size(25, 25);
+            this.f88.Size = new System.Drawing.Size(23, 23);
             this.f88.TabIndex = 9;
             this.f88.TabStop = false;
             // 
             // f187
             // 
             this.f187.BackColor = System.Drawing.Color.Transparent;
-            this.f187.Location = new System.Drawing.Point(200, 475);
+            this.f187.Location = new System.Drawing.Point(201, 475);
             this.f187.Name = "f187";
-            this.f187.Size = new System.Drawing.Size(25, 25);
+            this.f187.Size = new System.Drawing.Size(23, 23);
             this.f187.TabIndex = 9;
             this.f187.TabStop = false;
             // 
             // f28
             // 
             this.f28.BackColor = System.Drawing.Color.Transparent;
-            this.f28.Location = new System.Drawing.Point(225, 75);
+            this.f28.Location = new System.Drawing.Point(226, 75);
             this.f28.Name = "f28";
-            this.f28.Size = new System.Drawing.Size(25, 25);
+            this.f28.Size = new System.Drawing.Size(23, 23);
             this.f28.TabIndex = 9;
             this.f28.TabStop = false;
             // 
             // f167
             // 
             this.f167.BackColor = System.Drawing.Color.Transparent;
-            this.f167.Location = new System.Drawing.Point(200, 425);
+            this.f167.Location = new System.Drawing.Point(201, 425);
             this.f167.Name = "f167";
-            this.f167.Size = new System.Drawing.Size(25, 25);
+            this.f167.Size = new System.Drawing.Size(23, 23);
             this.f167.TabIndex = 9;
             this.f167.TabStop = false;
             // 
             // f127
             // 
             this.f127.BackColor = System.Drawing.Color.Transparent;
-            this.f127.Location = new System.Drawing.Point(200, 325);
+            this.f127.Location = new System.Drawing.Point(201, 325);
             this.f127.Name = "f127";
-            this.f127.Size = new System.Drawing.Size(25, 25);
+            this.f127.Size = new System.Drawing.Size(23, 23);
             this.f127.TabIndex = 9;
             this.f127.TabStop = false;
             // 
             // f107
             // 
             this.f107.BackColor = System.Drawing.Color.Transparent;
-            this.f107.Location = new System.Drawing.Point(200, 275);
+            this.f107.Location = new System.Drawing.Point(201, 275);
             this.f107.Name = "f107";
-            this.f107.Size = new System.Drawing.Size(25, 25);
+            this.f107.Size = new System.Drawing.Size(23, 23);
             this.f107.TabIndex = 9;
             this.f107.TabStop = false;
             // 
             // f138
             // 
             this.f138.BackColor = System.Drawing.Color.Transparent;
-            this.f138.Location = new System.Drawing.Point(225, 350);
+            this.f138.Location = new System.Drawing.Point(226, 350);
             this.f138.Name = "f138";
-            this.f138.Size = new System.Drawing.Size(25, 25);
+            this.f138.Size = new System.Drawing.Size(23, 23);
             this.f138.TabIndex = 9;
             this.f138.TabStop = false;
             // 
             // f67
             // 
             this.f67.BackColor = System.Drawing.Color.Transparent;
-            this.f67.Location = new System.Drawing.Point(200, 175);
+            this.f67.Location = new System.Drawing.Point(201, 175);
             this.f67.Name = "f67";
-            this.f67.Size = new System.Drawing.Size(25, 25);
+            this.f67.Size = new System.Drawing.Size(23, 23);
             this.f67.TabIndex = 9;
             this.f67.TabStop = false;
             // 
             // f78
             // 
             this.f78.BackColor = System.Drawing.Color.Transparent;
-            this.f78.Location = new System.Drawing.Point(225, 200);
+            this.f78.Location = new System.Drawing.Point(226, 200);
             this.f78.Name = "f78";
-            this.f78.Size = new System.Drawing.Size(25, 25);
+            this.f78.Size = new System.Drawing.Size(23, 23);
             this.f78.TabIndex = 9;
             this.f78.TabStop = false;
             // 
             // f177
             // 
             this.f177.BackColor = System.Drawing.Color.Transparent;
-            this.f177.Location = new System.Drawing.Point(200, 450);
+            this.f177.Location = new System.Drawing.Point(201, 450);
             this.f177.Name = "f177";
-            this.f177.Size = new System.Drawing.Size(25, 25);
+            this.f177.Size = new System.Drawing.Size(23, 23);
             this.f177.TabIndex = 9;
             this.f177.TabStop = false;
             // 
             // f47
             // 
             this.f47.BackColor = System.Drawing.Color.Transparent;
-            this.f47.Location = new System.Drawing.Point(200, 125);
+            this.f47.Location = new System.Drawing.Point(201, 125);
             this.f47.Name = "f47";
-            this.f47.Size = new System.Drawing.Size(25, 25);
+            this.f47.Size = new System.Drawing.Size(23, 23);
             this.f47.TabIndex = 9;
             this.f47.TabStop = false;
             // 
             // f117
             // 
             this.f117.BackColor = System.Drawing.Color.Transparent;
-            this.f117.Location = new System.Drawing.Point(200, 300);
+            this.f117.Location = new System.Drawing.Point(201, 300);
             this.f117.Name = "f117";
-            this.f117.Size = new System.Drawing.Size(25, 25);
+            this.f117.Size = new System.Drawing.Size(23, 23);
             this.f117.TabIndex = 9;
             this.f117.TabStop = false;
             // 
             // f157
             // 
             this.f157.BackColor = System.Drawing.Color.Transparent;
-            this.f157.Location = new System.Drawing.Point(200, 400);
+            this.f157.Location = new System.Drawing.Point(201, 400);
             this.f157.Name = "f157";
-            this.f157.Size = new System.Drawing.Size(25, 25);
+            this.f157.Size = new System.Drawing.Size(23, 23);
             this.f157.TabIndex = 9;
             this.f157.TabStop = false;
             // 
             // f18
             // 
             this.f18.BackColor = System.Drawing.Color.Transparent;
-            this.f18.Location = new System.Drawing.Point(225, 50);
+            this.f18.Location = new System.Drawing.Point(226, 50);
             this.f18.Name = "f18";
-            this.f18.Size = new System.Drawing.Size(25, 25);
+            this.f18.Size = new System.Drawing.Size(23, 23);
             this.f18.TabIndex = 9;
             this.f18.TabStop = false;
             // 
             // f97
             // 
             this.f97.BackColor = System.Drawing.Color.Transparent;
-            this.f97.Location = new System.Drawing.Point(200, 250);
+            this.f97.Location = new System.Drawing.Point(201, 250);
             this.f97.Name = "f97";
-            this.f97.Size = new System.Drawing.Size(25, 25);
+            this.f97.Size = new System.Drawing.Size(23, 23);
             this.f97.TabIndex = 9;
             this.f97.TabStop = false;
             // 
             // f147
             // 
             this.f147.BackColor = System.Drawing.Color.Transparent;
-            this.f147.Location = new System.Drawing.Point(200, 375);
+            this.f147.Location = new System.Drawing.Point(201, 375);
             this.f147.Name = "f147";
-            this.f147.Size = new System.Drawing.Size(25, 25);
+            this.f147.Size = new System.Drawing.Size(23, 23);
             this.f147.TabIndex = 9;
             this.f147.TabStop = false;
             // 
             // f57
             // 
             this.f57.BackColor = System.Drawing.Color.Transparent;
-            this.f57.Location = new System.Drawing.Point(200, 150);
+            this.f57.Location = new System.Drawing.Point(201, 150);
             this.f57.Name = "f57";
-            this.f57.Size = new System.Drawing.Size(25, 25);
+            this.f57.Size = new System.Drawing.Size(23, 23);
             this.f57.TabIndex = 9;
             this.f57.TabStop = false;
             // 
             // f87
             // 
             this.f87.BackColor = System.Drawing.Color.Transparent;
-            this.f87.Location = new System.Drawing.Point(200, 225);
+            this.f87.Location = new System.Drawing.Point(201, 225);
             this.f87.Name = "f87";
-            this.f87.Size = new System.Drawing.Size(25, 25);
+            this.f87.Size = new System.Drawing.Size(23, 23);
             this.f87.TabIndex = 9;
             this.f87.TabStop = false;
             // 
             // f186
             // 
             this.f186.BackColor = System.Drawing.Color.Transparent;
-            this.f186.Location = new System.Drawing.Point(175, 475);
+            this.f186.Location = new System.Drawing.Point(176, 475);
             this.f186.Name = "f186";
-            this.f186.Size = new System.Drawing.Size(25, 25);
+            this.f186.Size = new System.Drawing.Size(23, 23);
             this.f186.TabIndex = 9;
             this.f186.TabStop = false;
             // 
             // f37
             // 
             this.f37.BackColor = System.Drawing.Color.Transparent;
-            this.f37.Location = new System.Drawing.Point(200, 100);
+            this.f37.Location = new System.Drawing.Point(201, 100);
             this.f37.Name = "f37";
-            this.f37.Size = new System.Drawing.Size(25, 25);
+            this.f37.Size = new System.Drawing.Size(23, 23);
             this.f37.TabIndex = 9;
             this.f37.TabStop = false;
             // 
             // f126
             // 
             this.f126.BackColor = System.Drawing.Color.Transparent;
-            this.f126.Location = new System.Drawing.Point(175, 325);
+            this.f126.Location = new System.Drawing.Point(176, 325);
             this.f126.Name = "f126";
-            this.f126.Size = new System.Drawing.Size(25, 25);
+            this.f126.Size = new System.Drawing.Size(23, 23);
             this.f126.TabIndex = 9;
             this.f126.TabStop = false;
             // 
             // f166
             // 
             this.f166.BackColor = System.Drawing.Color.Transparent;
-            this.f166.Location = new System.Drawing.Point(175, 425);
+            this.f166.Location = new System.Drawing.Point(176, 425);
             this.f166.Name = "f166";
-            this.f166.Size = new System.Drawing.Size(25, 25);
+            this.f166.Size = new System.Drawing.Size(23, 23);
             this.f166.TabIndex = 9;
             this.f166.TabStop = false;
             // 
             // f27
             // 
             this.f27.BackColor = System.Drawing.Color.Transparent;
-            this.f27.Location = new System.Drawing.Point(200, 75);
+            this.f27.Location = new System.Drawing.Point(201, 75);
             this.f27.Name = "f27";
-            this.f27.Size = new System.Drawing.Size(25, 25);
+            this.f27.Size = new System.Drawing.Size(23, 23);
             this.f27.TabIndex = 9;
             this.f27.TabStop = false;
             // 
             // f106
             // 
             this.f106.BackColor = System.Drawing.Color.Transparent;
-            this.f106.Location = new System.Drawing.Point(175, 275);
+            this.f106.Location = new System.Drawing.Point(176, 275);
             this.f106.Name = "f106";
-            this.f106.Size = new System.Drawing.Size(25, 25);
+            this.f106.Size = new System.Drawing.Size(23, 23);
             this.f106.TabIndex = 9;
             this.f106.TabStop = false;
             // 
             // f137
             // 
             this.f137.BackColor = System.Drawing.Color.Transparent;
-            this.f137.Location = new System.Drawing.Point(200, 350);
+            this.f137.Location = new System.Drawing.Point(201, 350);
             this.f137.Name = "f137";
-            this.f137.Size = new System.Drawing.Size(25, 25);
+            this.f137.Size = new System.Drawing.Size(23, 23);
             this.f137.TabIndex = 9;
             this.f137.TabStop = false;
             // 
             // f66
             // 
             this.f66.BackColor = System.Drawing.Color.Transparent;
-            this.f66.Location = new System.Drawing.Point(175, 175);
+            this.f66.Location = new System.Drawing.Point(176, 175);
             this.f66.Name = "f66";
-            this.f66.Size = new System.Drawing.Size(25, 25);
+            this.f66.Size = new System.Drawing.Size(23, 23);
             this.f66.TabIndex = 9;
             this.f66.TabStop = false;
             // 
             // f77
             // 
             this.f77.BackColor = System.Drawing.Color.Transparent;
-            this.f77.Location = new System.Drawing.Point(200, 200);
+            this.f77.Location = new System.Drawing.Point(201, 200);
             this.f77.Name = "f77";
-            this.f77.Size = new System.Drawing.Size(25, 25);
+            this.f77.Size = new System.Drawing.Size(23, 23);
             this.f77.TabIndex = 9;
             this.f77.TabStop = false;
             // 
             // f176
             // 
             this.f176.BackColor = System.Drawing.Color.Transparent;
-            this.f176.Location = new System.Drawing.Point(175, 450);
+            this.f176.Location = new System.Drawing.Point(176, 450);
             this.f176.Name = "f176";
-            this.f176.Size = new System.Drawing.Size(25, 25);
+            this.f176.Size = new System.Drawing.Size(23, 23);
             this.f176.TabIndex = 9;
             this.f176.TabStop = false;
             // 
             // f46
             // 
             this.f46.BackColor = System.Drawing.Color.Transparent;
-            this.f46.Location = new System.Drawing.Point(175, 125);
+            this.f46.Location = new System.Drawing.Point(176, 125);
             this.f46.Name = "f46";
-            this.f46.Size = new System.Drawing.Size(25, 25);
+            this.f46.Size = new System.Drawing.Size(23, 23);
             this.f46.TabIndex = 9;
             this.f46.TabStop = false;
             // 
             // f116
             // 
             this.f116.BackColor = System.Drawing.Color.Transparent;
-            this.f116.Location = new System.Drawing.Point(175, 300);
+            this.f116.Location = new System.Drawing.Point(176, 300);
             this.f116.Name = "f116";
-            this.f116.Size = new System.Drawing.Size(25, 25);
+            this.f116.Size = new System.Drawing.Size(23, 23);
             this.f116.TabIndex = 9;
             this.f116.TabStop = false;
             // 
             // f156
             // 
             this.f156.BackColor = System.Drawing.Color.Transparent;
-            this.f156.Location = new System.Drawing.Point(175, 400);
+            this.f156.Location = new System.Drawing.Point(176, 400);
             this.f156.Name = "f156";
-            this.f156.Size = new System.Drawing.Size(25, 25);
+            this.f156.Size = new System.Drawing.Size(23, 23);
             this.f156.TabIndex = 9;
             this.f156.TabStop = false;
             // 
             // f17
             // 
             this.f17.BackColor = System.Drawing.Color.Transparent;
-            this.f17.Location = new System.Drawing.Point(200, 50);
+            this.f17.Location = new System.Drawing.Point(201, 50);
             this.f17.Name = "f17";
-            this.f17.Size = new System.Drawing.Size(25, 25);
+            this.f17.Size = new System.Drawing.Size(23, 23);
             this.f17.TabIndex = 9;
             this.f17.TabStop = false;
             // 
             // f96
             // 
             this.f96.BackColor = System.Drawing.Color.Transparent;
-            this.f96.Location = new System.Drawing.Point(175, 250);
+            this.f96.Location = new System.Drawing.Point(176, 250);
             this.f96.Name = "f96";
-            this.f96.Size = new System.Drawing.Size(25, 25);
+            this.f96.Size = new System.Drawing.Size(23, 23);
             this.f96.TabIndex = 9;
             this.f96.TabStop = false;
             // 
             // f146
             // 
             this.f146.BackColor = System.Drawing.Color.Transparent;
-            this.f146.Location = new System.Drawing.Point(175, 375);
+            this.f146.Location = new System.Drawing.Point(176, 375);
             this.f146.Name = "f146";
-            this.f146.Size = new System.Drawing.Size(25, 25);
+            this.f146.Size = new System.Drawing.Size(23, 23);
             this.f146.TabIndex = 9;
             this.f146.TabStop = false;
             // 
             // f56
             // 
             this.f56.BackColor = System.Drawing.Color.Transparent;
-            this.f56.Location = new System.Drawing.Point(175, 150);
+            this.f56.Location = new System.Drawing.Point(176, 150);
             this.f56.Name = "f56";
-            this.f56.Size = new System.Drawing.Size(25, 25);
+            this.f56.Size = new System.Drawing.Size(23, 23);
             this.f56.TabIndex = 9;
             this.f56.TabStop = false;
             // 
             // f86
             // 
             this.f86.BackColor = System.Drawing.Color.Transparent;
-            this.f86.Location = new System.Drawing.Point(175, 225);
+            this.f86.Location = new System.Drawing.Point(176, 225);
             this.f86.Name = "f86";
-            this.f86.Size = new System.Drawing.Size(25, 25);
+            this.f86.Size = new System.Drawing.Size(23, 23);
             this.f86.TabIndex = 9;
             this.f86.TabStop = false;
             // 
             // f185
             // 
             this.f185.BackColor = System.Drawing.Color.Transparent;
-            this.f185.Location = new System.Drawing.Point(150, 475);
+            this.f185.Location = new System.Drawing.Point(151, 475);
             this.f185.Name = "f185";
-            this.f185.Size = new System.Drawing.Size(25, 25);
+            this.f185.Size = new System.Drawing.Size(23, 23);
             this.f185.TabIndex = 9;
             this.f185.TabStop = false;
             // 
             // f36
             // 
             this.f36.BackColor = System.Drawing.Color.Transparent;
-            this.f36.Location = new System.Drawing.Point(175, 100);
+            this.f36.Location = new System.Drawing.Point(176, 100);
             this.f36.Name = "f36";
-            this.f36.Size = new System.Drawing.Size(25, 25);
+            this.f36.Size = new System.Drawing.Size(23, 23);
             this.f36.TabIndex = 9;
             this.f36.TabStop = false;
             // 
             // f125
             // 
             this.f125.BackColor = System.Drawing.Color.Transparent;
-            this.f125.Location = new System.Drawing.Point(150, 325);
+            this.f125.Location = new System.Drawing.Point(151, 325);
             this.f125.Name = "f125";
-            this.f125.Size = new System.Drawing.Size(25, 25);
+            this.f125.Size = new System.Drawing.Size(23, 23);
             this.f125.TabIndex = 9;
             this.f125.TabStop = false;
             // 
             // f165
             // 
             this.f165.BackColor = System.Drawing.Color.Transparent;
-            this.f165.Location = new System.Drawing.Point(150, 425);
+            this.f165.Location = new System.Drawing.Point(151, 425);
             this.f165.Name = "f165";
-            this.f165.Size = new System.Drawing.Size(25, 25);
+            this.f165.Size = new System.Drawing.Size(23, 23);
             this.f165.TabIndex = 9;
             this.f165.TabStop = false;
             // 
             // f26
             // 
             this.f26.BackColor = System.Drawing.Color.Transparent;
-            this.f26.Location = new System.Drawing.Point(175, 75);
+            this.f26.Location = new System.Drawing.Point(176, 75);
             this.f26.Name = "f26";
-            this.f26.Size = new System.Drawing.Size(25, 25);
+            this.f26.Size = new System.Drawing.Size(23, 23);
             this.f26.TabIndex = 9;
             this.f26.TabStop = false;
             // 
             // f105
             // 
             this.f105.BackColor = System.Drawing.Color.Transparent;
-            this.f105.Location = new System.Drawing.Point(150, 275);
+            this.f105.Location = new System.Drawing.Point(151, 275);
             this.f105.Name = "f105";
-            this.f105.Size = new System.Drawing.Size(25, 25);
+            this.f105.Size = new System.Drawing.Size(23, 23);
             this.f105.TabIndex = 9;
             this.f105.TabStop = false;
             // 
             // f136
             // 
             this.f136.BackColor = System.Drawing.Color.Transparent;
-            this.f136.Location = new System.Drawing.Point(175, 350);
+            this.f136.Location = new System.Drawing.Point(176, 350);
             this.f136.Name = "f136";
-            this.f136.Size = new System.Drawing.Size(25, 25);
+            this.f136.Size = new System.Drawing.Size(23, 23);
             this.f136.TabIndex = 9;
             this.f136.TabStop = false;
             // 
             // f65
             // 
             this.f65.BackColor = System.Drawing.Color.Transparent;
-            this.f65.Location = new System.Drawing.Point(150, 175);
+            this.f65.Location = new System.Drawing.Point(151, 175);
             this.f65.Name = "f65";
-            this.f65.Size = new System.Drawing.Size(25, 25);
+            this.f65.Size = new System.Drawing.Size(23, 23);
             this.f65.TabIndex = 9;
             this.f65.TabStop = false;
             // 
             // f76
             // 
             this.f76.BackColor = System.Drawing.Color.Transparent;
-            this.f76.Location = new System.Drawing.Point(175, 200);
+            this.f76.Location = new System.Drawing.Point(176, 200);
             this.f76.Name = "f76";
-            this.f76.Size = new System.Drawing.Size(25, 25);
+            this.f76.Size = new System.Drawing.Size(23, 23);
             this.f76.TabIndex = 9;
             this.f76.TabStop = false;
             // 
             // f184
             // 
             this.f184.BackColor = System.Drawing.Color.Transparent;
-            this.f184.Location = new System.Drawing.Point(125, 475);
+            this.f184.Location = new System.Drawing.Point(126, 475);
             this.f184.Name = "f184";
-            this.f184.Size = new System.Drawing.Size(25, 25);
+            this.f184.Size = new System.Drawing.Size(23, 23);
             this.f184.TabIndex = 9;
             this.f184.TabStop = false;
             // 
             // f45
             // 
             this.f45.BackColor = System.Drawing.Color.Transparent;
-            this.f45.Location = new System.Drawing.Point(150, 125);
+            this.f45.Location = new System.Drawing.Point(151, 125);
             this.f45.Name = "f45";
-            this.f45.Size = new System.Drawing.Size(25, 25);
+            this.f45.Size = new System.Drawing.Size(23, 23);
             this.f45.TabIndex = 9;
             this.f45.TabStop = false;
             // 
             // f124
             // 
             this.f124.BackColor = System.Drawing.Color.Transparent;
-            this.f124.Location = new System.Drawing.Point(125, 325);
+            this.f124.Location = new System.Drawing.Point(126, 325);
             this.f124.Name = "f124";
-            this.f124.Size = new System.Drawing.Size(25, 25);
+            this.f124.Size = new System.Drawing.Size(23, 23);
             this.f124.TabIndex = 9;
             this.f124.TabStop = false;
             // 
             // f164
             // 
             this.f164.BackColor = System.Drawing.Color.Transparent;
-            this.f164.Location = new System.Drawing.Point(125, 425);
+            this.f164.Location = new System.Drawing.Point(126, 425);
             this.f164.Name = "f164";
-            this.f164.Size = new System.Drawing.Size(25, 25);
+            this.f164.Size = new System.Drawing.Size(23, 23);
             this.f164.TabIndex = 9;
             this.f164.TabStop = false;
             // 
             // f16
             // 
             this.f16.BackColor = System.Drawing.Color.Transparent;
-            this.f16.Location = new System.Drawing.Point(175, 50);
+            this.f16.Location = new System.Drawing.Point(176, 50);
             this.f16.Name = "f16";
-            this.f16.Size = new System.Drawing.Size(25, 25);
+            this.f16.Size = new System.Drawing.Size(23, 23);
             this.f16.TabIndex = 9;
             this.f16.TabStop = false;
             // 
             // f104
             // 
             this.f104.BackColor = System.Drawing.Color.Transparent;
-            this.f104.Location = new System.Drawing.Point(125, 275);
+            this.f104.Location = new System.Drawing.Point(126, 275);
             this.f104.Name = "f104";
-            this.f104.Size = new System.Drawing.Size(25, 25);
+            this.f104.Size = new System.Drawing.Size(23, 23);
             this.f104.TabIndex = 9;
             this.f104.TabStop = false;
             // 
             // f145
             // 
             this.f145.BackColor = System.Drawing.Color.Transparent;
-            this.f145.Location = new System.Drawing.Point(150, 375);
+            this.f145.Location = new System.Drawing.Point(151, 375);
             this.f145.Name = "f145";
-            this.f145.Size = new System.Drawing.Size(25, 25);
+            this.f145.Size = new System.Drawing.Size(23, 23);
             this.f145.TabIndex = 9;
             this.f145.TabStop = false;
             // 
             // f64
             // 
             this.f64.BackColor = System.Drawing.Color.Transparent;
-            this.f64.Location = new System.Drawing.Point(125, 175);
+            this.f64.Location = new System.Drawing.Point(126, 175);
             this.f64.Name = "f64";
-            this.f64.Size = new System.Drawing.Size(25, 25);
+            this.f64.Size = new System.Drawing.Size(23, 23);
             this.f64.TabIndex = 9;
             this.f64.TabStop = false;
             // 
             // f85
             // 
             this.f85.BackColor = System.Drawing.Color.Transparent;
-            this.f85.Location = new System.Drawing.Point(150, 225);
+            this.f85.Location = new System.Drawing.Point(151, 225);
             this.f85.Name = "f85";
-            this.f85.Size = new System.Drawing.Size(25, 25);
+            this.f85.Size = new System.Drawing.Size(23, 23);
             this.f85.TabIndex = 9;
             this.f85.TabStop = false;
             // 
             // f175
             // 
             this.f175.BackColor = System.Drawing.Color.Transparent;
-            this.f175.Location = new System.Drawing.Point(150, 450);
+            this.f175.Location = new System.Drawing.Point(151, 450);
             this.f175.Name = "f175";
-            this.f175.Size = new System.Drawing.Size(25, 25);
+            this.f175.Size = new System.Drawing.Size(23, 23);
             this.f175.TabIndex = 9;
             this.f175.TabStop = false;
             // 
             // f44
             // 
             this.f44.BackColor = System.Drawing.Color.Transparent;
-            this.f44.Location = new System.Drawing.Point(125, 125);
+            this.f44.Location = new System.Drawing.Point(126, 125);
             this.f44.Name = "f44";
-            this.f44.Size = new System.Drawing.Size(25, 25);
+            this.f44.Size = new System.Drawing.Size(23, 23);
             this.f44.TabIndex = 9;
             this.f44.TabStop = false;
             // 
             // f115
             // 
             this.f115.BackColor = System.Drawing.Color.Transparent;
-            this.f115.Location = new System.Drawing.Point(150, 300);
+            this.f115.Location = new System.Drawing.Point(151, 300);
             this.f115.Name = "f115";
-            this.f115.Size = new System.Drawing.Size(25, 25);
+            this.f115.Size = new System.Drawing.Size(23, 23);
             this.f115.TabIndex = 9;
             this.f115.TabStop = false;
             // 
             // f155
             // 
             this.f155.BackColor = System.Drawing.Color.Transparent;
-            this.f155.Location = new System.Drawing.Point(150, 400);
+            this.f155.Location = new System.Drawing.Point(151, 400);
             this.f155.Name = "f155";
-            this.f155.Size = new System.Drawing.Size(25, 25);
+            this.f155.Size = new System.Drawing.Size(23, 23);
             this.f155.TabIndex = 9;
             this.f155.TabStop = false;
             // 
             // f25
             // 
             this.f25.BackColor = System.Drawing.Color.Transparent;
-            this.f25.Location = new System.Drawing.Point(150, 75);
+            this.f25.Location = new System.Drawing.Point(151, 75);
             this.f25.Name = "f25";
-            this.f25.Size = new System.Drawing.Size(25, 25);
+            this.f25.Size = new System.Drawing.Size(23, 23);
             this.f25.TabIndex = 9;
             this.f25.TabStop = false;
             // 
             // f95
             // 
             this.f95.BackColor = System.Drawing.Color.Transparent;
-            this.f95.Location = new System.Drawing.Point(150, 250);
+            this.f95.Location = new System.Drawing.Point(151, 250);
             this.f95.Name = "f95";
-            this.f95.Size = new System.Drawing.Size(25, 25);
+            this.f95.Size = new System.Drawing.Size(23, 23);
             this.f95.TabIndex = 9;
             this.f95.TabStop = false;
             // 
             // f144
             // 
             this.f144.BackColor = System.Drawing.Color.Transparent;
-            this.f144.Location = new System.Drawing.Point(125, 375);
+            this.f144.Location = new System.Drawing.Point(126, 375);
             this.f144.Name = "f144";
-            this.f144.Size = new System.Drawing.Size(25, 25);
+            this.f144.Size = new System.Drawing.Size(23, 23);
             this.f144.TabIndex = 9;
             this.f144.TabStop = false;
             // 
             // f55
             // 
             this.f55.BackColor = System.Drawing.Color.Transparent;
-            this.f55.Location = new System.Drawing.Point(150, 150);
+            this.f55.Location = new System.Drawing.Point(151, 150);
             this.f55.Name = "f55";
-            this.f55.Size = new System.Drawing.Size(25, 25);
+            this.f55.Size = new System.Drawing.Size(23, 23);
             this.f55.TabIndex = 9;
             this.f55.TabStop = false;
             // 
             // f84
             // 
             this.f84.BackColor = System.Drawing.Color.Transparent;
-            this.f84.Location = new System.Drawing.Point(125, 225);
+            this.f84.Location = new System.Drawing.Point(126, 225);
             this.f84.Name = "f84";
-            this.f84.Size = new System.Drawing.Size(25, 25);
+            this.f84.Size = new System.Drawing.Size(23, 23);
             this.f84.TabIndex = 9;
             this.f84.TabStop = false;
             // 
             // f183
             // 
             this.f183.BackColor = System.Drawing.Color.Transparent;
-            this.f183.Location = new System.Drawing.Point(100, 475);
+            this.f183.Location = new System.Drawing.Point(101, 475);
             this.f183.Name = "f183";
-            this.f183.Size = new System.Drawing.Size(25, 25);
+            this.f183.Size = new System.Drawing.Size(23, 23);
             this.f183.TabIndex = 9;
             this.f183.TabStop = false;
             // 
             // f35
             // 
             this.f35.BackColor = System.Drawing.Color.Transparent;
-            this.f35.Location = new System.Drawing.Point(150, 100);
+            this.f35.Location = new System.Drawing.Point(151, 100);
             this.f35.Name = "f35";
-            this.f35.Size = new System.Drawing.Size(25, 25);
+            this.f35.Size = new System.Drawing.Size(23, 23);
             this.f35.TabIndex = 9;
             this.f35.TabStop = false;
             // 
             // f123
             // 
             this.f123.BackColor = System.Drawing.Color.Transparent;
-            this.f123.Location = new System.Drawing.Point(100, 325);
+            this.f123.Location = new System.Drawing.Point(101, 325);
             this.f123.Name = "f123";
-            this.f123.Size = new System.Drawing.Size(25, 25);
+            this.f123.Size = new System.Drawing.Size(23, 23);
             this.f123.TabIndex = 9;
             this.f123.TabStop = false;
             // 
             // f163
             // 
             this.f163.BackColor = System.Drawing.Color.Transparent;
-            this.f163.Location = new System.Drawing.Point(100, 425);
+            this.f163.Location = new System.Drawing.Point(101, 425);
             this.f163.Name = "f163";
-            this.f163.Size = new System.Drawing.Size(25, 25);
+            this.f163.Size = new System.Drawing.Size(23, 23);
             this.f163.TabIndex = 9;
             this.f163.TabStop = false;
             // 
             // f24
             // 
             this.f24.BackColor = System.Drawing.Color.Transparent;
-            this.f24.Location = new System.Drawing.Point(125, 75);
+            this.f24.Location = new System.Drawing.Point(126, 75);
             this.f24.Name = "f24";
-            this.f24.Size = new System.Drawing.Size(25, 25);
+            this.f24.Size = new System.Drawing.Size(23, 23);
             this.f24.TabIndex = 9;
             this.f24.TabStop = false;
             // 
             // f103
             // 
             this.f103.BackColor = System.Drawing.Color.Transparent;
-            this.f103.Location = new System.Drawing.Point(100, 275);
+            this.f103.Location = new System.Drawing.Point(101, 275);
             this.f103.Name = "f103";
-            this.f103.Size = new System.Drawing.Size(25, 25);
+            this.f103.Size = new System.Drawing.Size(23, 23);
             this.f103.TabIndex = 9;
             this.f103.TabStop = false;
             // 
             // f174
             // 
             this.f174.BackColor = System.Drawing.Color.Transparent;
-            this.f174.Location = new System.Drawing.Point(125, 450);
+            this.f174.Location = new System.Drawing.Point(126, 450);
             this.f174.Name = "f174";
-            this.f174.Size = new System.Drawing.Size(25, 25);
+            this.f174.Size = new System.Drawing.Size(23, 23);
             this.f174.TabIndex = 9;
             this.f174.TabStop = false;
             // 
             // f63
             // 
             this.f63.BackColor = System.Drawing.Color.Transparent;
-            this.f63.Location = new System.Drawing.Point(100, 175);
+            this.f63.Location = new System.Drawing.Point(101, 175);
             this.f63.Name = "f63";
-            this.f63.Size = new System.Drawing.Size(25, 25);
+            this.f63.Size = new System.Drawing.Size(23, 23);
             this.f63.TabIndex = 9;
             this.f63.TabStop = false;
             // 
             // f114
             // 
             this.f114.BackColor = System.Drawing.Color.Transparent;
-            this.f114.Location = new System.Drawing.Point(125, 300);
+            this.f114.Location = new System.Drawing.Point(126, 300);
             this.f114.Name = "f114";
-            this.f114.Size = new System.Drawing.Size(25, 25);
+            this.f114.Size = new System.Drawing.Size(23, 23);
             this.f114.TabIndex = 9;
             this.f114.TabStop = false;
             // 
             // f135
             // 
             this.f135.BackColor = System.Drawing.Color.Transparent;
-            this.f135.Location = new System.Drawing.Point(150, 350);
+            this.f135.Location = new System.Drawing.Point(151, 350);
             this.f135.Name = "f135";
-            this.f135.Size = new System.Drawing.Size(25, 25);
+            this.f135.Size = new System.Drawing.Size(23, 23);
             this.f135.TabIndex = 9;
             this.f135.TabStop = false;
             // 
             // f43
             // 
             this.f43.BackColor = System.Drawing.Color.Transparent;
-            this.f43.Location = new System.Drawing.Point(100, 125);
+            this.f43.Location = new System.Drawing.Point(101, 125);
             this.f43.Name = "f43";
-            this.f43.Size = new System.Drawing.Size(25, 25);
+            this.f43.Size = new System.Drawing.Size(23, 23);
             this.f43.TabIndex = 9;
             this.f43.TabStop = false;
             // 
             // f75
             // 
             this.f75.BackColor = System.Drawing.Color.Transparent;
-            this.f75.Location = new System.Drawing.Point(150, 200);
+            this.f75.Location = new System.Drawing.Point(151, 200);
             this.f75.Name = "f75";
-            this.f75.Size = new System.Drawing.Size(25, 25);
+            this.f75.Size = new System.Drawing.Size(23, 23);
             this.f75.TabIndex = 9;
             this.f75.TabStop = false;
             // 
             // f154
             // 
             this.f154.BackColor = System.Drawing.Color.Transparent;
-            this.f154.Location = new System.Drawing.Point(125, 400);
+            this.f154.Location = new System.Drawing.Point(126, 400);
             this.f154.Name = "f154";
-            this.f154.Size = new System.Drawing.Size(25, 25);
+            this.f154.Size = new System.Drawing.Size(23, 23);
             this.f154.TabIndex = 9;
             this.f154.TabStop = false;
             // 
             // f54
             // 
             this.f54.BackColor = System.Drawing.Color.Transparent;
-            this.f54.Location = new System.Drawing.Point(125, 150);
+            this.f54.Location = new System.Drawing.Point(126, 150);
             this.f54.Name = "f54";
-            this.f54.Size = new System.Drawing.Size(25, 25);
+            this.f54.Size = new System.Drawing.Size(23, 23);
             this.f54.TabIndex = 9;
             this.f54.TabStop = false;
             // 
             // f94
             // 
             this.f94.BackColor = System.Drawing.Color.Transparent;
-            this.f94.Location = new System.Drawing.Point(125, 250);
+            this.f94.Location = new System.Drawing.Point(126, 250);
             this.f94.Name = "f94";
-            this.f94.Size = new System.Drawing.Size(25, 25);
+            this.f94.Size = new System.Drawing.Size(23, 23);
             this.f94.TabIndex = 9;
             this.f94.TabStop = false;
             // 
             // f182
             // 
             this.f182.BackColor = System.Drawing.Color.Transparent;
-            this.f182.Location = new System.Drawing.Point(75, 475);
+            this.f182.Location = new System.Drawing.Point(76, 475);
             this.f182.Name = "f182";
-            this.f182.Size = new System.Drawing.Size(25, 25);
+            this.f182.Size = new System.Drawing.Size(23, 23);
             this.f182.TabIndex = 9;
             this.f182.TabStop = false;
             // 
             // f15
             // 
             this.f15.BackColor = System.Drawing.Color.Transparent;
-            this.f15.Location = new System.Drawing.Point(150, 50);
+            this.f15.Location = new System.Drawing.Point(151, 50);
             this.f15.Name = "f15";
-            this.f15.Size = new System.Drawing.Size(25, 25);
+            this.f15.Size = new System.Drawing.Size(23, 23);
             this.f15.TabIndex = 9;
             this.f15.TabStop = false;
             // 
             // f122
             // 
             this.f122.BackColor = System.Drawing.Color.Transparent;
-            this.f122.Location = new System.Drawing.Point(75, 325);
+            this.f122.Location = new System.Drawing.Point(76, 325);
             this.f122.Name = "f122";
-            this.f122.Size = new System.Drawing.Size(25, 25);
+            this.f122.Size = new System.Drawing.Size(23, 23);
             this.f122.TabIndex = 9;
             this.f122.TabStop = false;
             // 
             // f143
             // 
             this.f143.BackColor = System.Drawing.Color.Transparent;
-            this.f143.Location = new System.Drawing.Point(100, 375);
+            this.f143.Location = new System.Drawing.Point(101, 375);
             this.f143.Name = "f143";
-            this.f143.Size = new System.Drawing.Size(25, 25);
+            this.f143.Size = new System.Drawing.Size(23, 23);
             this.f143.TabIndex = 9;
             this.f143.TabStop = false;
             // 
             // f34
             // 
             this.f34.BackColor = System.Drawing.Color.Transparent;
-            this.f34.Location = new System.Drawing.Point(125, 100);
+            this.f34.Location = new System.Drawing.Point(126, 100);
             this.f34.Name = "f34";
-            this.f34.Size = new System.Drawing.Size(25, 25);
+            this.f34.Size = new System.Drawing.Size(23, 23);
             this.f34.TabIndex = 9;
             this.f34.TabStop = false;
             // 
             // f83
             // 
             this.f83.BackColor = System.Drawing.Color.Transparent;
-            this.f83.Location = new System.Drawing.Point(100, 225);
+            this.f83.Location = new System.Drawing.Point(101, 225);
             this.f83.Name = "f83";
-            this.f83.Size = new System.Drawing.Size(25, 25);
+            this.f83.Size = new System.Drawing.Size(23, 23);
             this.f83.TabIndex = 9;
             this.f83.TabStop = false;
             // 
             // f162
             // 
             this.f162.BackColor = System.Drawing.Color.Transparent;
-            this.f162.Location = new System.Drawing.Point(75, 425);
+            this.f162.Location = new System.Drawing.Point(76, 425);
             this.f162.Name = "f162";
-            this.f162.Size = new System.Drawing.Size(25, 25);
+            this.f162.Size = new System.Drawing.Size(23, 23);
             this.f162.TabIndex = 9;
             this.f162.TabStop = false;
             // 
             // f62
             // 
             this.f62.BackColor = System.Drawing.Color.Transparent;
-            this.f62.Location = new System.Drawing.Point(75, 175);
+            this.f62.Location = new System.Drawing.Point(76, 175);
             this.f62.Name = "f62";
-            this.f62.Size = new System.Drawing.Size(25, 25);
+            this.f62.Size = new System.Drawing.Size(23, 23);
             this.f62.TabIndex = 9;
             this.f62.TabStop = false;
             // 
             // f102
             // 
             this.f102.BackColor = System.Drawing.Color.Transparent;
-            this.f102.Location = new System.Drawing.Point(75, 275);
+            this.f102.Location = new System.Drawing.Point(76, 275);
             this.f102.Name = "f102";
-            this.f102.Size = new System.Drawing.Size(25, 25);
+            this.f102.Size = new System.Drawing.Size(23, 23);
             this.f102.TabIndex = 9;
             this.f102.TabStop = false;
             // 
             // f173
             // 
             this.f173.BackColor = System.Drawing.Color.Transparent;
-            this.f173.Location = new System.Drawing.Point(100, 450);
+            this.f173.Location = new System.Drawing.Point(101, 450);
             this.f173.Name = "f173";
-            this.f173.Size = new System.Drawing.Size(25, 25);
+            this.f173.Size = new System.Drawing.Size(23, 23);
             this.f173.TabIndex = 9;
             this.f173.TabStop = false;
             // 
             // f23
             // 
             this.f23.BackColor = System.Drawing.Color.Transparent;
-            this.f23.Location = new System.Drawing.Point(100, 75);
+            this.f23.Location = new System.Drawing.Point(101, 75);
             this.f23.Name = "f23";
-            this.f23.Size = new System.Drawing.Size(25, 25);
+            this.f23.Size = new System.Drawing.Size(23, 23);
             this.f23.TabIndex = 9;
             this.f23.TabStop = false;
             // 
             // f113
             // 
             this.f113.BackColor = System.Drawing.Color.Transparent;
-            this.f113.Location = new System.Drawing.Point(100, 300);
+            this.f113.Location = new System.Drawing.Point(101, 300);
             this.f113.Name = "f113";
-            this.f113.Size = new System.Drawing.Size(25, 25);
+            this.f113.Size = new System.Drawing.Size(23, 23);
             this.f113.TabIndex = 9;
             this.f113.TabStop = false;
             // 
             // f134
             // 
             this.f134.BackColor = System.Drawing.Color.Transparent;
-            this.f134.Location = new System.Drawing.Point(125, 350);
+            this.f134.Location = new System.Drawing.Point(126, 350);
             this.f134.Name = "f134";
-            this.f134.Size = new System.Drawing.Size(25, 25);
+            this.f134.Size = new System.Drawing.Size(23, 23);
             this.f134.TabIndex = 9;
             this.f134.TabStop = false;
             // 
             // f42
             // 
             this.f42.BackColor = System.Drawing.Color.Transparent;
-            this.f42.Location = new System.Drawing.Point(75, 125);
+            this.f42.Location = new System.Drawing.Point(76, 125);
             this.f42.Name = "f42";
-            this.f42.Size = new System.Drawing.Size(25, 25);
+            this.f42.Size = new System.Drawing.Size(23, 23);
             this.f42.TabIndex = 9;
             this.f42.TabStop = false;
             // 
             // f74
             // 
             this.f74.BackColor = System.Drawing.Color.Transparent;
-            this.f74.Location = new System.Drawing.Point(125, 200);
+            this.f74.Location = new System.Drawing.Point(126, 200);
             this.f74.Name = "f74";
-            this.f74.Size = new System.Drawing.Size(25, 25);
+            this.f74.Size = new System.Drawing.Size(23, 23);
             this.f74.TabIndex = 9;
             this.f74.TabStop = false;
             // 
             // f153
             // 
             this.f153.BackColor = System.Drawing.Color.Transparent;
-            this.f153.Location = new System.Drawing.Point(100, 400);
+            this.f153.Location = new System.Drawing.Point(101, 400);
             this.f153.Name = "f153";
-            this.f153.Size = new System.Drawing.Size(25, 25);
+            this.f153.Size = new System.Drawing.Size(23, 23);
             this.f153.TabIndex = 9;
             this.f153.TabStop = false;
             // 
             // f53
             // 
             this.f53.BackColor = System.Drawing.Color.Transparent;
-            this.f53.Location = new System.Drawing.Point(100, 150);
+            this.f53.Location = new System.Drawing.Point(101, 150);
             this.f53.Name = "f53";
-            this.f53.Size = new System.Drawing.Size(25, 25);
+            this.f53.Size = new System.Drawing.Size(23, 23);
             this.f53.TabIndex = 9;
             this.f53.TabStop = false;
             // 
             // f93
             // 
             this.f93.BackColor = System.Drawing.Color.Transparent;
-            this.f93.Location = new System.Drawing.Point(100, 250);
+            this.f93.Location = new System.Drawing.Point(101, 250);
             this.f93.Name = "f93";
-            this.f93.Size = new System.Drawing.Size(25, 25);
+            this.f93.Size = new System.Drawing.Size(23, 23);
             this.f93.TabIndex = 9;
             this.f93.TabStop = false;
             // 
             // f181
             // 
             this.f181.BackColor = System.Drawing.Color.Transparent;
-            this.f181.Location = new System.Drawing.Point(50, 475);
+            this.f181.Location = new System.Drawing.Point(51, 475);
             this.f181.Name = "f181";
-            this.f181.Size = new System.Drawing.Size(25, 25);
+            this.f181.Size = new System.Drawing.Size(23, 23);
             this.f181.TabIndex = 9;
             this.f181.TabStop = false;
             // 
             // f14
             // 
             this.f14.BackColor = System.Drawing.Color.Transparent;
-            this.f14.Location = new System.Drawing.Point(125, 50);
+            this.f14.Location = new System.Drawing.Point(126, 50);
             this.f14.Name = "f14";
-            this.f14.Size = new System.Drawing.Size(25, 25);
+            this.f14.Size = new System.Drawing.Size(23, 23);
             this.f14.TabIndex = 9;
             this.f14.TabStop = false;
             // 
             // f121
             // 
             this.f121.BackColor = System.Drawing.Color.Transparent;
-            this.f121.Location = new System.Drawing.Point(50, 325);
+            this.f121.Location = new System.Drawing.Point(51, 325);
             this.f121.Name = "f121";
-            this.f121.Size = new System.Drawing.Size(25, 25);
+            this.f121.Size = new System.Drawing.Size(23, 23);
             this.f121.TabIndex = 9;
             this.f121.TabStop = false;
             // 
             // f142
             // 
             this.f142.BackColor = System.Drawing.Color.Transparent;
-            this.f142.Location = new System.Drawing.Point(75, 375);
+            this.f142.Location = new System.Drawing.Point(76, 375);
             this.f142.Name = "f142";
-            this.f142.Size = new System.Drawing.Size(25, 25);
+            this.f142.Size = new System.Drawing.Size(23, 23);
             this.f142.TabIndex = 9;
             this.f142.TabStop = false;
             // 
             // f33
             // 
             this.f33.BackColor = System.Drawing.Color.Transparent;
-            this.f33.Location = new System.Drawing.Point(100, 100);
+            this.f33.Location = new System.Drawing.Point(101, 100);
             this.f33.Name = "f33";
-            this.f33.Size = new System.Drawing.Size(25, 25);
+            this.f33.Size = new System.Drawing.Size(23, 23);
             this.f33.TabIndex = 9;
             this.f33.TabStop = false;
             // 
             // f82
             // 
             this.f82.BackColor = System.Drawing.Color.Transparent;
-            this.f82.Location = new System.Drawing.Point(75, 225);
+            this.f82.Location = new System.Drawing.Point(76, 225);
             this.f82.Name = "f82";
-            this.f82.Size = new System.Drawing.Size(25, 25);
+            this.f82.Size = new System.Drawing.Size(23, 23);
             this.f82.TabIndex = 9;
             this.f82.TabStop = false;
             // 
             // f161
             // 
             this.f161.BackColor = System.Drawing.Color.Transparent;
-            this.f161.Location = new System.Drawing.Point(50, 425);
+            this.f161.Location = new System.Drawing.Point(51, 425);
             this.f161.Name = "f161";
-            this.f161.Size = new System.Drawing.Size(25, 25);
+            this.f161.Size = new System.Drawing.Size(23, 23);
             this.f161.TabIndex = 9;
             this.f161.TabStop = false;
             // 
             // f61
             // 
             this.f61.BackColor = System.Drawing.Color.Transparent;
-            this.f61.Location = new System.Drawing.Point(50, 175);
+            this.f61.Location = new System.Drawing.Point(51, 175);
             this.f61.Name = "f61";
-            this.f61.Size = new System.Drawing.Size(25, 25);
+            this.f61.Size = new System.Drawing.Size(23, 23);
             this.f61.TabIndex = 9;
             this.f61.TabStop = false;
             // 
             // f101
             // 
             this.f101.BackColor = System.Drawing.Color.Transparent;
-            this.f101.Location = new System.Drawing.Point(50, 275);
+            this.f101.Location = new System.Drawing.Point(51, 275);
             this.f101.Name = "f101";
-            this.f101.Size = new System.Drawing.Size(25, 25);
+            this.f101.Size = new System.Drawing.Size(23, 23);
             this.f101.TabIndex = 9;
             this.f101.TabStop = false;
             // 
             // f172
             // 
             this.f172.BackColor = System.Drawing.Color.Transparent;
-            this.f172.Location = new System.Drawing.Point(75, 450);
+            this.f172.Location = new System.Drawing.Point(76, 450);
             this.f172.Name = "f172";
-            this.f172.Size = new System.Drawing.Size(25, 25);
+            this.f172.Size = new System.Drawing.Size(23, 23);
             this.f172.TabIndex = 9;
             this.f172.TabStop = false;
             // 
             // f22
             // 
             this.f22.BackColor = System.Drawing.Color.Transparent;
-            this.f22.Location = new System.Drawing.Point(75, 75);
+            this.f22.Location = new System.Drawing.Point(76, 75);
             this.f22.Name = "f22";
-            this.f22.Size = new System.Drawing.Size(25, 25);
+            this.f22.Size = new System.Drawing.Size(23, 23);
             this.f22.TabIndex = 9;
             this.f22.TabStop = false;
             // 
             // f112
             // 
             this.f112.BackColor = System.Drawing.Color.Transparent;
-            this.f112.Location = new System.Drawing.Point(75, 300);
+            this.f112.Location = new System.Drawing.Point(76, 300);
             this.f112.Name = "f112";
-            this.f112.Size = new System.Drawing.Size(25, 25);
+            this.f112.Size = new System.Drawing.Size(23, 23);
             this.f112.TabIndex = 9;
             this.f112.TabStop = false;
             // 
             // f133
             // 
             this.f133.BackColor = System.Drawing.Color.Transparent;
-            this.f133.Location = new System.Drawing.Point(100, 350);
+            this.f133.Location = new System.Drawing.Point(101, 350);
             this.f133.Name = "f133";
-            this.f133.Size = new System.Drawing.Size(25, 25);
+            this.f133.Size = new System.Drawing.Size(23, 23);
             this.f133.TabIndex = 9;
             this.f133.TabStop = false;
             // 
             // f41
             // 
             this.f41.BackColor = System.Drawing.Color.Transparent;
-            this.f41.Location = new System.Drawing.Point(50, 125);
+            this.f41.Location = new System.Drawing.Point(51, 125);
             this.f41.Name = "f41";
-            this.f41.Size = new System.Drawing.Size(25, 25);
+            this.f41.Size = new System.Drawing.Size(23, 23);
             this.f41.TabIndex = 9;
             this.f41.TabStop = false;
             // 
             // f73
             // 
             this.f73.BackColor = System.Drawing.Color.Transparent;
-            this.f73.Location = new System.Drawing.Point(100, 200);
+            this.f73.Location = new System.Drawing.Point(101, 200);
             this.f73.Name = "f73";
-            this.f73.Size = new System.Drawing.Size(25, 25);
+            this.f73.Size = new System.Drawing.Size(23, 23);
             this.f73.TabIndex = 9;
             this.f73.TabStop = false;
             // 
             // f152
             // 
             this.f152.BackColor = System.Drawing.Color.Transparent;
-            this.f152.Location = new System.Drawing.Point(75, 400);
+            this.f152.Location = new System.Drawing.Point(76, 400);
             this.f152.Name = "f152";
-            this.f152.Size = new System.Drawing.Size(25, 25);
+            this.f152.Size = new System.Drawing.Size(23, 23);
             this.f152.TabIndex = 9;
             this.f152.TabStop = false;
             // 
             // f52
             // 
             this.f52.BackColor = System.Drawing.Color.Transparent;
-            this.f52.Location = new System.Drawing.Point(75, 150);
+            this.f52.Location = new System.Drawing.Point(76, 150);
             this.f52.Name = "f52";
-            this.f52.Size = new System.Drawing.Size(25, 25);
+            this.f52.Size = new System.Drawing.Size(23, 23);
             this.f52.TabIndex = 9;
             this.f52.TabStop = false;
             // 
             // f92
             // 
             this.f92.BackColor = System.Drawing.Color.Transparent;
-            this.f92.Location = new System.Drawing.Point(75, 250);
+            this.f92.Location = new System.Drawing.Point(76, 250);
             this.f92.Name = "f92";
-            this.f92.Size = new System.Drawing.Size(25, 25);
+            this.f92.Size = new System.Drawing.Size(23, 23);
             this.f92.TabIndex = 9;
             this.f92.TabStop = false;
             // 
             // f171
             // 
             this.f171.BackColor = System.Drawing.Color.Transparent;
-            this.f171.Location = new System.Drawing.Point(50, 450);
+            this.f171.Location = new System.Drawing.Point(51, 450);
             this.f171.Name = "f171";
-            this.f171.Size = new System.Drawing.Size(25, 25);
+            this.f171.Size = new System.Drawing.Size(23, 23);
             this.f171.TabIndex = 9;
             this.f171.TabStop = false;
             // 
             // f13
             // 
             this.f13.BackColor = System.Drawing.Color.Transparent;
-            this.f13.Location = new System.Drawing.Point(100, 50);
+            this.f13.Location = new System.Drawing.Point(101, 50);
             this.f13.Name = "f13";
-            this.f13.Size = new System.Drawing.Size(25, 25);
+            this.f13.Size = new System.Drawing.Size(23, 23);
             this.f13.TabIndex = 9;
             this.f13.TabStop = false;
             // 
             // f111
             // 
             this.f111.BackColor = System.Drawing.Color.Transparent;
-            this.f111.Location = new System.Drawing.Point(50, 300);
+            this.f111.Location = new System.Drawing.Point(51, 300);
             this.f111.Name = "f111";
-            this.f111.Size = new System.Drawing.Size(25, 25);
+            this.f111.Size = new System.Drawing.Size(23, 23);
             this.f111.TabIndex = 9;
             this.f111.TabStop = false;
             // 
             // f141
             // 
             this.f141.BackColor = System.Drawing.Color.Transparent;
-            this.f141.Location = new System.Drawing.Point(50, 375);
+            this.f141.Location = new System.Drawing.Point(51, 375);
             this.f141.Name = "f141";
-            this.f141.Size = new System.Drawing.Size(25, 25);
+            this.f141.Size = new System.Drawing.Size(23, 23);
             this.f141.TabIndex = 9;
             this.f141.TabStop = false;
             // 
             // f32
             // 
             this.f32.BackColor = System.Drawing.Color.Transparent;
-            this.f32.Location = new System.Drawing.Point(75, 100);
+            this.f32.Location = new System.Drawing.Point(76, 100);
             this.f32.Name = "f32";
-            this.f32.Size = new System.Drawing.Size(25, 25);
+            this.f32.Size = new System.Drawing.Size(23, 23);
             this.f32.TabIndex = 9;
             this.f32.TabStop = false;
             // 
             // f81
             // 
             this.f81.BackColor = System.Drawing.Color.Transparent;
-            this.f81.Location = new System.Drawing.Point(50, 225);
+            this.f81.Location = new System.Drawing.Point(51, 225);
             this.f81.Name = "f81";
-            this.f81.Size = new System.Drawing.Size(25, 25);
+            this.f81.Size = new System.Drawing.Size(23, 23);
             this.f81.TabIndex = 9;
             this.f81.TabStop = false;
             // 
             // f151
             // 
             this.f151.BackColor = System.Drawing.Color.Transparent;
-            this.f151.Location = new System.Drawing.Point(50, 400);
+            this.f151.Location = new System.Drawing.Point(51, 400);
             this.f151.Name = "f151";
-            this.f151.Size = new System.Drawing.Size(25, 25);
+            this.f151.Size = new System.Drawing.Size(23, 23);
             this.f151.TabIndex = 9;
             this.f151.TabStop = false;
             // 
             // f51
             // 
             this.f51.BackColor = System.Drawing.Color.Transparent;
-            this.f51.Location = new System.Drawing.Point(50, 150);
+            this.f51.Location = new System.Drawing.Point(51, 150);
             this.f51.Name = "f51";
-            this.f51.Size = new System.Drawing.Size(25, 25);
+            this.f51.Size = new System.Drawing.Size(23, 23);
             this.f51.TabIndex = 9;
             this.f51.TabStop = false;
             // 
             // f91
             // 
             this.f91.BackColor = System.Drawing.Color.Transparent;
-            this.f91.Location = new System.Drawing.Point(50, 250);
+            this.f91.Location = new System.Drawing.Point(51, 250);
             this.f91.Name = "f91";
-            this.f91.Size = new System.Drawing.Size(25, 25);
+            this.f91.Size = new System.Drawing.Size(23, 23);
             this.f91.TabIndex = 9;
             this.f91.TabStop = false;
             // 
             // f132
             // 
             this.f132.BackColor = System.Drawing.Color.Transparent;
-            this.f132.Location = new System.Drawing.Point(75, 350);
+            this.f132.Location = new System.Drawing.Point(76, 350);
             this.f132.Name = "f132";
-            this.f132.Size = new System.Drawing.Size(25, 25);
+            this.f132.Size = new System.Drawing.Size(23, 23);
             this.f132.TabIndex = 9;
             this.f132.TabStop = false;
             // 
             // f21
             // 
             this.f21.BackColor = System.Drawing.Color.Transparent;
-            this.f21.Location = new System.Drawing.Point(50, 75);
+            this.f21.Location = new System.Drawing.Point(51, 75);
             this.f21.Name = "f21";
-            this.f21.Size = new System.Drawing.Size(25, 25);
+            this.f21.Size = new System.Drawing.Size(23, 23);
             this.f21.TabIndex = 9;
             this.f21.TabStop = false;
             // 
             // f72
             // 
             this.f72.BackColor = System.Drawing.Color.Transparent;
-            this.f72.Location = new System.Drawing.Point(75, 200);
+            this.f72.Location = new System.Drawing.Point(76, 200);
             this.f72.Name = "f72";
-            this.f72.Size = new System.Drawing.Size(25, 25);
+            this.f72.Size = new System.Drawing.Size(23, 23);
             this.f72.TabIndex = 9;
             this.f72.TabStop = false;
             // 
             // f131
             // 
             this.f131.BackColor = System.Drawing.Color.Transparent;
-            this.f131.Location = new System.Drawing.Point(50, 350);
+            this.f131.Location = new System.Drawing.Point(51, 350);
             this.f131.Name = "f131";
-            this.f131.Size = new System.Drawing.Size(25, 25);
+            this.f131.Size = new System.Drawing.Size(23, 23);
             this.f131.TabIndex = 9;
             this.f131.TabStop = false;
             // 
             // f31
             // 
             this.f31.BackColor = System.Drawing.Color.Transparent;
-            this.f31.Location = new System.Drawing.Point(50, 100);
+            this.f31.Location = new System.Drawing.Point(51, 100);
             this.f31.Name = "f31";
-            this.f31.Size = new System.Drawing.Size(25, 25);
+            this.f31.Size = new System.Drawing.Size(23, 23);
             this.f31.TabIndex = 9;
             this.f31.TabStop = false;
             // 
             // f71
             // 
             this.f71.BackColor = System.Drawing.Color.Transparent;
-            this.f71.Location = new System.Drawing.Point(50, 200);
+            this.f71.Location = new System.Drawing.Point(51, 200);
             this.f71.Name = "f71";
-            this.f71.Size = new System.Drawing.Size(25, 25);
+            this.f71.Size = new System.Drawing.Size(23, 23);
             this.f71.TabIndex = 9;
             this.f71.TabStop = false;
             // 
             // f12
             // 
             this.f12.BackColor = System.Drawing.Color.Transparent;
-            this.f12.Location = new System.Drawing.Point(75, 50);
+            this.f12.Location = new System.Drawing.Point(76, 50);
             this.f12.Name = "f12";
-            this.f12.Size = new System.Drawing.Size(25, 25);
+            this.f12.Size = new System.Drawing.Size(23, 23);
             this.f12.TabIndex = 9;
             this.f12.TabStop = false;
             // 
             // f11
             // 
             this.f11.BackColor = System.Drawing.Color.Transparent;
-            this.f11.Location = new System.Drawing.Point(50, 50);
+            this.f11.Location = new System.Drawing.Point(51, 50);
             this.f11.Name = "f11";
-            this.f11.Size = new System.Drawing.Size(25, 25);
+            this.f11.Size = new System.Drawing.Size(23, 23);
             this.f11.TabIndex = 9;
             this.f11.TabStop = false;
             // 
             // n13
             // 
             this.n13.BackColor = System.Drawing.Color.Transparent;
-            this.n13.Location = new System.Drawing.Point(375, 150);
+            this.n13.Location = new System.Drawing.Point(376, 150);
             this.n13.Name = "n13";
-            this.n13.Size = new System.Drawing.Size(25, 25);
+            this.n13.Size = new System.Drawing.Size(23, 23);
             this.n13.TabIndex = 8;
             this.n13.TabStop = false;
             // 
             // n14
             // 
             this.n14.BackColor = System.Drawing.Color.Transparent;
-            this.n14.Location = new System.Drawing.Point(400, 150);
+            this.n14.Location = new System.Drawing.Point(401, 150);
             this.n14.Name = "n14";
-            this.n14.Size = new System.Drawing.Size(25, 25);
+            this.n14.Size = new System.Drawing.Size(23, 23);
             this.n14.TabIndex = 8;
             this.n14.TabStop = false;
             // 
             // n15
             // 
             this.n15.BackColor = System.Drawing.Color.Transparent;
-            this.n15.Location = new System.Drawing.Point(425, 150);
+            this.n15.Location = new System.Drawing.Point(426, 150);
             this.n15.Name = "n15";
-            this.n15.Size = new System.Drawing.Size(25, 25);
+            this.n15.Size = new System.Drawing.Size(23, 23);
             this.n15.TabIndex = 8;
             this.n15.TabStop = false;
             // 
             // n16
             // 
             this.n16.BackColor = System.Drawing.Color.Transparent;
-            this.n16.Location = new System.Drawing.Point(450, 150);
+            this.n16.Location = new System.Drawing.Point(451, 150);
             this.n16.Name = "n16";
-            this.n16.Size = new System.Drawing.Size(25, 25);
+            this.n16.Size = new System.Drawing.Size(23, 23);
             this.n16.TabIndex = 8;
             this.n16.TabStop = false;
             // 
             // n12
             // 
             this.n12.BackColor = System.Drawing.Color.Transparent;
-            this.n12.Location = new System.Drawing.Point(450, 125);
+            this.n12.Location = new System.Drawing.Point(451, 125);
             this.n12.Name = "n12";
-            this.n12.Size = new System.Drawing.Size(25, 25);
+            this.n12.Size = new System.Drawing.Size(23, 23);
             this.n12.TabIndex = 8;
             this.n12.TabStop = false;
             // 
             // n11
             // 
             this.n11.BackColor = System.Drawing.Color.Transparent;
-            this.n11.Location = new System.Drawing.Point(425, 125);
+            this.n11.Location = new System.Drawing.Point(426, 125);
             this.n11.Name = "n11";
-            this.n11.Size = new System.Drawing.Size(25, 25);
+            this.n11.Size = new System.Drawing.Size(23, 23);
             this.n11.TabIndex = 8;
             this.n11.TabStop = false;
             // 
             // n10
             // 
             this.n10.BackColor = System.Drawing.Color.Transparent;
-            this.n10.Location = new System.Drawing.Point(400, 125);
+            this.n10.Location = new System.Drawing.Point(401, 125);
             this.n10.Name = "n10";
-            this.n10.Size = new System.Drawing.Size(25, 25);
+            this.n10.Size = new System.Drawing.Size(23, 23);
             this.n10.TabIndex = 8;
             this.n10.TabStop = false;
             // 
             // n9
             // 
             this.n9.BackColor = System.Drawing.Color.Transparent;
-            this.n9.Location = new System.Drawing.Point(375, 125);
+            this.n9.Location = new System.Drawing.Point(376, 125);
             this.n9.Name = "n9";
-            this.n9.Size = new System.Drawing.Size(25, 25);
+            this.n9.Size = new System.Drawing.Size(23, 23);
             this.n9.TabIndex = 8;
             this.n9.TabStop = false;
             // 
             // n5
             // 
             this.n5.BackColor = System.Drawing.Color.Transparent;
-            this.n5.Location = new System.Drawing.Point(375, 100);
+            this.n5.Location = new System.Drawing.Point(376, 100);
             this.n5.Name = "n5";
-            this.n5.Size = new System.Drawing.Size(25, 25);
+            this.n5.Size = new System.Drawing.Size(23, 23);
             this.n5.TabIndex = 8;
             this.n5.TabStop = false;
             // 
             // n6
             // 
             this.n6.BackColor = System.Drawing.Color.Transparent;
-            this.n6.Location = new System.Drawing.Point(400, 100);
+            this.n6.Location = new System.Drawing.Point(401, 100);
             this.n6.Name = "n6";
-            this.n6.Size = new System.Drawing.Size(25, 25);
+            this.n6.Size = new System.Drawing.Size(23, 23);
             this.n6.TabIndex = 8;
             this.n6.TabStop = false;
             // 
             // n7
             // 
             this.n7.BackColor = System.Drawing.Color.Transparent;
-            this.n7.Location = new System.Drawing.Point(425, 100);
+            this.n7.Location = new System.Drawing.Point(426, 100);
             this.n7.Name = "n7";
-            this.n7.Size = new System.Drawing.Size(25, 25);
+            this.n7.Size = new System.Drawing.Size(23, 23);
             this.n7.TabIndex = 8;
             this.n7.TabStop = false;
             // 
             // n8
             // 
             this.n8.BackColor = System.Drawing.Color.Transparent;
-            this.n8.Location = new System.Drawing.Point(450, 100);
+            this.n8.Location = new System.Drawing.Point(451, 100);
             this.n8.Name = "n8";
-            this.n8.Size = new System.Drawing.Size(25, 25);
+            this.n8.Size = new System.Drawing.Size(23, 23);
             this.n8.TabIndex = 8;
             this.n8.TabStop = false;
             // 
             // n4
             // 
             this.n4.BackColor = System.Drawing.Color.Transparent;
-            this.n4.Location = new System.Drawing.Point(450, 75);
+            this.n4.Location = new System.Drawing.Point(451, 75);
             this.n4.Name = "n4";
-            this.n4.Size = new System.Drawing.Size(25, 25);
+            this.n4.Size = new System.Drawing.Size(23, 23);
             this.n4.TabIndex = 8;
             this.n4.TabStop = false;
             // 
             // n3
             // 
             this.n3.BackColor = System.Drawing.Color.Transparent;
-            this.n3.Location = new System.Drawing.Point(425, 75);
+            this.n3.Location = new System.Drawing.Point(426, 75);
             this.n3.Name = "n3";
-            this.n3.Size = new System.Drawing.Size(25, 25);
+            this.n3.Size = new System.Drawing.Size(23, 23);
             this.n3.TabIndex = 8;
             this.n3.TabStop = false;
             // 
             // n2
             // 
             this.n2.BackColor = System.Drawing.Color.Transparent;
-            this.n2.Location = new System.Drawing.Point(400, 75);
+            this.n2.Location = new System.Drawing.Point(401, 75);
             this.n2.Name = "n2";
-            this.n2.Size = new System.Drawing.Size(25, 25);
+            this.n2.Size = new System.Drawing.Size(23, 23);
             this.n2.TabIndex = 8;
             this.n2.TabStop = false;
             // 
             // n1
             // 
             this.n1.BackColor = System.Drawing.Color.Transparent;
-            this.n1.Location = new System.Drawing.Point(375, 75);
+            this.n1.Location = new System.Drawing.Point(376, 75);
             this.n1.Name = "n1";
-            this.n1.Size = new System.Drawing.Size(25, 25);
+            this.n1.Size = new System.Drawing.Size(23, 23);
             this.n1.TabIndex = 8;
             this.n1.TabStop = false;
+            // 
+            // checkSurePanel
+            // 
+            this.checkSurePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
+            this.checkSurePanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.checkSurePanel.Controls.Add(this.sureYesLabel);
+            this.checkSurePanel.Controls.Add(this.sureNoLabel);
+            this.checkSurePanel.Controls.Add(this.checkSureLabel);
+            this.checkSurePanel.Enabled = false;
+            this.checkSurePanel.Location = new System.Drawing.Point(100, 190);
+            this.checkSurePanel.Name = "checkSurePanel";
+            this.checkSurePanel.Size = new System.Drawing.Size(350, 150);
+            this.checkSurePanel.TabIndex = 0;
+            this.checkSurePanel.Visible = false;
+            // 
+            // sureYesLabel
+            // 
+            this.sureYesLabel.AutoSize = true;
+            this.sureYesLabel.Font = new System.Drawing.Font("Ode to Idle Gaming", 18F);
+            this.sureYesLabel.ForeColor = System.Drawing.Color.DimGray;
+            this.sureYesLabel.Location = new System.Drawing.Point(67, 87);
+            this.sureYesLabel.Name = "sureYesLabel";
+            this.sureYesLabel.Size = new System.Drawing.Size(81, 42);
+            this.sureYesLabel.TabIndex = 1;
+            this.sureYesLabel.Text = "YES";
+            this.sureYesLabel.Click += new System.EventHandler(this.sureYesLabel_Click);
+            this.sureYesLabel.MouseEnter += new System.EventHandler(this.button_MouseEnter);
+            this.sureYesLabel.MouseLeave += new System.EventHandler(this.button_MouseLeave);
+            // 
+            // sureNoLabel
+            // 
+            this.sureNoLabel.AutoSize = true;
+            this.sureNoLabel.Font = new System.Drawing.Font("Ode to Idle Gaming", 18F);
+            this.sureNoLabel.ForeColor = System.Drawing.Color.DimGray;
+            this.sureNoLabel.Location = new System.Drawing.Point(210, 87);
+            this.sureNoLabel.Name = "sureNoLabel";
+            this.sureNoLabel.Size = new System.Drawing.Size(60, 42);
+            this.sureNoLabel.TabIndex = 2;
+            this.sureNoLabel.Text = "NO";
+            this.sureNoLabel.Click += new System.EventHandler(this.sureNoLabel_Click);
+            this.sureNoLabel.MouseEnter += new System.EventHandler(this.button_MouseEnter);
+            this.sureNoLabel.MouseLeave += new System.EventHandler(this.button_MouseLeave);
+            // 
+            // checkSureLabel
+            // 
+            this.checkSureLabel.AutoSize = true;
+            this.checkSureLabel.Font = new System.Drawing.Font("Ode to Idle Gaming", 20F);
+            this.checkSureLabel.ForeColor = System.Drawing.Color.DimGray;
+            this.checkSureLabel.Location = new System.Drawing.Point(25, 15);
+            this.checkSureLabel.Name = "checkSureLabel";
+            this.checkSureLabel.Size = new System.Drawing.Size(304, 47);
+            this.checkSureLabel.TabIndex = 0;
+            this.checkSureLabel.Text = "Are you sure?";
+            this.checkSureLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // mainMenuPictureBox
+            // 
+            this.mainMenuPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainMenuPictureBox.Image = global::Tetris.Properties.Resources.tetrisAnimated;
+            this.mainMenuPictureBox.InitialImage = null;
+            this.mainMenuPictureBox.Location = new System.Drawing.Point(0, 0);
+            this.mainMenuPictureBox.Name = "mainMenuPictureBox";
+            this.mainMenuPictureBox.Size = new System.Drawing.Size(550, 550);
+            this.mainMenuPictureBox.TabIndex = 0;
+            this.mainMenuPictureBox.TabStop = false;
+            // 
+            // timer
+            // 
+            this.timer.Interval = 50;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
             // menuButton
             // 
             this.menuButton.BackgroundImage = global::Tetris.Properties.Resources.menuButton;
             this.menuButton.Font = new System.Drawing.Font("Ode to Idle Gaming", 18F);
-            this.menuButton.Location = new System.Drawing.Point(325, 425);
+            this.menuButton.Location = new System.Drawing.Point(326, 425);
             this.menuButton.Name = "menuButton";
             this.menuButton.Size = new System.Drawing.Size(175, 125);
             this.menuButton.TabIndex = 7;
@@ -2569,60 +2640,6 @@ namespace Tetris
             this.sfxButton1.TabIndex = 5;
             this.sfxButton1.Click += new System.EventHandler(this.sfxButton_Click);
             // 
-            // checkSurePanel
-            // 
-            this.checkSurePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
-            this.checkSurePanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.checkSurePanel.Controls.Add(this.sureYesLabel);
-            this.checkSurePanel.Controls.Add(this.sureNoLabel);
-            this.checkSurePanel.Controls.Add(this.checkSureLabel);
-            this.checkSurePanel.Enabled = false;
-            this.checkSurePanel.Location = new System.Drawing.Point(100, 190);
-            this.checkSurePanel.Name = "checkSurePanel";
-            this.checkSurePanel.Size = new System.Drawing.Size(350, 150);
-            this.checkSurePanel.TabIndex = 0;
-            this.checkSurePanel.Visible = false;
-            // 
-            // sureYesLabel
-            // 
-            this.sureYesLabel.AutoSize = true;
-            this.sureYesLabel.Font = new System.Drawing.Font("Ode to Idle Gaming", 18F);
-            this.sureYesLabel.ForeColor = System.Drawing.Color.DimGray;
-            this.sureYesLabel.Location = new System.Drawing.Point(67, 87);
-            this.sureYesLabel.Name = "sureYesLabel";
-            this.sureYesLabel.Size = new System.Drawing.Size(81, 42);
-            this.sureYesLabel.TabIndex = 1;
-            this.sureYesLabel.Text = "YES";
-            this.sureYesLabel.Click += new System.EventHandler(this.sureYesLabel_Click);
-            this.sureYesLabel.MouseEnter += new System.EventHandler(this.button_MouseEnter);
-            this.sureYesLabel.MouseLeave += new System.EventHandler(this.button_MouseLeave);
-            // 
-            // sureNoLabel
-            // 
-            this.sureNoLabel.AutoSize = true;
-            this.sureNoLabel.Font = new System.Drawing.Font("Ode to Idle Gaming", 18F);
-            this.sureNoLabel.ForeColor = System.Drawing.Color.DimGray;
-            this.sureNoLabel.Location = new System.Drawing.Point(210, 87);
-            this.sureNoLabel.Name = "sureNoLabel";
-            this.sureNoLabel.Size = new System.Drawing.Size(60, 42);
-            this.sureNoLabel.TabIndex = 2;
-            this.sureNoLabel.Text = "NO";
-            this.sureNoLabel.Click += new System.EventHandler(this.sureNoLabel_Click);
-            this.sureNoLabel.MouseEnter += new System.EventHandler(this.button_MouseEnter);
-            this.sureNoLabel.MouseLeave += new System.EventHandler(this.button_MouseLeave);
-            // 
-            // checkSureLabel
-            // 
-            this.checkSureLabel.AutoSize = true;
-            this.checkSureLabel.Font = new System.Drawing.Font("Ode to Idle Gaming", 20F);
-            this.checkSureLabel.ForeColor = System.Drawing.Color.DimGray;
-            this.checkSureLabel.Location = new System.Drawing.Point(25, 15);
-            this.checkSureLabel.Name = "checkSureLabel";
-            this.checkSureLabel.Size = new System.Drawing.Size(304, 47);
-            this.checkSureLabel.TabIndex = 0;
-            this.checkSureLabel.Text = "Are you sure?";
-            this.checkSureLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
             // exitButton
             // 
             this.exitButton.BackgroundImage = global::Tetris.Properties.Resources.exit;
@@ -2673,17 +2690,6 @@ namespace Tetris
             this.playButton.Click += new System.EventHandler(this.playButton_Click);
             this.playButton.MouseEnter += new System.EventHandler(this.button_MouseEnter);
             this.playButton.MouseLeave += new System.EventHandler(this.button_MouseLeave);
-            // 
-            // mainMenuPictureBox
-            // 
-            this.mainMenuPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainMenuPictureBox.Image = global::Tetris.Properties.Resources.tetrisAnimated;
-            this.mainMenuPictureBox.InitialImage = null;
-            this.mainMenuPictureBox.Location = new System.Drawing.Point(0, 0);
-            this.mainMenuPictureBox.Name = "mainMenuPictureBox";
-            this.mainMenuPictureBox.Size = new System.Drawing.Size(550, 550);
-            this.mainMenuPictureBox.TabIndex = 0;
-            this.mainMenuPictureBox.TabStop = false;
             // 
             // gameBindingSource
             // 
@@ -3132,6 +3138,7 @@ namespace Tetris
         private System.Windows.Forms.PictureBox f151;
         private System.Windows.Forms.PictureBox f132;
         private System.Windows.Forms.PictureBox f131;
+        public System.Windows.Forms.Timer timer;
     }
 }
 

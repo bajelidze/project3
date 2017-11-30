@@ -11,8 +11,9 @@ namespace Tetris
         public bool saveExists = false;
         int score = 0;
         public int[,] nextPiece = new int[4, 4];
-        public int[,] piece = new int[4, 4];
         public int[,] board = new int[21, 10];
+        public int color;
+        public bool pieceExists;
 
         static Random rnd = new Random();
         public int roll;
@@ -156,9 +157,16 @@ namespace Tetris
         // renders the field
         public void rndNextPiece()
         {
-            roll = rnd.Next(1, 20); // random number from 1 to 19 (including)
-
+            roll = rnd.Next(0, 19); // random number from 0 to 18 (including)
             for(int i = 0; i < 4; i++)
+            {
+                for(int j = 0; j < 4; j++)
+                {
+                    nextPiece[i, j] = 0;
+                }
+            }
+
+            for (int i = 0; i < 4; i++)
             {
                 for(int j = 0; j < 4; j++)
                 {
@@ -167,28 +175,31 @@ namespace Tetris
             }
         }
 
-        public void CopyFromNext()
-        {
-            for (int i = 0; i < 4; i++)
-            {
-                for (int j = 0; j < 4; j++)
-                {
-                    piece[i, j] = nextPiece[i, j];
-                }
-            }
-        }
-
-
         public void AddNewPiece()
         {
-            CopyFromNext();
             for(int i = 0; i < 4; i++)
             {
                 for(int j = 0; j < 4; j++)
                 {
-                    board[i, j + 3] = piece[i, j];
+                    if(nextPiece[i, j] != 0)
+                    {
+                        color = nextPiece[i, j];
+                        break;
+                    }
                 }
             }
+
+            for (int i = 0; i < 4; i++)
+            {
+                for(int j = 0; j < 4; j++)
+                {
+                    if(nextPiece[i, j] != 0)
+                    {
+                        board[i, j + 3] = 8;
+                    }
+                }
+            }
+            pieceExists = true;
         }
     }
 }
