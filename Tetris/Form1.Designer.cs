@@ -2,7 +2,7 @@
 
 namespace Tetris
 {
-    partial class Form
+    partial class Form1
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -31,10 +31,16 @@ namespace Tetris
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.mainMenuPanel = new System.Windows.Forms.Panel();
             this.playMenuPanel = new System.Windows.Forms.Panel();
             this.gamePanel = new System.Windows.Forms.Panel();
+            this.levelLabel2 = new System.Windows.Forms.Label();
+            this.linesLabel2 = new System.Windows.Forms.Label();
+            this.scoreLabel2 = new System.Windows.Forms.Label();
+            this.levelLabel = new System.Windows.Forms.Label();
+            this.linesLabel = new System.Windows.Forms.Label();
+            this.scoreLabel = new System.Windows.Forms.Label();
             this.f1810 = new System.Windows.Forms.PictureBox();
             this.f1210 = new System.Windows.Forms.PictureBox();
             this.f610 = new System.Windows.Forms.PictureBox();
@@ -231,12 +237,6 @@ namespace Tetris
             this.n3 = new System.Windows.Forms.PictureBox();
             this.n2 = new System.Windows.Forms.PictureBox();
             this.n1 = new System.Windows.Forms.PictureBox();
-            this.checkSurePanel = new System.Windows.Forms.Panel();
-            this.sureYesLabel = new System.Windows.Forms.Label();
-            this.sureNoLabel = new System.Windows.Forms.Label();
-            this.checkSureLabel = new System.Windows.Forms.Label();
-            this.mainMenuPictureBox = new System.Windows.Forms.PictureBox();
-            this.timer = new System.Windows.Forms.Timer(this.components);
             this.menuButton = new Tetris.Custom();
             this.sfxButton3 = new Tetris.Custom();
             this.musicButton3 = new Tetris.Custom();
@@ -247,11 +247,17 @@ namespace Tetris
             this.newGameButton = new Tetris.Custom();
             this.musicButton1 = new Tetris.Custom();
             this.sfxButton1 = new Tetris.Custom();
+            this.checkSurePanel = new System.Windows.Forms.Panel();
+            this.sureYesLabel = new System.Windows.Forms.Label();
+            this.sureNoLabel = new System.Windows.Forms.Label();
+            this.checkSureLabel = new System.Windows.Forms.Label();
             this.exitButton = new Tetris.Custom();
             this.helpButton = new Tetris.Custom();
             this.scoresButton = new Tetris.Custom();
             this.playButton = new Tetris.Custom();
-            this.gameBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.mainMenuPictureBox = new System.Windows.Forms.PictureBox();
+            this.timer = new System.Windows.Forms.Timer(this.components);
+            this.label1 = new System.Windows.Forms.Label();
             this.mainMenuPanel.SuspendLayout();
             this.playMenuPanel.SuspendLayout();
             this.gamePanel.SuspendLayout();
@@ -453,7 +459,6 @@ namespace Tetris
             ((System.ComponentModel.ISupportInitialize)(this.n1)).BeginInit();
             this.checkSurePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainMenuPictureBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gameBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // mainMenuPanel
@@ -493,6 +498,13 @@ namespace Tetris
             // gamePanel
             // 
             this.gamePanel.BackgroundImage = global::Tetris.Properties.Resources.gameTexture;
+            this.gamePanel.Controls.Add(this.label1);
+            this.gamePanel.Controls.Add(this.levelLabel2);
+            this.gamePanel.Controls.Add(this.linesLabel2);
+            this.gamePanel.Controls.Add(this.scoreLabel2);
+            this.gamePanel.Controls.Add(this.levelLabel);
+            this.gamePanel.Controls.Add(this.linesLabel);
+            this.gamePanel.Controls.Add(this.scoreLabel);
             this.gamePanel.Controls.Add(this.f1810);
             this.gamePanel.Controls.Add(this.f1210);
             this.gamePanel.Controls.Add(this.f610);
@@ -699,6 +711,78 @@ namespace Tetris
             this.gamePanel.Size = new System.Drawing.Size(550, 550);
             this.gamePanel.TabIndex = 6;
             this.gamePanel.Visible = false;
+            // 
+            // levelLabel2
+            // 
+            this.levelLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.levelLabel2.Font = new System.Drawing.Font("Ode to Idle Gaming", 10F);
+            this.levelLabel2.ForeColor = System.Drawing.Color.DimGray;
+            this.levelLabel2.Location = new System.Drawing.Point(349, 400);
+            this.levelLabel2.Name = "levelLabel2";
+            this.levelLabel2.Size = new System.Drawing.Size(152, 23);
+            this.levelLabel2.TabIndex = 11;
+            this.levelLabel2.Text = "0";
+            this.levelLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // linesLabel2
+            // 
+            this.linesLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.linesLabel2.Font = new System.Drawing.Font("Ode to Idle Gaming", 10F);
+            this.linesLabel2.ForeColor = System.Drawing.Color.DimGray;
+            this.linesLabel2.Location = new System.Drawing.Point(349, 343);
+            this.linesLabel2.Name = "linesLabel2";
+            this.linesLabel2.Size = new System.Drawing.Size(152, 23);
+            this.linesLabel2.TabIndex = 11;
+            this.linesLabel2.Text = "0";
+            this.linesLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // scoreLabel2
+            // 
+            this.scoreLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.scoreLabel2.Font = new System.Drawing.Font("Ode to Idle Gaming", 10F);
+            this.scoreLabel2.ForeColor = System.Drawing.Color.DimGray;
+            this.scoreLabel2.Location = new System.Drawing.Point(349, 283);
+            this.scoreLabel2.Name = "scoreLabel2";
+            this.scoreLabel2.Size = new System.Drawing.Size(152, 23);
+            this.scoreLabel2.TabIndex = 11;
+            this.scoreLabel2.Text = "0";
+            this.scoreLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // levelLabel
+            // 
+            this.levelLabel.AutoSize = true;
+            this.levelLabel.BackColor = System.Drawing.Color.Transparent;
+            this.levelLabel.Font = new System.Drawing.Font("Ode to Idle Gaming", 14F);
+            this.levelLabel.ForeColor = System.Drawing.Color.DimGray;
+            this.levelLabel.Location = new System.Drawing.Point(379, 367);
+            this.levelLabel.Name = "levelLabel";
+            this.levelLabel.Size = new System.Drawing.Size(100, 33);
+            this.levelLabel.TabIndex = 10;
+            this.levelLabel.Text = "Level";
+            // 
+            // linesLabel
+            // 
+            this.linesLabel.AutoSize = true;
+            this.linesLabel.BackColor = System.Drawing.Color.Transparent;
+            this.linesLabel.Font = new System.Drawing.Font("Ode to Idle Gaming", 14F);
+            this.linesLabel.ForeColor = System.Drawing.Color.DimGray;
+            this.linesLabel.Location = new System.Drawing.Point(377, 310);
+            this.linesLabel.Name = "linesLabel";
+            this.linesLabel.Size = new System.Drawing.Size(90, 33);
+            this.linesLabel.TabIndex = 10;
+            this.linesLabel.Text = "Lines";
+            // 
+            // scoreLabel
+            // 
+            this.scoreLabel.AutoSize = true;
+            this.scoreLabel.BackColor = System.Drawing.Color.Transparent;
+            this.scoreLabel.Font = new System.Drawing.Font("Ode to Idle Gaming", 14F);
+            this.scoreLabel.ForeColor = System.Drawing.Color.DimGray;
+            this.scoreLabel.Location = new System.Drawing.Point(377, 250);
+            this.scoreLabel.Name = "scoreLabel";
+            this.scoreLabel.Size = new System.Drawing.Size(100, 33);
+            this.scoreLabel.TabIndex = 10;
+            this.scoreLabel.Text = "Score";
             // 
             // f1810
             // 
@@ -2464,76 +2548,6 @@ namespace Tetris
             this.n1.TabIndex = 8;
             this.n1.TabStop = false;
             // 
-            // checkSurePanel
-            // 
-            this.checkSurePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
-            this.checkSurePanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.checkSurePanel.Controls.Add(this.sureYesLabel);
-            this.checkSurePanel.Controls.Add(this.sureNoLabel);
-            this.checkSurePanel.Controls.Add(this.checkSureLabel);
-            this.checkSurePanel.Enabled = false;
-            this.checkSurePanel.Location = new System.Drawing.Point(100, 190);
-            this.checkSurePanel.Name = "checkSurePanel";
-            this.checkSurePanel.Size = new System.Drawing.Size(350, 150);
-            this.checkSurePanel.TabIndex = 0;
-            this.checkSurePanel.Visible = false;
-            // 
-            // sureYesLabel
-            // 
-            this.sureYesLabel.AutoSize = true;
-            this.sureYesLabel.Font = new System.Drawing.Font("Ode to Idle Gaming", 18F);
-            this.sureYesLabel.ForeColor = System.Drawing.Color.DimGray;
-            this.sureYesLabel.Location = new System.Drawing.Point(67, 87);
-            this.sureYesLabel.Name = "sureYesLabel";
-            this.sureYesLabel.Size = new System.Drawing.Size(81, 42);
-            this.sureYesLabel.TabIndex = 1;
-            this.sureYesLabel.Text = "YES";
-            this.sureYesLabel.Click += new System.EventHandler(this.sureYesLabel_Click);
-            this.sureYesLabel.MouseEnter += new System.EventHandler(this.button_MouseEnter);
-            this.sureYesLabel.MouseLeave += new System.EventHandler(this.button_MouseLeave);
-            // 
-            // sureNoLabel
-            // 
-            this.sureNoLabel.AutoSize = true;
-            this.sureNoLabel.Font = new System.Drawing.Font("Ode to Idle Gaming", 18F);
-            this.sureNoLabel.ForeColor = System.Drawing.Color.DimGray;
-            this.sureNoLabel.Location = new System.Drawing.Point(210, 87);
-            this.sureNoLabel.Name = "sureNoLabel";
-            this.sureNoLabel.Size = new System.Drawing.Size(60, 42);
-            this.sureNoLabel.TabIndex = 2;
-            this.sureNoLabel.Text = "NO";
-            this.sureNoLabel.Click += new System.EventHandler(this.sureNoLabel_Click);
-            this.sureNoLabel.MouseEnter += new System.EventHandler(this.button_MouseEnter);
-            this.sureNoLabel.MouseLeave += new System.EventHandler(this.button_MouseLeave);
-            // 
-            // checkSureLabel
-            // 
-            this.checkSureLabel.AutoSize = true;
-            this.checkSureLabel.Font = new System.Drawing.Font("Ode to Idle Gaming", 20F);
-            this.checkSureLabel.ForeColor = System.Drawing.Color.DimGray;
-            this.checkSureLabel.Location = new System.Drawing.Point(25, 15);
-            this.checkSureLabel.Name = "checkSureLabel";
-            this.checkSureLabel.Size = new System.Drawing.Size(304, 47);
-            this.checkSureLabel.TabIndex = 0;
-            this.checkSureLabel.Text = "Are you sure?";
-            this.checkSureLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // mainMenuPictureBox
-            // 
-            this.mainMenuPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainMenuPictureBox.Image = global::Tetris.Properties.Resources.tetrisAnimated;
-            this.mainMenuPictureBox.InitialImage = null;
-            this.mainMenuPictureBox.Location = new System.Drawing.Point(0, 0);
-            this.mainMenuPictureBox.Name = "mainMenuPictureBox";
-            this.mainMenuPictureBox.Size = new System.Drawing.Size(550, 550);
-            this.mainMenuPictureBox.TabIndex = 0;
-            this.mainMenuPictureBox.TabStop = false;
-            // 
-            // timer
-            // 
-            this.timer.Interval = 50;
-            this.timer.Tick += new System.EventHandler(this.timer_Tick);
-            // 
             // menuButton
             // 
             this.menuButton.BackgroundImage = global::Tetris.Properties.Resources.menuButton;
@@ -2640,6 +2654,60 @@ namespace Tetris
             this.sfxButton1.TabIndex = 5;
             this.sfxButton1.Click += new System.EventHandler(this.sfxButton_Click);
             // 
+            // checkSurePanel
+            // 
+            this.checkSurePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
+            this.checkSurePanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.checkSurePanel.Controls.Add(this.sureYesLabel);
+            this.checkSurePanel.Controls.Add(this.sureNoLabel);
+            this.checkSurePanel.Controls.Add(this.checkSureLabel);
+            this.checkSurePanel.Enabled = false;
+            this.checkSurePanel.Location = new System.Drawing.Point(100, 190);
+            this.checkSurePanel.Name = "checkSurePanel";
+            this.checkSurePanel.Size = new System.Drawing.Size(350, 150);
+            this.checkSurePanel.TabIndex = 0;
+            this.checkSurePanel.Visible = false;
+            // 
+            // sureYesLabel
+            // 
+            this.sureYesLabel.AutoSize = true;
+            this.sureYesLabel.Font = new System.Drawing.Font("Ode to Idle Gaming", 18F);
+            this.sureYesLabel.ForeColor = System.Drawing.Color.DimGray;
+            this.sureYesLabel.Location = new System.Drawing.Point(67, 87);
+            this.sureYesLabel.Name = "sureYesLabel";
+            this.sureYesLabel.Size = new System.Drawing.Size(81, 42);
+            this.sureYesLabel.TabIndex = 1;
+            this.sureYesLabel.Text = "YES";
+            this.sureYesLabel.Click += new System.EventHandler(this.sureYesLabel_Click);
+            this.sureYesLabel.MouseEnter += new System.EventHandler(this.button_MouseEnter);
+            this.sureYesLabel.MouseLeave += new System.EventHandler(this.button_MouseLeave);
+            // 
+            // sureNoLabel
+            // 
+            this.sureNoLabel.AutoSize = true;
+            this.sureNoLabel.Font = new System.Drawing.Font("Ode to Idle Gaming", 18F);
+            this.sureNoLabel.ForeColor = System.Drawing.Color.DimGray;
+            this.sureNoLabel.Location = new System.Drawing.Point(210, 87);
+            this.sureNoLabel.Name = "sureNoLabel";
+            this.sureNoLabel.Size = new System.Drawing.Size(60, 42);
+            this.sureNoLabel.TabIndex = 2;
+            this.sureNoLabel.Text = "NO";
+            this.sureNoLabel.Click += new System.EventHandler(this.sureNoLabel_Click);
+            this.sureNoLabel.MouseEnter += new System.EventHandler(this.button_MouseEnter);
+            this.sureNoLabel.MouseLeave += new System.EventHandler(this.button_MouseLeave);
+            // 
+            // checkSureLabel
+            // 
+            this.checkSureLabel.AutoSize = true;
+            this.checkSureLabel.Font = new System.Drawing.Font("Ode to Idle Gaming", 20F);
+            this.checkSureLabel.ForeColor = System.Drawing.Color.DimGray;
+            this.checkSureLabel.Location = new System.Drawing.Point(25, 15);
+            this.checkSureLabel.Name = "checkSureLabel";
+            this.checkSureLabel.Size = new System.Drawing.Size(304, 47);
+            this.checkSureLabel.TabIndex = 0;
+            this.checkSureLabel.Text = "Are you sure?";
+            this.checkSureLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // exitButton
             // 
             this.exitButton.BackgroundImage = global::Tetris.Properties.Resources.exit;
@@ -2691,11 +2759,32 @@ namespace Tetris
             this.playButton.MouseEnter += new System.EventHandler(this.button_MouseEnter);
             this.playButton.MouseLeave += new System.EventHandler(this.button_MouseLeave);
             // 
-            // gameBindingSource
+            // mainMenuPictureBox
             // 
-            this.gameBindingSource.DataSource = typeof(Tetris.Game);
+            this.mainMenuPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainMenuPictureBox.Image = global::Tetris.Properties.Resources.tetrisAnimated;
+            this.mainMenuPictureBox.InitialImage = null;
+            this.mainMenuPictureBox.Location = new System.Drawing.Point(0, 0);
+            this.mainMenuPictureBox.Name = "mainMenuPictureBox";
+            this.mainMenuPictureBox.Size = new System.Drawing.Size(550, 550);
+            this.mainMenuPictureBox.TabIndex = 0;
+            this.mainMenuPictureBox.TabStop = false;
             // 
-            // Form
+            // timer
+            // 
+            this.timer.Interval = 500;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(385, 225);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "label1";
+            // 
+            // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -2706,7 +2795,7 @@ namespace Tetris
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "Form";
+            this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tetris";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -2714,6 +2803,7 @@ namespace Tetris
             this.mainMenuPanel.ResumeLayout(false);
             this.playMenuPanel.ResumeLayout(false);
             this.gamePanel.ResumeLayout(false);
+            this.gamePanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.f1810)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.f1210)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.f610)).EndInit();
@@ -2913,7 +3003,6 @@ namespace Tetris
             this.checkSurePanel.ResumeLayout(false);
             this.checkSurePanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainMenuPictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gameBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2938,7 +3027,6 @@ namespace Tetris
         private Custom musicButton1;
         private Custom sfxButton1;
         private System.Windows.Forms.Panel gamePanel;
-        private System.Windows.Forms.BindingSource gameBindingSource;
         private Custom sfxButton3;
         private Custom musicButton3;
         private Custom menuButton;
@@ -3139,6 +3227,13 @@ namespace Tetris
         private System.Windows.Forms.PictureBox f132;
         private System.Windows.Forms.PictureBox f131;
         public System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.Label scoreLabel;
+        private System.Windows.Forms.Label scoreLabel2;
+        private System.Windows.Forms.Label levelLabel;
+        private System.Windows.Forms.Label linesLabel;
+        private System.Windows.Forms.Label levelLabel2;
+        private System.Windows.Forms.Label linesLabel2;
+        private System.Windows.Forms.Label label1;
     }
 }
 

@@ -17,4 +17,4 @@ C:\Users\PC\Desktop\Tetris\Tetris\obj\Debug\Tetris.csproj.GenerateResource.Cache
 C:\Users\PC\Desktop\Tetris\Tetris\obj\Debug\Tetris.csproj.CoreCompileInputs.cache
 C:\Users\PC\Desktop\Tetris\Tetris\obj\Debug\Tetris.exe
 C:\Users\PC\Desktop\Tetris\Tetris\obj\Debug\Tetris.pdb
-C:\Users\PC\Desktop\Tetris\Tetris\obj\Debug\Tetris.Form.resources
+C:\Users\PC\Desktop\Tetris\Tetris\obj\Debug\Tetris.Form1.resources

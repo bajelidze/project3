@@ -8,43 +8,45 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Media;
+using System.Threading;
 
 namespace Tetris
 {
-    public partial class Form : System.Windows.Forms.Form
+    public partial class Form1 : System.Windows.Forms.Form
     {
-        SoundPlayer Player = new SoundPlayer();
+        SoundPlayer theme = new SoundPlayer();
+
         bool sfxMuted = false;
         bool musicMuted = false;
-        Game game = new Game();
+        Game Game = new Game();
         PictureBox[,] nextPiece = new PictureBox[4, 4];
         PictureBox[,] board = new PictureBox[18, 10];
 
-
-        public Form()
+        public Form1()
         {
             InitializeComponent();
-            musicButton1.BackgroundImage = global::Tetris.Properties.Resources.music;
-            musicButton2.BackgroundImage = global::Tetris.Properties.Resources.music;
-            musicButton3.BackgroundImage = global::Tetris.Properties.Resources.music;
-            sfxButton1.BackgroundImage = global::Tetris.Properties.Resources.sfx;
-            sfxButton2.BackgroundImage = global::Tetris.Properties.Resources.sfx;
-            sfxButton3.BackgroundImage = global::Tetris.Properties.Resources.sfx;
+            musicButton1.BackgroundImage = Tetris.Properties.Resources.music;
+            musicButton2.BackgroundImage = Tetris.Properties.Resources.music;
+            musicButton3.BackgroundImage = Tetris.Properties.Resources.music;
+            sfxButton1.BackgroundImage = Tetris.Properties.Resources.sfx;
+            sfxButton2.BackgroundImage = Tetris.Properties.Resources.sfx;
+            sfxButton3.BackgroundImage = Tetris.Properties.Resources.sfx;
 
+            linesLabel2.Text = Game.lines.ToString();
+            levelLabel2.Text = Game.level.ToString();
+
+            try
+            {
+                theme.SoundLocation = Environment.CurrentDirectory + @"\sound\theme1.wav";
+                Game.rotationSound.SoundLocation = Environment.CurrentDirectory + @"\sound\rotation.wav";
+                Game.stopSound.SoundLocation = Environment.CurrentDirectory + @"\sound\stop.wav";
+                Game.clearSound.SoundLocation = Environment.CurrentDirectory + @"\sound\clear.wav";
+            }
+            catch { }
 
             SetupBoard();
 
-            /*
-            try
-            {
-                this.Player.SoundLocation = Environment.CurrentDirectory + @"\sound\theme1.wav";
-                this.Player.PlayLooping();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error playing sound");
-            }
-            */
+            theme.PlayLooping();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -180,11 +182,12 @@ namespace Tetris
 
         private void newGameButton_Click(object sender, EventArgs e)
         {
-            game.rndNextPiece();
-            game.AddNewPiece();
+            theme.Stop();
+            Game.RandomizeNextPiece();
+            Game.AddNewPiece();
             RenderBoard();
 
-            game.rndNextPiece();
+            Game.RandomizeNextPiece();
             RenderNextPiece();
 
             foreach (Control c in playMenuPanel.Controls)
@@ -207,14 +210,14 @@ namespace Tetris
                 musicButton1.BackgroundImage = global::Tetris.Properties.Resources.musicMuted;
                 musicButton2.BackgroundImage = global::Tetris.Properties.Resources.musicMuted;
                 musicButton3.BackgroundImage = global::Tetris.Properties.Resources.musicMuted;
-                Player.Stop();
+                theme.Stop();
             }
             else
             {
                 try
                 {
-                    this.Player.SoundLocation = Environment.CurrentDirectory + @"\sound\theme1.wav";
-                    this.Player.PlayLooping();
+                    theme.SoundLocation = Environment.CurrentDirectory + @"\sound\theme1.wav";
+                    theme.PlayLooping();
                 }
                 catch (Exception ex)
                 {
@@ -233,16 +236,16 @@ namespace Tetris
             if (sfxMuted == false)
             {
                 sfxMuted = true;
-                sfxButton1.BackgroundImage = global::Tetris.Properties.Resources.sfxMuted;
-                sfxButton2.BackgroundImage = global::Tetris.Properties.Resources.sfxMuted;
-                sfxButton3.BackgroundImage = global::Tetris.Properties.Resources.sfxMuted;
+                sfxButton1.BackgroundImage = Tetris.Properties.Resources.sfxMuted;
+                sfxButton2.BackgroundImage = Tetris.Properties.Resources.sfxMuted;
+                sfxButton3.BackgroundImage = Tetris.Properties.Resources.sfxMuted;
             }
             else
             {
                 sfxMuted = false;
-                sfxButton1.BackgroundImage = global::Tetris.Properties.Resources.sfx;
-                sfxButton2.BackgroundImage = global::Tetris.Properties.Resources.sfx;
-                sfxButton3.BackgroundImage = global::Tetris.Properties.Resources.sfx;
+                sfxButton1.BackgroundImage = Tetris.Properties.Resources.sfx;
+                sfxButton2.BackgroundImage = Tetris.Properties.Resources.sfx;
+                sfxButton3.BackgroundImage = Tetris.Properties.Resources.sfx;
             }
         }
 
@@ -314,42 +317,42 @@ namespace Tetris
             {
                 for (int j = 0; j < 10; j++)
                 {
-                    if (game.board[i , j] == 0)
+                    if (Game.board[i + 3, j] == 0)
                     {
                         //[i, j].BackgroundImage = null;
                         board[i, j].BackColor = Color.DarkGray;
                     }
-                    else if (game.board[i , j] == 1 || (game.board[i , j] == 8 && game.color == 1))
+                    else if (Game.board[i + 3, j] == 1 || (Game.board[i + 3, j] == 8 && Game.color == 1))
                     {
                         // board[i, j].BackgroundImage = global::Tetris.Properties.Resources.Block_LightBlue;
-                        board[i, j].BackColor = Color.LightBlue;
+                        board[i, j].BackColor = Color.Cyan;
                     }
-                    else if (game.board[i , j] == 2 || (game.board[i , j] == 8 && game.color == 2))
+                    else if (Game.board[i + 3, j] == 2 || (Game.board[i + 3, j] == 8 && Game.color == 2))
                     {
                         //board[i, j].BackgroundImage = global::Tetris.Properties.Resources.Block_Purple;
                         board[i, j].BackColor = Color.Purple;
                     }
-                    else if (game.board[i , j] == 3 || (game.board[i, j] == 8 && game.color == 3))
+                    else if (Game.board[i + 3, j] == 3 || (Game.board[i + 3, j] == 8 && Game.color == 3))
                     {
                         //board[i, j].BackgroundImage = global::Tetris.Properties.Resources.Block_Orange;
                         board[i, j].BackColor = Color.Orange;
                     }
-                    else if (game.board[i , j] == 4 || (game.board[i , j] == 8 && game.color == 4))
+                    else if (Game.board[i + 3, j] == 4 || (Game.board[i + 3, j] == 8 && Game.color == 4))
                     {
                         //board[i, j].BackgroundImage = global::Tetris.Properties.Resources.Block_Blue;
                         board[i, j].BackColor = Color.Blue;
                     }
-                    else if (game.board[i , j] == 5 || (game.board[i , j] == 8 && game.color == 5))
+                    else if (Game.board[i + 3, j] == 5 || (Game.board[i + 3, j] == 8 && Game.color == 5))
                     {
                         //board[i, j].BackgroundImage = global::Tetris.Properties.Resources.Block_Red;
                         board[i, j].BackColor = Color.Red;
                     }
-                    else if (game.board[i , j] == 6 || (game.board[i , j] == 8 && game.color == 6))
+                    else if (Game.board[i + 3, j] == 6 || (Game.board[i + 3, j] == 8 && Game.color == 6))
                     {
                         //board[i, j].BackgroundImage = global::Tetris.Properties.Resources.Block_Green;
                         board[i, j].BackColor = Color.Green;
                     }
-                    else if (game.board[i , j] == 7 || (game.board[i , j] == 8 && game.color == 7))
+                    else if (Game.board[i + 3, j] == 7 || (Game.board[i + 3, j] == 8 && Game.color == 7))
                     {
                         //board[i, j].BackgroundImage = global::Tetris.Properties.Resources.Block_Yellow;
                         board[i, j].BackColor = Color.Yellow;
@@ -364,42 +367,42 @@ namespace Tetris
             {
                 for (int j = 0; j < 4; j++)
                 {
-                    if (game.nextPiece[i, j] == 0)
+                    if (Game.nextPiece[i, j] == 0)
                     {
                         //nextPiece[i, j].BackgroundImage = null;
                         nextPiece[i, j].BackColor = Color.Transparent;
                     }
-                    else if (game.nextPiece[i, j] == 1)
+                    else if (Game.nextPiece[i, j] == 1)
                     {
                         //nextPiece[i, j].BackgroundImage = global::Tetris.Properties.Resources.Block_LightBlue;
-                        nextPiece[i, j].BackColor = Color.LightBlue;
+                        nextPiece[i, j].BackColor = Color.Cyan;
                     }
-                    else if (game.nextPiece[i, j] == 2)
+                    else if (Game.nextPiece[i, j] == 2)
                     {
                         // nextPiece[i, j].BackgroundImage = global::Tetris.Properties.Resources.Block_Purple;
                         nextPiece[i, j].BackColor = Color.Purple;
                     }
-                    else if (game.nextPiece[i, j] == 3)
+                    else if (Game.nextPiece[i, j] == 3)
                     {
                         //nextPiece[i, j].BackgroundImage = global::Tetris.Properties.Resources.Block_Orange;
                         nextPiece[i, j].BackColor = Color.Orange;
                     }
-                    else if (game.nextPiece[i, j] == 4)
+                    else if (Game.nextPiece[i, j] == 4)
                     {
                         //nextPiece[i, j].BackgroundImage = global::Tetris.Properties.Resources.Block_Blue;
                         nextPiece[i, j].BackColor = Color.Blue;
                     }
-                    else if (game.nextPiece[i, j] == 5)
+                    else if (Game.nextPiece[i, j] == 5)
                     {
                         //nextPiece[i, j].BackgroundImage = global::Tetris.Properties.Resources.Block_Red;
                         nextPiece[i, j].BackColor = Color.Red;
                     }
-                    else if (game.nextPiece[i, j] == 6)
+                    else if (Game.nextPiece[i, j] == 6)
                     {
-                       // nextPiece[i, j].BackgroundImage = global::Tetris.Properties.Resources.Block_Green;
+                        // nextPiece[i, j].BackgroundImage = global::Tetris.Properties.Resources.Block_Green;
                         nextPiece[i, j].BackColor = Color.Green;
                     }
-                    else if (game.nextPiece[i, j] == 7)
+                    else if (Game.nextPiece[i, j] == 7)
                     {
                         //nextPiece[i, j].BackgroundImage = global::Tetris.Properties.Resources.Block_Yellow;
                         nextPiece[i, j].BackColor = Color.Yellow;
@@ -408,238 +411,126 @@ namespace Tetris
             }
         }
 
-        private void Form_KeyDown(object sender, KeyEventArgs e)
+        private void CheckIfPieceExists()
         {
-            if (gamePanel.Visible == true)
+            if (Game.pieceExists == false)
             {
-                if (e.KeyData == Keys.Down)
-                {
+                Game.stopSound.Play();
 
-                }
-            }
-        }
-
-        private bool PieceCanMoveDown()
-        {
-            int count = 0;
-            for (int i = 0; i < 21; i++)
-            {
-                for (int j = 0; j < 10; j++)
-                {
-                    if (count == 4)
-                    {
-                        for(int r = 0; r < 21; r++)
-                        {
-                            for(int c = 0; c < 10; c++)
-                            {
-                                if(game.board[r, c] == 9)
-                                {
-                                    game.board[r, c] = 8;
-                                }
-                            }
-                        }
-                        return true;
-                    }
-                    else if (game.board[i, j] == 8)
-                    {
-                        count++;
-                        game.board[i, j] = 9;
-                        if (game.board[i + 1, j] == 0)
-                        {
-                            continue;
-                        }
-                        else if (game.board[i + 1, j] == 8)
-                        {
-                            count++;
-                            game.board[i + 1, j] = 9;
-                            if (game.board[i + 2, j] == 0)
-                            {
-                                continue;
-                            }
-                            else if (game.board[i + 2, j] == 8)
-                            {
-                                count++;
-                                game.board[i + 2, j] = 9;
-                                if (game.board[i + 3, j] == 0)
-                                {
-                                    continue;
-                                }
-                                else if (game.board[i + 3, j] == 8)
-                                {
-                                    count++;
-                                    game.board[i + 3, j] = 9;
-                                    if (game.board[i + 4, j] == 0)
-                                    {
-                                        continue;
-                                    }
-                                    else
-                                    {
-                                        for (int r = 0; r < 21; r++)
-                                        {
-                                            for (int c = 0; c < 10; c++)
-                                            {
-                                                if (game.board[r, c] == 9)
-                                                {
-                                                    game.board[r, c] = 8;
-                                                }
-                                            }
-                                        }
-                                        return false;
-                                    }
-                                }
-                                else
-                                {
-                                    for (int r = 0; r < 21; r++)
-                                    {
-                                        for (int c = 0; c < 10; c++)
-                                        {
-                                            if (game.board[r, c] == 9)
-                                            {
-                                                game.board[r, c] = 8;
-                                            }
-                                        }
-                                    }
-                                    return false;
-                                }
-                            }
-                            else
-                            {
-                                for (int r = 0; r < 21; r++)
-                                {
-                                    for (int c = 0; c < 10; c++)
-                                    {
-                                        if (game.board[r, c] == 9)
-                                        {
-                                            game.board[r, c] = 8;
-                                        }
-                                    }
-                                }
-                                return false;
-                            }
-                        }
-                        else
-                        {
-                            for (int r = 0; r < 21; r++)
-                            {
-                                for (int c = 0; c < 10; c++)
-                                {
-                                    if (game.board[r, c] == 9)
-                                    {
-                                        game.board[r, c] = 8;
-                                    }
-                                }
-                            }
-                            return false;
-                        }
-                    }
-                }
-            }
-            return false;
-        }
-
-        private void timer_Tick(object sender, EventArgs e)
-        {
-            if(game.pieceExists == false)
-            {
                 for (int r = 0; r < 21; r++)
                 {
                     for (int c = 0; c < 10; c++)
                     {
-                        if (game.board[r, c] == 9 || game.board[r, c] == 8)
+                        if (Game.board[r, c] == 9 || Game.board[r, c] == 8)
                         {
-                            game.board[r, c] = game.color;
+                            Game.board[r, c] = Game.color;
                         }
                     }
                 }
 
-                game.AddNewPiece();
-                game.rndNextPiece();
+                /*
+                var lines = Game.CheckColumns();
+                
+                if (lines.Count != 0)
+                {
+                    for (int i = 0; i < 2; i++)
+                    {
+                        for (int z = 0; z < lines.Count; z++)
+                        {
+                            for (int j = 0; j < 10; j++)
+                            {
+                                board[lines[z] - 3, j].BackColor = Color.DarkGray;
+                            }
+                        }
+
+
+                        Task.Delay(300);
+                        RenderBoard();
+                        Task.Delay(300);
+                    }
+                }
+                */
+
+                if(Game.RemoveFullColumns() == true)
+                {
+                    if(levelLabel2.Text != Game.level.ToString())
+                    {
+                        levelLabel2.Text = Game.level.ToString();
+                        timer.Stop();
+                        timer.Interval = (timer.Interval * 3) / 4;
+                        label1.Text = timer.Interval.ToString();
+                        timer.Start();
+                    }
+                    scoreLabel2.Text = Game.score.ToString();
+                    linesLabel2.Text = Game.lines.ToString();
+                }
+
+                Game.AddNewPiece();
+                Game.RandomizeNextPiece();
                 RenderNextPiece();
                 RenderBoard();
 
-                game.pieceExists = true;
+                Game.pieceExists = true;
                 return;
             }
-            try
-            {
-                if (PieceCanMoveDown() == true)
-                {
-                    for (int i = 0; i < 21; i++)
-                    {
-                        for (int j = 0; j < 10; j++)
-                        {
-                            if (game.board[i, j] == 8)
-                            {
-                                if (game.board[i + 1, j] == 0)
-                                {
-                                    game.board[i + 1, j] = 9;
-                                    game.board[i, j] = 0;
-                                }
-                                else if (game.board[i + 1, j] == 8)
-                                {
-                                    if (game.board[i + 2, j] == 0)
-                                    {
-                                        game.board[i + 2, j] = 9;
-                                        game.board[i + 1, j] = 9;
-                                        game.board[i, j] = 0;
-                                    }
-                                    else if (game.board[i + 2, j] == 8)
-                                    {
-                                        if (game.board[i + 3, j] == 0)
-                                        {
-                                            game.board[i + 3, j] = 9;
-                                            game.board[i + 2, j] = 9;
-                                            game.board[i + 1, j] = 9;
-                                            game.board[i, j] = 0;
-                                        }
-                                        else if (game.board[i + 3, j] == 8)
-                                        {
-                                            game.board[i + 4, j] = 9;
-                                            game.board[i + 3, j] = 9;
-                                            game.board[i + 2, j] = 9;
-                                            game.board[i + 1, j] = 9;
-                                            game.board[i, j] = 0;
-                                        }
-                                        else
-                                        {
-                                            game.pieceExists = false;
-                                        }
-                                    }
-                                    else
-                                    {
-                                        game.pieceExists = false;
-                                    }
-                                }
-                                else
-                                {
-                                    game.pieceExists = false;
-                                }
-                            }
-                        }
-                    }
-                }
-                else
-                {
-                    game.pieceExists = false;
-                }
-            }
-            catch
-            {
-                game.pieceExists = false;
-            }
+        }
 
-            for (int i = 0; i < 21; i++)
-            {
-                for (int j = 0; j < 10; j++)
-                {
-                    if (game.board[i, j] == 9)
-                    {
-                        game.board[i, j] = 8;
-                    }
-                }
-            }
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            CheckIfPieceExists();
+
+            Game.MovePiece("down");
 
             RenderBoard();
+        }
+
+        private void Form_KeyDown(object sender, KeyEventArgs e)
+        {
+            e.SuppressKeyPress = true;  // without this windows will make ding sound every key press
+
+            if (gamePanel.Visible == true)
+            {
+                if (e.KeyData == Keys.Right)
+                {
+                    CheckIfPieceExists();
+
+                    Game.MovePiece("right");
+
+                    RenderBoard();
+                }
+                else if (e.KeyData == Keys.Left)
+                {
+                    CheckIfPieceExists();
+
+                    Game.MovePiece("left");
+
+                    RenderBoard();
+                }
+                else if (e.KeyData == Keys.Up)
+                {
+                    Game.RotatePiece(true);
+
+                    Game.rotationSound.Play();
+
+                    RenderBoard();
+                }
+                else if (e.KeyData == Keys.Down)
+                {
+                    Game.RotatePiece(false);
+
+                    Game.rotationSound.Play();
+
+                    RenderBoard();
+                }
+                else if (e.KeyData == Keys.Space)
+                {
+                    CheckIfPieceExists();
+
+                    Game.MovePiece("down");
+
+                    RenderBoard();
+                }
+            }
         }
     }
 }
