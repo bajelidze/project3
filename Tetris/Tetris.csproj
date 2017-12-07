@@ -35,6 +35,9 @@
     <ApplicationIcon>icon1.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -68,6 +71,7 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -88,14 +92,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon1.ico" />
-    <None Include="Resources\Block_Yellow.png" />
-    <None Include="Resources\Block_Red.png" />
-    <None Include="Resources\Block_Purple.png" />
-    <None Include="Resources\Block_Orange.png" />
-    <None Include="Resources\Block_LightBlue.png" />
-    <None Include="Resources\Block_Green.png" />
-    <None Include="Resources\Block_Blue.png" />
-    <None Include="Resources\Block_Grey.png" />
+    <None Include="Resources\scoresMenu.jpg" />
+    <None Include="Resources\helpMenu.jpg" />
+    <None Include="Resources\backSelected.jpg" />
+    <None Include="Resources\back.jpg" />
     <None Include="Resources\menuButtonSelected.jpg" />
     <None Include="Resources\menuButton.jpg" />
     <None Include="Resources\gameTexture.jpg" />

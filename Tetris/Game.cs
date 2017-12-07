@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Media;
-using System.Text;
-using System.Threading.Tasks;
+using Newtonsoft.Json;
+using System.IO;
 
 namespace Tetris
 {
@@ -12,17 +11,20 @@ namespace Tetris
         public SoundPlayer clearSound = new SoundPlayer();
         public SoundPlayer stopSound = new SoundPlayer();
         public SoundPlayer rotationSound = new SoundPlayer();
+        public SoundPlayer loss = new SoundPlayer();
 
-        public bool saveExists = false;
         public int score = 0;
         public int level = 1;
         public int lines = 0;
+        public int lines2 = 0;
         public int[,] nextPiece = new int[4, 4];
         public int[,] board = new int[21, 10];
         public int color;
+
         public bool pieceExists;
 
         static Random rnd = new Random();
+
         public int roll = 0;
         public int prevRoll = 0;
 
@@ -201,22 +203,74 @@ namespace Tetris
         };
 
         public Game()
-        {
+        {   
         }
 
-        // sets all elements in field array to 0
-        private void clear()
+        public void StartOver()
         {
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 21; i++)
             {
-                for (int j = 0; j < 21; j++)
+                for (int j = 0; j < 10; j++)
                 {
                     board[i, j] = 0;
                 }
             }
+            for (int i = 0; i < 4; i++)
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    nextPiece[i, j] = 0;
+                }
+            }
+
+
+            score = 0;
+            level = 1;
+            lines = 0;
+            lines2 = 0;
+            color = 0;
+            pieceExists = false;
+            roll = 0;
+            prevRoll = 0;
         }
 
-        // renders the field
+        public void SaveGame()
+        {
+            File.WriteAllText(Environment.CurrentDirectory + @"\JsonFiles\Save\board.json", JsonConvert.SerializeObject(board));
+            File.WriteAllText(Environment.CurrentDirectory + @"\JsonFiles\Save\level.json", JsonConvert.SerializeObject(level));
+            File.WriteAllText(Environment.CurrentDirectory + @"\JsonFiles\Save\score.json", JsonConvert.SerializeObject(score));
+            File.WriteAllText(Environment.CurrentDirectory + @"\JsonFiles\Save\lines.json", JsonConvert.SerializeObject(lines));
+            File.WriteAllText(Environment.CurrentDirectory + @"\JsonFiles\Save\lines2.json", JsonConvert.SerializeObject(lines2));
+            File.WriteAllText(Environment.CurrentDirectory + @"\JsonFiles\Save\nextPiece.json", JsonConvert.SerializeObject(nextPiece));
+            File.WriteAllText(Environment.CurrentDirectory + @"\JsonFiles\Save\color.json", JsonConvert.SerializeObject(color));
+            File.WriteAllText(Environment.CurrentDirectory + @"\JsonFiles\Save\prevRoll.json", JsonConvert.SerializeObject(prevRoll));
+            File.WriteAllText(Environment.CurrentDirectory + @"\JsonFiles\Save\pieceExists.json", JsonConvert.SerializeObject(pieceExists));
+            File.WriteAllText(Environment.CurrentDirectory + @"\JsonFiles\Save\roll.json", JsonConvert.SerializeObject(roll));
+            File.WriteAllText(Environment.CurrentDirectory + @"\JsonFiles\sfxMuted.json", JsonConvert.SerializeObject(Form1.sfxMuted));
+        }
+
+        public void LoadGame()
+        {
+            try
+            {
+                board = JsonConvert.DeserializeObject<int[,]>(File.ReadAllText(Environment.CurrentDirectory + @"\JsonFiles\Save\board.json"));
+                score = JsonConvert.DeserializeObject<int>(File.ReadAllText(Environment.CurrentDirectory + @"\JsonFiles\Save\score.json"));
+                lines = JsonConvert.DeserializeObject<int>(File.ReadAllText(Environment.CurrentDirectory + @"\JsonFiles\Save\lines.json"));
+                lines2 = JsonConvert.DeserializeObject<int>(File.ReadAllText(Environment.CurrentDirectory + @"\JsonFiles\Save\lines2.json"));
+                nextPiece = JsonConvert.DeserializeObject<int[,]>(File.ReadAllText(Environment.CurrentDirectory + @"\JsonFiles\Save\nextPiece.json"));
+                color = JsonConvert.DeserializeObject<int>(File.ReadAllText(Environment.CurrentDirectory + @"\JsonFiles\Save\color.json"));
+                prevRoll = JsonConvert.DeserializeObject<int>(File.ReadAllText(Environment.CurrentDirectory + @"\JsonFiles\Save\prevRoll.json"));
+                pieceExists = JsonConvert.DeserializeObject<bool>(File.ReadAllText(Environment.CurrentDirectory + @"\JsonFiles\Save\pieceExists.json"));
+                roll = JsonConvert.DeserializeObject<int>(File.ReadAllText(Environment.CurrentDirectory + @"\JsonFiles\Save\roll.json"));
+                level = JsonConvert.DeserializeObject<int>(File.ReadAllText(Environment.CurrentDirectory + @"\JsonFiles\Save\level.json"));
+                Form1.sfxMuted = JsonConvert.DeserializeObject<bool>(File.ReadAllText(Environment.CurrentDirectory + @"\JsonFiles\sfxMuted.json"));
+            }
+            catch
+            {
+                SaveGame();
+            }
+        }
+
         public void RandomizeNextPiece()
         {
             prevRoll = roll;
@@ -238,7 +292,7 @@ namespace Tetris
             }
         }
 
-        public void AddNewPiece()
+        public bool AddNewPiece()
         {
             for (int i = 0; i < 4; i++)
             {
@@ -258,11 +312,16 @@ namespace Tetris
                 {
                     if (nextPiece[i, j] != 0)
                     {
+                        if(board[i, j + 3] != 0)
+                        {
+                            return false;
+                        }
                         board[i, j + 3] = 8;
                     }
                 }
             }
             pieceExists = true;
+            return true;
         }
 
         public void RotatePiece(bool clockwise)
@@ -1227,7 +1286,10 @@ namespace Tetris
                     }
                 }
 
-                clearSound.Play();
+                if (Form1.sfxMuted == false)
+                {
+                    clearSound.Play();
+                }
 
                 score += level * linesCleared.Count * 100;
                 if(linesCleared.Count > 1)
@@ -1236,9 +1298,11 @@ namespace Tetris
                 }
 
                 lines += linesCleared.Count;
-                if(lines >= level * 10)
+                lines2 += linesCleared.Count;
+                if(lines2 >= 10)
                 {
                     level++;
+                    lines2 -= 10;
                 }
 
                 return true;

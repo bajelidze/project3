@@ -1,39 +1,54 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Media;
-using System.Threading;
+using Newtonsoft.Json;
+using System.IO;
 
 namespace Tetris
 {
     public partial class Form1 : System.Windows.Forms.Form
     {
+        Game Game = new Game();
+
         SoundPlayer theme = new SoundPlayer();
 
-        bool sfxMuted = false;
-        bool musicMuted = false;
-        Game Game = new Game();
         PictureBox[,] nextPiece = new PictureBox[4, 4];
         PictureBox[,] board = new PictureBox[18, 10];
+
+        string[,] highScores = new string[10, 2];
+        Label[,] highScoresLabels = new Label[10, 2];
+
+        int timer2Time = 3;
+        int n;
+
+        bool paused = false;
+        bool gameOver = false;
+        bool highScore = false;
+        bool musicMuted = false;
+        public static bool sfxMuted = false;
 
         public Form1()
         {
             InitializeComponent();
-            musicButton1.BackgroundImage = Tetris.Properties.Resources.music;
-            musicButton2.BackgroundImage = Tetris.Properties.Resources.music;
-            musicButton3.BackgroundImage = Tetris.Properties.Resources.music;
-            sfxButton1.BackgroundImage = Tetris.Properties.Resources.sfx;
-            sfxButton2.BackgroundImage = Tetris.Properties.Resources.sfx;
-            sfxButton3.BackgroundImage = Tetris.Properties.Resources.sfx;
 
             linesLabel2.Text = Game.lines.ToString();
             levelLabel2.Text = Game.level.ToString();
+
+            try
+            {
+                highScores = JsonConvert.DeserializeObject<string[,]>(File.ReadAllText(Environment.CurrentDirectory + @"\JsonFiles\Save\HighScores.json"));
+                musicMuted = JsonConvert.DeserializeObject<bool>(File.ReadAllText(Environment.CurrentDirectory + @"\JsonFiles\musicMuted.json"));
+                sfxMuted = JsonConvert.DeserializeObject<bool>(File.ReadAllText(Environment.CurrentDirectory + @"\JsonFiles\sfxMuted.json"));
+            }
+            catch
+            {
+                File.WriteAllText(Environment.CurrentDirectory + @"\JsonFiles\Save\HighScores.json", JsonConvert.SerializeObject(highScores));
+                File.WriteAllText(Environment.CurrentDirectory + @"\JsonFiles\Save\musicMuted.json", JsonConvert.SerializeObject(musicMuted));
+                File.WriteAllText(Environment.CurrentDirectory + @"\JsonFiles\Save\sfxMuted.json", JsonConvert.SerializeObject(sfxMuted));
+            }
+
+            SetupScores();
 
             try
             {
@@ -41,12 +56,38 @@ namespace Tetris
                 Game.rotationSound.SoundLocation = Environment.CurrentDirectory + @"\sound\rotation.wav";
                 Game.stopSound.SoundLocation = Environment.CurrentDirectory + @"\sound\stop.wav";
                 Game.clearSound.SoundLocation = Environment.CurrentDirectory + @"\sound\clear.wav";
+                Game.loss.SoundLocation = Environment.CurrentDirectory + @"\sound\loss.wav";
             }
             catch { }
 
-            SetupBoard();
+            if (musicMuted == true)
+            {
+                musicButton1.BackgroundImage = Tetris.Properties.Resources.musicMuted;
+                musicButton2.BackgroundImage = Tetris.Properties.Resources.musicMuted;
+                musicButton3.BackgroundImage = Tetris.Properties.Resources.musicMuted;
+            }
+            else
+            {
+                theme.PlayLooping();
+                musicButton1.BackgroundImage = Tetris.Properties.Resources.music;
+                musicButton2.BackgroundImage = Tetris.Properties.Resources.music;
+                musicButton3.BackgroundImage = Tetris.Properties.Resources.music;
+            }
 
-            theme.PlayLooping();
+            if (sfxMuted == true)
+            {
+                sfxButton1.BackgroundImage = Tetris.Properties.Resources.sfxMuted;
+                sfxButton2.BackgroundImage = Tetris.Properties.Resources.sfxMuted;
+                sfxButton3.BackgroundImage = Tetris.Properties.Resources.sfxMuted;
+            }
+            else
+            {
+                sfxButton1.BackgroundImage = Tetris.Properties.Resources.sfx;
+                sfxButton2.BackgroundImage = Tetris.Properties.Resources.sfx;
+                sfxButton3.BackgroundImage = Tetris.Properties.Resources.sfx;
+            }
+
+            SetupBoard();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -55,54 +96,61 @@ namespace Tetris
 
         private void button_MouseEnter(object sender, EventArgs e)
         {
-            if (sender == menuButton)
+            if (sender == pauseButton)
             {
-                menuButton.BackgroundImage = global::Tetris.Properties.Resources.menuButtonSelected;
-                menuButton.textBrush = new SolidBrush(Color.Green);
+                pauseButton.BackgroundImage = Properties.Resources.menuButtonSelected;
+                pauseButton.textBrush = new SolidBrush(Color.Green);
             }
             else if (sender == exitButton)
             {
-                exitButton.BackgroundImage = global::Tetris.Properties.Resources.exitSelected;
+                exitButton.BackgroundImage = Properties.Resources.exitSelected;
                 exitButton.textBrush = new SolidBrush(Color.DarkRed);
             }
-            else if (sender == sureYesLabel)
+            else if (sender == backButton2 || sender == backButton3)
             {
-                sureYesLabel.ForeColor = Color.Green;
+                ((Custom)sender).BackgroundImage = Properties.Resources.backSelected;
+                ((Custom)sender).textBrush = new SolidBrush(Color.Green);
             }
-            else if (sender == sureNoLabel)
+            else if (sender == sureYesLabel || sender == pauseResumeLabel || sender == hsResumeLabel)
             {
-                sureNoLabel.ForeColor = Color.Red;
+                ((Label)sender).ForeColor = Color.Green;
+            }
+            else if (sender == sureNoLabel || sender == pauseQuitLabel || sender == hsQuitLabel)
+            {
+                ((Label)sender).ForeColor = Color.Red;
             }
             else
             {
-                ((Custom)sender).BackgroundImage = global::Tetris.Properties.Resources.selected;
+                ((Custom)sender).BackgroundImage = Properties.Resources.selected;
                 ((Custom)sender).textBrush = new SolidBrush(Color.Green);
             }
         }
 
         private void button_MouseLeave(object sender, EventArgs e)
         {
-            if (sender == menuButton)
+            if (sender == pauseButton)
             {
-                menuButton.BackgroundImage = global::Tetris.Properties.Resources.menuButton;
-                menuButton.textBrush = new SolidBrush(Color.DimGray);
+                pauseButton.BackgroundImage = Properties.Resources.menuButton;
+                pauseButton.textBrush = new SolidBrush(Color.DimGray);
             }
             else if (sender == exitButton)
             {
-                exitButton.BackgroundImage = global::Tetris.Properties.Resources.exit;
+                exitButton.BackgroundImage = Properties.Resources.exit;
                 exitButton.textBrush = new SolidBrush(Color.DimGray);
             }
-            else if (sender == sureYesLabel)
+            else if (sender == backButton2 || sender == backButton3)
             {
-                sureYesLabel.ForeColor = Color.DimGray;
+                ((Custom)sender).BackgroundImage = Properties.Resources.back;
+                ((Custom)sender).textBrush = new SolidBrush(Color.DimGray);
             }
-            else if (sender == sureNoLabel)
+            else if (sender == sureYesLabel || sender == pauseResumeLabel || sender == pauseQuitLabel || sender == sureNoLabel
+                  || sender == hsResumeLabel || sender == hsQuitLabel)
             {
-                sureNoLabel.ForeColor = Color.DimGray;
+                ((Label)sender).ForeColor = Color.DimGray;
             }
             else
             {
-                ((Custom)sender).BackgroundImage = global::Tetris.Properties.Resources.notSelected;
+                ((Custom)sender).BackgroundImage = Properties.Resources.notSelected;
                 ((Custom)sender).textBrush = new SolidBrush(Color.DimGray);
             }
         }
@@ -145,13 +193,19 @@ namespace Tetris
             }
         }
 
-        //
-        // Play Button Menu
-        //
         private void playButton_Click(object sender, EventArgs e)
         {
             playMenuPanel.Enabled = true;
             playMenuPanel.Visible = true;
+            foreach (Control c in playMenuPanel.Controls)
+            {
+                if (c is Panel)
+                {
+                    continue;
+                }
+                c.Enabled = true;
+                c.Visible = true;
+            }
 
             foreach (Control c in mainMenuPanel.Controls)
             {
@@ -162,6 +216,8 @@ namespace Tetris
                 c.Enabled = false;
                 c.Visible = false;
             }
+
+            pauseButton.Enabled = false;
         }
 
         private void backButton_Click(object sender, EventArgs e)
@@ -182,7 +238,16 @@ namespace Tetris
 
         private void newGameButton_Click(object sender, EventArgs e)
         {
+            Game.StartOver();
+            timer2Time = 3;
+            timer.Interval = 500;
+            timeLabel.Text = timer2Time.ToString();
+            scoreLabel2.Text = Game.score.ToString();
+            levelLabel2.Text = Game.level.ToString();
+            linesLabel2.Text = Game.lines.ToString();
             theme.Stop();
+            musicButton3.BackgroundImage = Tetris.Properties.Resources.musicMuted;
+
             Game.RandomizeNextPiece();
             Game.AddNewPiece();
             RenderBoard();
@@ -196,10 +261,67 @@ namespace Tetris
                 c.Enabled = false;
             }
 
+            pausePanel.Visible = false;
+            pausePanel.Enabled = false;
+
             gamePanel.Visible = true;
             gamePanel.Enabled = true;
 
-            timer.Enabled = true;
+            timePanel.Visible = true;
+            timePanel.Enabled = true;
+            timeLabel.Visible = true;
+            timeLabel.Enabled = true;
+
+            timer2.Enabled = true;
+        }
+
+        private void loadGameButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Game.LoadGame();
+            }
+            catch { }
+
+            try
+            {
+                timer.Interval = JsonConvert.DeserializeObject<int>(File.ReadAllText(Environment.CurrentDirectory + @"\JsonFiles\Save\timer.json"));
+            }
+            catch
+            {
+                File.WriteAllText(Environment.CurrentDirectory + @"\JsonFiles\Save\timer.json", JsonConvert.SerializeObject(timer.Interval));
+            }
+
+            timer2Time = 3;
+            timeLabel.Text = timer2Time.ToString();
+            scoreLabel2.Text = Game.score.ToString();
+            levelLabel2.Text = Game.level.ToString();
+            linesLabel2.Text = Game.lines.ToString();
+            theme.Stop();
+            musicButton3.BackgroundImage = Tetris.Properties.Resources.musicMuted;
+
+            RenderBoard();
+
+            RenderNextPiece();
+
+            foreach (Control c in playMenuPanel.Controls)
+            {
+                c.Visible = false;
+                c.Enabled = false;
+            }
+
+            pausePanel.Visible = false;
+            pausePanel.Enabled = false;
+
+            gamePanel.Visible = true;
+            gamePanel.Enabled = true;
+
+            timePanel.Visible = true;
+            timePanel.Enabled = true;
+            timeLabel.Visible = true;
+            timeLabel.Enabled = true;
+
+            timer2.Enabled = true;
         }
 
         private void musicButton_Click(object sender, EventArgs e)
@@ -207,28 +329,24 @@ namespace Tetris
             if (musicMuted == false)
             {
                 musicMuted = true;
-                musicButton1.BackgroundImage = global::Tetris.Properties.Resources.musicMuted;
-                musicButton2.BackgroundImage = global::Tetris.Properties.Resources.musicMuted;
-                musicButton3.BackgroundImage = global::Tetris.Properties.Resources.musicMuted;
+
+                musicButton1.BackgroundImage = Tetris.Properties.Resources.musicMuted;
+                musicButton2.BackgroundImage = Tetris.Properties.Resources.musicMuted;
+                musicButton3.BackgroundImage = Tetris.Properties.Resources.musicMuted;
                 theme.Stop();
             }
             else
             {
-                try
-                {
-                    theme.SoundLocation = Environment.CurrentDirectory + @"\sound\theme1.wav";
-                    theme.PlayLooping();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "Error playing sound");
-                }
-
                 musicMuted = false;
-                musicButton1.BackgroundImage = global::Tetris.Properties.Resources.music;
-                musicButton2.BackgroundImage = global::Tetris.Properties.Resources.music;
-                musicButton3.BackgroundImage = global::Tetris.Properties.Resources.music;
+
+                musicButton1.BackgroundImage = Tetris.Properties.Resources.music;
+                musicButton2.BackgroundImage = Tetris.Properties.Resources.music;
+                musicButton3.BackgroundImage = Tetris.Properties.Resources.music;
+
+                theme.PlayLooping();
             }
+
+            File.WriteAllText(Environment.CurrentDirectory + @"\JsonFiles\musicMuted.json", JsonConvert.SerializeObject(musicMuted));
         }
 
         private void sfxButton_Click(object sender, EventArgs e)
@@ -236,6 +354,7 @@ namespace Tetris
             if (sfxMuted == false)
             {
                 sfxMuted = true;
+
                 sfxButton1.BackgroundImage = Tetris.Properties.Resources.sfxMuted;
                 sfxButton2.BackgroundImage = Tetris.Properties.Resources.sfxMuted;
                 sfxButton3.BackgroundImage = Tetris.Properties.Resources.sfxMuted;
@@ -243,9 +362,213 @@ namespace Tetris
             else
             {
                 sfxMuted = false;
+
                 sfxButton1.BackgroundImage = Tetris.Properties.Resources.sfx;
                 sfxButton2.BackgroundImage = Tetris.Properties.Resources.sfx;
                 sfxButton3.BackgroundImage = Tetris.Properties.Resources.sfx;
+            }
+
+            File.WriteAllText(Environment.CurrentDirectory + @"\JsonFiles\sfxMuted.json", JsonConvert.SerializeObject(sfxMuted));
+        }
+
+        private void pauseResumeLabel_Click(object sender, EventArgs e)
+        {
+
+            if (gameOver == false)
+            {
+                timer.Start();
+                pausePanel.Visible = false;
+                pausePanel.Enabled = false;
+
+                foreach (Control c in gamePanel.Controls)
+                {
+                    c.Enabled = true;
+                }
+            }
+            else
+            {
+                newGameButton_Click(null, null);
+            }
+
+            gameOver = false;
+            paused = false;
+
+            if (highScore == true)
+            {
+                hsPanel.Enabled = false;
+                hsPanel.Visible = false;
+                highScore = false;
+
+                highScores[n, 0] = nameTextBox.Text;
+                if (nameTextBox.Text == null || nameTextBox.Text == "")
+                {
+                    highScores[n, 0] = "Player";
+                }
+                highScoresLabels[n, 0].Text = highScores[n, 0];
+                highScoresLabels[n, 1].Text = highScores[n, 1];
+                nameTextBox.Text = null;
+
+                File.WriteAllText(Environment.CurrentDirectory + @"\JsonFiles\Save\HighScores.json", JsonConvert.SerializeObject(highScores));
+            }
+        }
+
+        private void pauseQuitLabel_Click(object sender, EventArgs e)
+        {
+            if (gameOver == false)
+            {
+                Game.SaveGame();
+                File.WriteAllText(Environment.CurrentDirectory + @"\JsonFiles\Save\timer.json", JsonConvert.SerializeObject(timer.Interval));
+            }
+
+            paused = false;
+
+            foreach (Control c in mainMenuPanel.Controls)
+            {
+                if (c is Panel)
+                {
+                    continue;
+                }
+                c.Enabled = true;
+                c.Visible = true;
+            }
+
+            playMenuPanel.Enabled = false;
+            playMenuPanel.Visible = false;
+            gamePanel.Enabled = false;
+            gamePanel.Visible = false;
+
+            if (musicMuted == false)
+            {
+                theme.PlayLooping();
+            }
+            gameOver = false;
+
+            if (highScore == true)
+            {
+                hsPanel.Enabled = false;
+                hsPanel.Visible = false;
+                highScore = false;
+
+                highScores[n, 0] = nameTextBox.Text;
+                if (nameTextBox.Text == null || nameTextBox.Text == "")
+                {
+                    highScores[n, 0] = "Player";
+                }
+                highScoresLabels[n, 0].Text = highScores[n, 0];
+                highScoresLabels[n, 1].Text = highScores[n, 1];
+                nameTextBox.Text = null;
+
+                File.WriteAllText(Environment.CurrentDirectory + @"\JsonFiles\Save\HighScores.json", JsonConvert.SerializeObject(highScores));
+            }
+        }
+
+        private void pauseButton_Click(object sender, EventArgs e)
+        {
+            if (timer2Time == 0)
+            {
+                scorePauseLabel.Text = "Score: " + Game.score.ToString();
+                pauseResumeLabel.Text = "Resume";
+                pauseQuitLabel.Text = "Save and Quit";
+                pauseLabel.Text = "Paused";
+                timer.Stop();
+                paused = true;
+                pausePanel.Visible = true;
+                pausePanel.Enabled = true;
+
+                foreach (Control c in gamePanel.Controls)
+                {
+                    if (c is Panel || c is Label || c == sfxButton3 || c == musicButton3)
+                    {
+                        continue;
+                    }
+                    c.Enabled = false;
+                }
+            }
+        }
+
+        private void scoresButton_Click(object sender, EventArgs e)
+        {
+            scoresPanel.Enabled = true;
+            scoresPanel.Visible = true;
+
+            foreach (Control c in mainMenuPanel.Controls)
+            {
+                if (c is Panel)
+                {
+                    continue;
+                }
+                c.Enabled = false;
+                c.Visible = false;
+            }
+        }
+
+        private void backButton2_Click(object sender, EventArgs e)
+        {
+            foreach (Control c in mainMenuPanel.Controls)
+            {
+                if (c is Panel)
+                {
+                    continue;
+                }
+                c.Enabled = true;
+                c.Visible = true;
+            }
+
+            scoresPanel.Enabled = false;
+            scoresPanel.Visible = false;
+        }
+
+        private void backButton3_Click(object sender, EventArgs e)
+        {
+            foreach (Control c in mainMenuPanel.Controls)
+            {
+                if (c is Panel)
+                {
+                    continue;
+                }
+                c.Enabled = true;
+                c.Visible = true;
+            }
+
+            helpPanel.Enabled = false;
+            helpPanel.Visible = false;
+        }
+
+        private void helpButton_Click(object sender, EventArgs e)
+        {
+            helpPanel.Enabled = true;
+            helpPanel.Visible = true;
+
+            foreach (Control c in mainMenuPanel.Controls)
+            {
+                if (c is Panel)
+                {
+                    continue;
+                }
+                c.Enabled = false;
+                c.Visible = false;
+            }
+        }
+
+        private void SetupScores()
+        {
+            highScoresLabels[0, 0] = l00; highScoresLabels[0, 1] = l01;
+            highScoresLabels[1, 0] = l10; highScoresLabels[1, 1] = l11;
+            highScoresLabels[2, 0] = l20; highScoresLabels[2, 1] = l21;
+            highScoresLabels[3, 0] = l30; highScoresLabels[3, 1] = l31;
+            highScoresLabels[4, 0] = l40; highScoresLabels[4, 1] = l41;
+            highScoresLabels[5, 0] = l50; highScoresLabels[5, 1] = l51;
+            highScoresLabels[6, 0] = l60; highScoresLabels[6, 1] = l61;
+            highScoresLabels[7, 0] = l70; highScoresLabels[7, 1] = l71;
+            highScoresLabels[8, 0] = l80; highScoresLabels[8, 1] = l81;
+            highScoresLabels[9, 0] = l90; highScoresLabels[9, 1] = l91;
+
+            for(int i = 0; i < 10; i++)
+            {
+                for(int j = 0; j < 2; j++)
+                {
+                    highScoresLabels[i, j].Text = highScores[i, j];
+                }
             }
         }
 
@@ -415,7 +738,10 @@ namespace Tetris
         {
             if (Game.pieceExists == false)
             {
-                Game.stopSound.Play();
+                if (sfxMuted == false)
+                {
+                    Game.stopSound.Play();
+                }
 
                 for (int r = 0; r < 21; r++)
                 {
@@ -428,44 +754,84 @@ namespace Tetris
                     }
                 }
 
-                /*
-                var lines = Game.CheckColumns();
-                
-                if (lines.Count != 0)
+                if (Game.RemoveFullColumns() == true)
                 {
-                    for (int i = 0; i < 2; i++)
-                    {
-                        for (int z = 0; z < lines.Count; z++)
-                        {
-                            for (int j = 0; j < 10; j++)
-                            {
-                                board[lines[z] - 3, j].BackColor = Color.DarkGray;
-                            }
-                        }
-
-
-                        Task.Delay(300);
-                        RenderBoard();
-                        Task.Delay(300);
-                    }
-                }
-                */
-
-                if(Game.RemoveFullColumns() == true)
-                {
-                    if(levelLabel2.Text != Game.level.ToString())
+                    if (levelLabel2.Text != Game.level.ToString())
                     {
                         levelLabel2.Text = Game.level.ToString();
                         timer.Stop();
-                        timer.Interval = (timer.Interval * 3) / 4;
-                        label1.Text = timer.Interval.ToString();
+                        try
+                        {
+                            timer.Interval = (timer.Interval * 3) / 4;
+                        }
+                        catch { }
                         timer.Start();
                     }
                     scoreLabel2.Text = Game.score.ToString();
                     linesLabel2.Text = Game.lines.ToString();
                 }
 
-                Game.AddNewPiece();
+                if (Game.AddNewPiece() == false)
+                {
+                    for (n = 0; n < 10; n++)
+                    {
+                        if (highScores[n, 1] == null)
+                        {
+                            highScore = true;
+                            highScores[n, 1] = Game.score.ToString();
+                            break;
+                        }
+                        else if (Convert.ToInt32(highScores[n, 1]) < Game.score)
+                        {
+                            highScore = true;
+                            for (int j = 9; j > n; j--)
+                            {
+                                highScores[j, 1] = highScores[j - 1, 1];
+                                highScores[j, 0] = highScores[j - 1, 0];
+                                highScoresLabels[j, 1].Text = highScores[j, 1];
+                                highScoresLabels[j, 0].Text = highScores[j, 0];
+                            }
+                            highScores[n, 1] = Game.score.ToString();
+                            break;
+                        }
+                    }
+
+                    paused = true;
+                    if (sfxMuted == false)
+                    {
+                        Game.loss.Play();
+                    }
+
+                    timer.Stop();
+                    gameOver = true;
+
+                    foreach (Control c in gamePanel.Controls)
+                    {
+                        if (c is Panel || c is Label || c == sfxButton3 || c == musicButton3)
+                        {
+                            continue;
+                        }
+                        c.Enabled = false;
+                    }
+
+                    if (highScore == false)
+                    {
+                        scorePauseLabel.Text = "Score: " + Game.score.ToString();
+                        pauseResumeLabel.Text = "New Game";
+                        pauseQuitLabel.Text = "Main Menu";
+                        pauseLabel.Text = "Game Over";
+
+                        pausePanel.Visible = true;
+                        pausePanel.Enabled = true;
+                    }
+                    else
+                    {
+                        score2Label.Text = "Score: " + Game.score.ToString();
+                        hsPanel.Visible = true;
+                        hsPanel.Enabled = true;
+                    }
+                }
+
                 Game.RandomizeNextPiece();
                 RenderNextPiece();
                 RenderBoard();
@@ -484,13 +850,31 @@ namespace Tetris
             RenderBoard();
         }
 
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            timer2Time--;
+            timeLabel.Text = timer2Time.ToString();
+            if (timer2Time == 0)
+            {
+                timer2.Enabled = false;
+                timePanel.Visible = false;
+                timePanel.Enabled = false;
+                pauseButton.Enabled = true;
+                timer.Enabled = true;
+            }
+        }
+
         private void Form_KeyDown(object sender, KeyEventArgs e)
         {
             e.SuppressKeyPress = true;  // without this windows will make ding sound every key press
 
-            if (gamePanel.Visible == true)
+            if ((e.KeyData == (Keys.Control | Keys.M)) || e.KeyData == Keys.M)
             {
-                if (e.KeyData == Keys.Right)
+                sfxButton_Click(null, null);
+            }
+            else if (gamePanel.Visible == true && paused == false && timer2Time == 0 && gameOver == false)
+            {
+                if (e.KeyData == Keys.Right || e.KeyData == Keys.D)
                 {
                     CheckIfPieceExists();
 
@@ -498,7 +882,7 @@ namespace Tetris
 
                     RenderBoard();
                 }
-                else if (e.KeyData == Keys.Left)
+                else if (e.KeyData == Keys.Left || e.KeyData == Keys.A)
                 {
                     CheckIfPieceExists();
 
@@ -506,19 +890,25 @@ namespace Tetris
 
                     RenderBoard();
                 }
-                else if (e.KeyData == Keys.Up)
+                else if (e.KeyData == Keys.Up || e.KeyData == Keys.W)
                 {
                     Game.RotatePiece(true);
 
-                    Game.rotationSound.Play();
+                    if (sfxMuted == false)
+                    {
+                        Game.rotationSound.Play();
+                    }
 
                     RenderBoard();
                 }
-                else if (e.KeyData == Keys.Down)
+                else if (e.KeyData == Keys.Down || e.KeyData == Keys.S)
                 {
                     Game.RotatePiece(false);
 
-                    Game.rotationSound.Play();
+                    if (sfxMuted == false)
+                    {
+                        Game.rotationSound.Play();
+                    }
 
                     RenderBoard();
                 }
@@ -529,6 +919,30 @@ namespace Tetris
                     Game.MovePiece("down");
 
                     RenderBoard();
+                }
+                else if (e.KeyData == Keys.Home)
+                {
+                    Game.level++;
+
+                    levelLabel2.Text = Game.level.ToString();
+                    timer.Stop();
+                    try
+                    {
+                        timer.Interval = (timer.Interval * 3) / 4;
+                    }
+                    catch { }
+                    timer.Start();
+                }
+                else if ((e.KeyData == (Keys.Control | Keys.P)) || e.KeyData == Keys.P)
+                {
+                    pauseButton_Click(null, null);
+                }
+            }
+            else if (gamePanel.Visible == true && paused == true)
+            {
+                if (gameOver == false && ((e.KeyData == (Keys.Control | Keys.P)) || e.KeyData == Keys.P || (e.KeyData == (Keys.Control | Keys.G))))
+                {
+                    pauseResumeLabel_Click(null, null);
                 }
             }
         }

@@ -18,3 +18,5 @@ C:\Users\PC\Desktop\Tetris\Tetris\obj\Debug\Tetris.csproj.CoreCompileInputs.cach
 C:\Users\PC\Desktop\Tetris\Tetris\obj\Debug\Tetris.exe
 C:\Users\PC\Desktop\Tetris\Tetris\obj\Debug\Tetris.pdb
 C:\Users\PC\Desktop\Tetris\Tetris\obj\Debug\Tetris.Form1.resources
+C:\Users\PC\Desktop\Tetris\Tetris\bin\Debug\Newtonsoft.Json.dll
+C:\Users\PC\Desktop\Tetris\Tetris\bin\Debug\Newtonsoft.Json.xml

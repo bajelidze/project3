@@ -118,8 +118,8 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="tetrisAnimated" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\tetrisAnimated.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="backSelected" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\backSelected.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="exit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\exit.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -130,14 +130,14 @@
   <data name="selected" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\selected.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="helpMenu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\helpMenu.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="exitSelected" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\exitSelected.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="notSelected" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\notSelected.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Block_Grey" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Block_Grey.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="scoresMenu1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\scoresMenu1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="menuButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\menuButton.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -145,40 +145,31 @@
   <data name="gameTexture" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\gameTexture.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="musicMuted" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\musicMuted.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Block_LightBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Block_LightBlue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Block_Red" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Block_Red.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="back" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\back.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="music" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\music.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Block_Orange" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Block_Orange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="sfxMuted" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sfxMuted.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Block_Blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Block_Blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="musicMuted" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\musicMuted.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="notSelected" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\notSelected.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="playMenu" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\playMenu.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Block_Purple" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Block_Purple.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Block_Green" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Block_Green.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="tetrisAnimated" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tetrisAnimated.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="menuButtonSelected" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\menuButtonSelected.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Block_Yellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Block_Yellow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="scoresMenu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\scoresMenu.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

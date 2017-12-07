@@ -33,8 +33,25 @@ namespace Tetris
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.mainMenuPanel = new System.Windows.Forms.Panel();
+            this.helpPanel = new System.Windows.Forms.Panel();
+            this.backButton3 = new Tetris.Custom();
             this.playMenuPanel = new System.Windows.Forms.Panel();
             this.gamePanel = new System.Windows.Forms.Panel();
+            this.hsPanel = new System.Windows.Forms.Panel();
+            this.nameTextBox = new System.Windows.Forms.TextBox();
+            this.hsQuitLabel = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.hsResumeLabel = new System.Windows.Forms.Label();
+            this.score2Label = new System.Windows.Forms.Label();
+            this.hsLabel = new System.Windows.Forms.Label();
+            this.gameOverLabel = new System.Windows.Forms.Label();
+            this.pausePanel = new System.Windows.Forms.Panel();
+            this.pauseQuitLabel = new System.Windows.Forms.Label();
+            this.pauseResumeLabel = new System.Windows.Forms.Label();
+            this.scorePauseLabel = new System.Windows.Forms.Label();
+            this.pauseLabel = new System.Windows.Forms.Label();
+            this.timePanel = new System.Windows.Forms.Panel();
+            this.timeLabel = new System.Windows.Forms.Label();
             this.levelLabel2 = new System.Windows.Forms.Label();
             this.linesLabel2 = new System.Windows.Forms.Label();
             this.scoreLabel2 = new System.Windows.Forms.Label();
@@ -237,7 +254,7 @@ namespace Tetris
             this.n3 = new System.Windows.Forms.PictureBox();
             this.n2 = new System.Windows.Forms.PictureBox();
             this.n1 = new System.Windows.Forms.PictureBox();
-            this.menuButton = new Tetris.Custom();
+            this.pauseButton = new Tetris.Custom();
             this.sfxButton3 = new Tetris.Custom();
             this.musicButton3 = new Tetris.Custom();
             this.musicButton2 = new Tetris.Custom();
@@ -256,11 +273,37 @@ namespace Tetris
             this.scoresButton = new Tetris.Custom();
             this.playButton = new Tetris.Custom();
             this.mainMenuPictureBox = new System.Windows.Forms.PictureBox();
+            this.scoresPanel = new System.Windows.Forms.Panel();
+            this.backButton2 = new Tetris.Custom();
+            this.l91 = new System.Windows.Forms.Label();
+            this.l81 = new System.Windows.Forms.Label();
+            this.l41 = new System.Windows.Forms.Label();
+            this.l71 = new System.Windows.Forms.Label();
+            this.l31 = new System.Windows.Forms.Label();
+            this.l61 = new System.Windows.Forms.Label();
+            this.l21 = new System.Windows.Forms.Label();
+            this.l90 = new System.Windows.Forms.Label();
+            this.l11 = new System.Windows.Forms.Label();
+            this.l80 = new System.Windows.Forms.Label();
+            this.l40 = new System.Windows.Forms.Label();
+            this.l70 = new System.Windows.Forms.Label();
+            this.l30 = new System.Windows.Forms.Label();
+            this.l60 = new System.Windows.Forms.Label();
+            this.l20 = new System.Windows.Forms.Label();
+            this.l51 = new System.Windows.Forms.Label();
+            this.l10 = new System.Windows.Forms.Label();
+            this.l50 = new System.Windows.Forms.Label();
+            this.l01 = new System.Windows.Forms.Label();
+            this.l00 = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.label1 = new System.Windows.Forms.Label();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.mainMenuPanel.SuspendLayout();
+            this.helpPanel.SuspendLayout();
             this.playMenuPanel.SuspendLayout();
             this.gamePanel.SuspendLayout();
+            this.hsPanel.SuspendLayout();
+            this.pausePanel.SuspendLayout();
+            this.timePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.f1810)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.f1210)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.f610)).BeginInit();
@@ -459,10 +502,12 @@ namespace Tetris
             ((System.ComponentModel.ISupportInitialize)(this.n1)).BeginInit();
             this.checkSurePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainMenuPictureBox)).BeginInit();
+            this.scoresPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainMenuPanel
             // 
+            this.mainMenuPanel.Controls.Add(this.helpPanel);
             this.mainMenuPanel.Controls.Add(this.playMenuPanel);
             this.mainMenuPanel.Controls.Add(this.musicButton1);
             this.mainMenuPanel.Controls.Add(this.sfxButton1);
@@ -472,11 +517,36 @@ namespace Tetris
             this.mainMenuPanel.Controls.Add(this.scoresButton);
             this.mainMenuPanel.Controls.Add(this.playButton);
             this.mainMenuPanel.Controls.Add(this.mainMenuPictureBox);
+            this.mainMenuPanel.Controls.Add(this.scoresPanel);
             this.mainMenuPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainMenuPanel.Location = new System.Drawing.Point(0, 0);
             this.mainMenuPanel.Name = "mainMenuPanel";
             this.mainMenuPanel.Size = new System.Drawing.Size(550, 550);
             this.mainMenuPanel.TabIndex = 1;
+            // 
+            // helpPanel
+            // 
+            this.helpPanel.BackgroundImage = global::Tetris.Properties.Resources.helpMenu;
+            this.helpPanel.Controls.Add(this.backButton3);
+            this.helpPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.helpPanel.Location = new System.Drawing.Point(0, 0);
+            this.helpPanel.Name = "helpPanel";
+            this.helpPanel.Size = new System.Drawing.Size(550, 550);
+            this.helpPanel.TabIndex = 15;
+            this.helpPanel.Visible = false;
+            // 
+            // backButton3
+            // 
+            this.backButton3.BackgroundImage = global::Tetris.Properties.Resources.back;
+            this.backButton3.Font = new System.Drawing.Font("Ode to Idle Gaming", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.backButton3.Location = new System.Drawing.Point(225, 475);
+            this.backButton3.Name = "backButton3";
+            this.backButton3.Size = new System.Drawing.Size(100, 75);
+            this.backButton3.TabIndex = 0;
+            this.backButton3.Text = "back";
+            this.backButton3.Click += new System.EventHandler(this.backButton3_Click);
+            this.backButton3.MouseEnter += new System.EventHandler(this.button_MouseEnter);
+            this.backButton3.MouseLeave += new System.EventHandler(this.button_MouseLeave);
             // 
             // playMenuPanel
             // 
@@ -498,7 +568,9 @@ namespace Tetris
             // gamePanel
             // 
             this.gamePanel.BackgroundImage = global::Tetris.Properties.Resources.gameTexture;
-            this.gamePanel.Controls.Add(this.label1);
+            this.gamePanel.Controls.Add(this.hsPanel);
+            this.gamePanel.Controls.Add(this.pausePanel);
+            this.gamePanel.Controls.Add(this.timePanel);
             this.gamePanel.Controls.Add(this.levelLabel2);
             this.gamePanel.Controls.Add(this.linesLabel2);
             this.gamePanel.Controls.Add(this.scoreLabel2);
@@ -701,7 +773,7 @@ namespace Tetris
             this.gamePanel.Controls.Add(this.n3);
             this.gamePanel.Controls.Add(this.n2);
             this.gamePanel.Controls.Add(this.n1);
-            this.gamePanel.Controls.Add(this.menuButton);
+            this.gamePanel.Controls.Add(this.pauseButton);
             this.gamePanel.Controls.Add(this.sfxButton3);
             this.gamePanel.Controls.Add(this.musicButton3);
             this.gamePanel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -711,6 +783,190 @@ namespace Tetris
             this.gamePanel.Size = new System.Drawing.Size(550, 550);
             this.gamePanel.TabIndex = 6;
             this.gamePanel.Visible = false;
+            // 
+            // hsPanel
+            // 
+            this.hsPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
+            this.hsPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.hsPanel.Controls.Add(this.nameTextBox);
+            this.hsPanel.Controls.Add(this.hsQuitLabel);
+            this.hsPanel.Controls.Add(this.label3);
+            this.hsPanel.Controls.Add(this.hsResumeLabel);
+            this.hsPanel.Controls.Add(this.score2Label);
+            this.hsPanel.Controls.Add(this.hsLabel);
+            this.hsPanel.Controls.Add(this.gameOverLabel);
+            this.hsPanel.Location = new System.Drawing.Point(150, 125);
+            this.hsPanel.Name = "hsPanel";
+            this.hsPanel.Size = new System.Drawing.Size(250, 300);
+            this.hsPanel.TabIndex = 14;
+            this.hsPanel.Visible = false;
+            // 
+            // nameTextBox
+            // 
+            this.nameTextBox.BackColor = System.Drawing.Color.DarkGray;
+            this.nameTextBox.Font = new System.Drawing.Font("Ode to Idle Gaming", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nameTextBox.ForeColor = System.Drawing.Color.DimGray;
+            this.nameTextBox.Location = new System.Drawing.Point(100, 138);
+            this.nameTextBox.Name = "nameTextBox";
+            this.nameTextBox.Size = new System.Drawing.Size(135, 35);
+            this.nameTextBox.TabIndex = 1;
+            // 
+            // hsQuitLabel
+            // 
+            this.hsQuitLabel.Font = new System.Drawing.Font("Ode to Idle Gaming", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hsQuitLabel.ForeColor = System.Drawing.Color.DimGray;
+            this.hsQuitLabel.Location = new System.Drawing.Point(-2, 238);
+            this.hsQuitLabel.Name = "hsQuitLabel";
+            this.hsQuitLabel.Size = new System.Drawing.Size(250, 37);
+            this.hsQuitLabel.TabIndex = 0;
+            this.hsQuitLabel.Text = "Main Menu";
+            this.hsQuitLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.hsQuitLabel.Click += new System.EventHandler(this.pauseQuitLabel_Click);
+            this.hsQuitLabel.MouseEnter += new System.EventHandler(this.button_MouseEnter);
+            this.hsQuitLabel.MouseLeave += new System.EventHandler(this.button_MouseLeave);
+            // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Ode to Idle Gaming", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.DimGray;
+            this.label3.Location = new System.Drawing.Point(-2, 137);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(109, 37);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Name: ";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // hsResumeLabel
+            // 
+            this.hsResumeLabel.Font = new System.Drawing.Font("Ode to Idle Gaming", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hsResumeLabel.ForeColor = System.Drawing.Color.DimGray;
+            this.hsResumeLabel.Location = new System.Drawing.Point(0, 187);
+            this.hsResumeLabel.Name = "hsResumeLabel";
+            this.hsResumeLabel.Size = new System.Drawing.Size(248, 37);
+            this.hsResumeLabel.TabIndex = 0;
+            this.hsResumeLabel.Text = "New Game";
+            this.hsResumeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.hsResumeLabel.Click += new System.EventHandler(this.pauseResumeLabel_Click);
+            this.hsResumeLabel.MouseEnter += new System.EventHandler(this.button_MouseEnter);
+            this.hsResumeLabel.MouseLeave += new System.EventHandler(this.button_MouseLeave);
+            // 
+            // score2Label
+            // 
+            this.score2Label.Font = new System.Drawing.Font("Ode to Idle Gaming", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.score2Label.ForeColor = System.Drawing.Color.DimGray;
+            this.score2Label.Location = new System.Drawing.Point(0, 46);
+            this.score2Label.Name = "score2Label";
+            this.score2Label.Size = new System.Drawing.Size(248, 39);
+            this.score2Label.TabIndex = 0;
+            this.score2Label.Text = "Score: ";
+            this.score2Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // hsLabel
+            // 
+            this.hsLabel.Font = new System.Drawing.Font("Ode to Idle Gaming", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hsLabel.ForeColor = System.Drawing.Color.Green;
+            this.hsLabel.Location = new System.Drawing.Point(0, 77);
+            this.hsLabel.Name = "hsLabel";
+            this.hsLabel.Size = new System.Drawing.Size(248, 51);
+            this.hsLabel.TabIndex = 0;
+            this.hsLabel.Text = "New High Score";
+            this.hsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // gameOverLabel
+            // 
+            this.gameOverLabel.Font = new System.Drawing.Font("Ode to Idle Gaming", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gameOverLabel.ForeColor = System.Drawing.Color.DimGray;
+            this.gameOverLabel.Location = new System.Drawing.Point(0, 0);
+            this.gameOverLabel.Name = "gameOverLabel";
+            this.gameOverLabel.Size = new System.Drawing.Size(248, 51);
+            this.gameOverLabel.TabIndex = 0;
+            this.gameOverLabel.Text = "Game Over";
+            this.gameOverLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pausePanel
+            // 
+            this.pausePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
+            this.pausePanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pausePanel.Controls.Add(this.pauseQuitLabel);
+            this.pausePanel.Controls.Add(this.pauseResumeLabel);
+            this.pausePanel.Controls.Add(this.scorePauseLabel);
+            this.pausePanel.Controls.Add(this.pauseLabel);
+            this.pausePanel.Location = new System.Drawing.Point(150, 175);
+            this.pausePanel.Name = "pausePanel";
+            this.pausePanel.Size = new System.Drawing.Size(250, 200);
+            this.pausePanel.TabIndex = 14;
+            // 
+            // pauseQuitLabel
+            // 
+            this.pauseQuitLabel.Font = new System.Drawing.Font("Ode to Idle Gaming", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pauseQuitLabel.ForeColor = System.Drawing.Color.DimGray;
+            this.pauseQuitLabel.Location = new System.Drawing.Point(-2, 144);
+            this.pauseQuitLabel.Name = "pauseQuitLabel";
+            this.pauseQuitLabel.Size = new System.Drawing.Size(250, 37);
+            this.pauseQuitLabel.TabIndex = 0;
+            this.pauseQuitLabel.Text = "Save and Quit";
+            this.pauseQuitLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.pauseQuitLabel.Click += new System.EventHandler(this.pauseQuitLabel_Click);
+            this.pauseQuitLabel.MouseEnter += new System.EventHandler(this.button_MouseEnter);
+            this.pauseQuitLabel.MouseLeave += new System.EventHandler(this.button_MouseLeave);
+            // 
+            // pauseResumeLabel
+            // 
+            this.pauseResumeLabel.Font = new System.Drawing.Font("Ode to Idle Gaming", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pauseResumeLabel.ForeColor = System.Drawing.Color.DimGray;
+            this.pauseResumeLabel.Location = new System.Drawing.Point(0, 100);
+            this.pauseResumeLabel.Name = "pauseResumeLabel";
+            this.pauseResumeLabel.Size = new System.Drawing.Size(248, 37);
+            this.pauseResumeLabel.TabIndex = 0;
+            this.pauseResumeLabel.Text = "Resume";
+            this.pauseResumeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.pauseResumeLabel.Click += new System.EventHandler(this.pauseResumeLabel_Click);
+            this.pauseResumeLabel.MouseEnter += new System.EventHandler(this.button_MouseEnter);
+            this.pauseResumeLabel.MouseLeave += new System.EventHandler(this.button_MouseLeave);
+            // 
+            // scorePauseLabel
+            // 
+            this.scorePauseLabel.Font = new System.Drawing.Font("Ode to Idle Gaming", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.scorePauseLabel.ForeColor = System.Drawing.Color.DimGray;
+            this.scorePauseLabel.Location = new System.Drawing.Point(0, 46);
+            this.scorePauseLabel.Name = "scorePauseLabel";
+            this.scorePauseLabel.Size = new System.Drawing.Size(248, 39);
+            this.scorePauseLabel.TabIndex = 0;
+            this.scorePauseLabel.Text = "Score: ";
+            this.scorePauseLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pauseLabel
+            // 
+            this.pauseLabel.Font = new System.Drawing.Font("Ode to Idle Gaming", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pauseLabel.ForeColor = System.Drawing.Color.DimGray;
+            this.pauseLabel.Location = new System.Drawing.Point(0, 0);
+            this.pauseLabel.Name = "pauseLabel";
+            this.pauseLabel.Size = new System.Drawing.Size(248, 51);
+            this.pauseLabel.TabIndex = 0;
+            this.pauseLabel.Text = "Paused";
+            this.pauseLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // timePanel
+            // 
+            this.timePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
+            this.timePanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.timePanel.Controls.Add(this.timeLabel);
+            this.timePanel.Location = new System.Drawing.Point(125, 100);
+            this.timePanel.Name = "timePanel";
+            this.timePanel.Size = new System.Drawing.Size(100, 100);
+            this.timePanel.TabIndex = 13;
+            // 
+            // timeLabel
+            // 
+            this.timeLabel.AutoSize = true;
+            this.timeLabel.BackColor = System.Drawing.Color.Transparent;
+            this.timeLabel.Font = new System.Drawing.Font("Ode to Idle Gaming", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timeLabel.ForeColor = System.Drawing.Color.DimGray;
+            this.timeLabel.Location = new System.Drawing.Point(15, 5);
+            this.timeLabel.Name = "timeLabel";
+            this.timeLabel.Size = new System.Drawing.Size(77, 84);
+            this.timeLabel.TabIndex = 0;
+            this.timeLabel.Text = "3";
             // 
             // levelLabel2
             // 
@@ -2548,17 +2804,18 @@ namespace Tetris
             this.n1.TabIndex = 8;
             this.n1.TabStop = false;
             // 
-            // menuButton
+            // pauseButton
             // 
-            this.menuButton.BackgroundImage = global::Tetris.Properties.Resources.menuButton;
-            this.menuButton.Font = new System.Drawing.Font("Ode to Idle Gaming", 18F);
-            this.menuButton.Location = new System.Drawing.Point(326, 425);
-            this.menuButton.Name = "menuButton";
-            this.menuButton.Size = new System.Drawing.Size(175, 125);
-            this.menuButton.TabIndex = 7;
-            this.menuButton.Text = "PAUSE";
-            this.menuButton.MouseEnter += new System.EventHandler(this.button_MouseEnter);
-            this.menuButton.MouseLeave += new System.EventHandler(this.button_MouseLeave);
+            this.pauseButton.BackgroundImage = global::Tetris.Properties.Resources.menuButton;
+            this.pauseButton.Font = new System.Drawing.Font("Ode to Idle Gaming", 18F);
+            this.pauseButton.Location = new System.Drawing.Point(326, 425);
+            this.pauseButton.Name = "pauseButton";
+            this.pauseButton.Size = new System.Drawing.Size(175, 125);
+            this.pauseButton.TabIndex = 7;
+            this.pauseButton.Text = "PAUSE";
+            this.pauseButton.Click += new System.EventHandler(this.pauseButton_Click);
+            this.pauseButton.MouseEnter += new System.EventHandler(this.button_MouseEnter);
+            this.pauseButton.MouseLeave += new System.EventHandler(this.button_MouseLeave);
             // 
             // sfxButton3
             // 
@@ -2578,7 +2835,6 @@ namespace Tetris
             this.musicButton3.Size = new System.Drawing.Size(50, 50);
             this.musicButton3.TabIndex = 6;
             this.musicButton3.TabStop = false;
-            this.musicButton3.Click += new System.EventHandler(this.musicButton_Click);
             // 
             // musicButton2
             // 
@@ -2620,6 +2876,7 @@ namespace Tetris
             this.loadGameButton.Size = new System.Drawing.Size(200, 125);
             this.loadGameButton.TabIndex = 2;
             this.loadGameButton.Text = "LOAD GAME";
+            this.loadGameButton.Click += new System.EventHandler(this.loadGameButton_Click);
             this.loadGameButton.MouseEnter += new System.EventHandler(this.button_MouseEnter);
             this.loadGameButton.MouseLeave += new System.EventHandler(this.button_MouseLeave);
             // 
@@ -2730,6 +2987,7 @@ namespace Tetris
             this.helpButton.Size = new System.Drawing.Size(200, 125);
             this.helpButton.TabIndex = 2;
             this.helpButton.Text = "HELP";
+            this.helpButton.Click += new System.EventHandler(this.helpButton_Click);
             this.helpButton.MouseEnter += new System.EventHandler(this.button_MouseEnter);
             this.helpButton.MouseLeave += new System.EventHandler(this.button_MouseLeave);
             // 
@@ -2742,6 +3000,7 @@ namespace Tetris
             this.scoresButton.Size = new System.Drawing.Size(200, 125);
             this.scoresButton.TabIndex = 2;
             this.scoresButton.Text = "SCORES";
+            this.scoresButton.Click += new System.EventHandler(this.scoresButton_Click);
             this.scoresButton.MouseEnter += new System.EventHandler(this.button_MouseEnter);
             this.scoresButton.MouseLeave += new System.EventHandler(this.button_MouseLeave);
             // 
@@ -2770,19 +3029,281 @@ namespace Tetris
             this.mainMenuPictureBox.TabIndex = 0;
             this.mainMenuPictureBox.TabStop = false;
             // 
+            // scoresPanel
+            // 
+            this.scoresPanel.BackColor = System.Drawing.Color.Transparent;
+            this.scoresPanel.BackgroundImage = global::Tetris.Properties.Resources.scoresMenu;
+            this.scoresPanel.Controls.Add(this.backButton2);
+            this.scoresPanel.Controls.Add(this.l91);
+            this.scoresPanel.Controls.Add(this.l81);
+            this.scoresPanel.Controls.Add(this.l41);
+            this.scoresPanel.Controls.Add(this.l71);
+            this.scoresPanel.Controls.Add(this.l31);
+            this.scoresPanel.Controls.Add(this.l61);
+            this.scoresPanel.Controls.Add(this.l21);
+            this.scoresPanel.Controls.Add(this.l90);
+            this.scoresPanel.Controls.Add(this.l11);
+            this.scoresPanel.Controls.Add(this.l80);
+            this.scoresPanel.Controls.Add(this.l40);
+            this.scoresPanel.Controls.Add(this.l70);
+            this.scoresPanel.Controls.Add(this.l30);
+            this.scoresPanel.Controls.Add(this.l60);
+            this.scoresPanel.Controls.Add(this.l20);
+            this.scoresPanel.Controls.Add(this.l51);
+            this.scoresPanel.Controls.Add(this.l10);
+            this.scoresPanel.Controls.Add(this.l50);
+            this.scoresPanel.Controls.Add(this.l01);
+            this.scoresPanel.Controls.Add(this.l00);
+            this.scoresPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.scoresPanel.Location = new System.Drawing.Point(0, 0);
+            this.scoresPanel.Name = "scoresPanel";
+            this.scoresPanel.Size = new System.Drawing.Size(550, 550);
+            this.scoresPanel.TabIndex = 15;
+            this.scoresPanel.Visible = false;
+            // 
+            // backButton2
+            // 
+            this.backButton2.BackgroundImage = global::Tetris.Properties.Resources.back;
+            this.backButton2.Font = new System.Drawing.Font("Ode to Idle Gaming", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.backButton2.ForeColor = System.Drawing.Color.DimGray;
+            this.backButton2.Location = new System.Drawing.Point(225, 475);
+            this.backButton2.Name = "backButton2";
+            this.backButton2.Size = new System.Drawing.Size(100, 75);
+            this.backButton2.TabIndex = 2;
+            this.backButton2.Text = "Back";
+            this.backButton2.Click += new System.EventHandler(this.backButton2_Click);
+            this.backButton2.MouseEnter += new System.EventHandler(this.button_MouseEnter);
+            this.backButton2.MouseLeave += new System.EventHandler(this.button_MouseLeave);
+            // 
+            // l91
+            // 
+            this.l91.Font = new System.Drawing.Font("Ode to Idle Gaming", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.l91.ForeColor = System.Drawing.Color.DimGray;
+            this.l91.Location = new System.Drawing.Point(303, 450);
+            this.l91.Margin = new System.Windows.Forms.Padding(1);
+            this.l91.Name = "l91";
+            this.l91.Size = new System.Drawing.Size(198, 23);
+            this.l91.TabIndex = 1;
+            this.l91.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // l81
+            // 
+            this.l81.Font = new System.Drawing.Font("Ode to Idle Gaming", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.l81.ForeColor = System.Drawing.Color.DimGray;
+            this.l81.Location = new System.Drawing.Point(303, 425);
+            this.l81.Margin = new System.Windows.Forms.Padding(1);
+            this.l81.Name = "l81";
+            this.l81.Size = new System.Drawing.Size(198, 23);
+            this.l81.TabIndex = 1;
+            this.l81.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // l41
+            // 
+            this.l41.Font = new System.Drawing.Font("Ode to Idle Gaming", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.l41.ForeColor = System.Drawing.Color.DimGray;
+            this.l41.Location = new System.Drawing.Point(303, 325);
+            this.l41.Margin = new System.Windows.Forms.Padding(1);
+            this.l41.Name = "l41";
+            this.l41.Size = new System.Drawing.Size(198, 23);
+            this.l41.TabIndex = 1;
+            this.l41.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // l71
+            // 
+            this.l71.Font = new System.Drawing.Font("Ode to Idle Gaming", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.l71.ForeColor = System.Drawing.Color.DimGray;
+            this.l71.Location = new System.Drawing.Point(303, 400);
+            this.l71.Margin = new System.Windows.Forms.Padding(1);
+            this.l71.Name = "l71";
+            this.l71.Size = new System.Drawing.Size(198, 23);
+            this.l71.TabIndex = 1;
+            this.l71.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // l31
+            // 
+            this.l31.Font = new System.Drawing.Font("Ode to Idle Gaming", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.l31.ForeColor = System.Drawing.Color.DimGray;
+            this.l31.Location = new System.Drawing.Point(303, 300);
+            this.l31.Margin = new System.Windows.Forms.Padding(1);
+            this.l31.Name = "l31";
+            this.l31.Size = new System.Drawing.Size(198, 23);
+            this.l31.TabIndex = 1;
+            this.l31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // l61
+            // 
+            this.l61.Font = new System.Drawing.Font("Ode to Idle Gaming", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.l61.ForeColor = System.Drawing.Color.DimGray;
+            this.l61.Location = new System.Drawing.Point(303, 375);
+            this.l61.Margin = new System.Windows.Forms.Padding(1);
+            this.l61.Name = "l61";
+            this.l61.Size = new System.Drawing.Size(198, 23);
+            this.l61.TabIndex = 1;
+            this.l61.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // l21
+            // 
+            this.l21.Font = new System.Drawing.Font("Ode to Idle Gaming", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.l21.ForeColor = System.Drawing.Color.DimGray;
+            this.l21.Location = new System.Drawing.Point(303, 275);
+            this.l21.Margin = new System.Windows.Forms.Padding(1);
+            this.l21.Name = "l21";
+            this.l21.Size = new System.Drawing.Size(198, 23);
+            this.l21.TabIndex = 1;
+            this.l21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // l90
+            // 
+            this.l90.Font = new System.Drawing.Font("Ode to Idle Gaming", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.l90.ForeColor = System.Drawing.Color.DimGray;
+            this.l90.Location = new System.Drawing.Point(103, 450);
+            this.l90.Margin = new System.Windows.Forms.Padding(1);
+            this.l90.Name = "l90";
+            this.l90.Size = new System.Drawing.Size(198, 23);
+            this.l90.TabIndex = 1;
+            this.l90.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // l11
+            // 
+            this.l11.Font = new System.Drawing.Font("Ode to Idle Gaming", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.l11.ForeColor = System.Drawing.Color.DimGray;
+            this.l11.Location = new System.Drawing.Point(303, 250);
+            this.l11.Margin = new System.Windows.Forms.Padding(1);
+            this.l11.Name = "l11";
+            this.l11.Size = new System.Drawing.Size(198, 23);
+            this.l11.TabIndex = 1;
+            this.l11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // l80
+            // 
+            this.l80.Font = new System.Drawing.Font("Ode to Idle Gaming", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.l80.ForeColor = System.Drawing.Color.DimGray;
+            this.l80.Location = new System.Drawing.Point(103, 425);
+            this.l80.Margin = new System.Windows.Forms.Padding(1);
+            this.l80.Name = "l80";
+            this.l80.Size = new System.Drawing.Size(198, 23);
+            this.l80.TabIndex = 1;
+            this.l80.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // l40
+            // 
+            this.l40.Font = new System.Drawing.Font("Ode to Idle Gaming", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.l40.ForeColor = System.Drawing.Color.DimGray;
+            this.l40.Location = new System.Drawing.Point(103, 325);
+            this.l40.Margin = new System.Windows.Forms.Padding(1);
+            this.l40.Name = "l40";
+            this.l40.Size = new System.Drawing.Size(198, 23);
+            this.l40.TabIndex = 1;
+            this.l40.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // l70
+            // 
+            this.l70.Font = new System.Drawing.Font("Ode to Idle Gaming", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.l70.ForeColor = System.Drawing.Color.DimGray;
+            this.l70.Location = new System.Drawing.Point(103, 400);
+            this.l70.Margin = new System.Windows.Forms.Padding(1);
+            this.l70.Name = "l70";
+            this.l70.Size = new System.Drawing.Size(198, 23);
+            this.l70.TabIndex = 1;
+            this.l70.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // l30
+            // 
+            this.l30.Font = new System.Drawing.Font("Ode to Idle Gaming", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.l30.ForeColor = System.Drawing.Color.DimGray;
+            this.l30.Location = new System.Drawing.Point(103, 300);
+            this.l30.Margin = new System.Windows.Forms.Padding(1);
+            this.l30.Name = "l30";
+            this.l30.Size = new System.Drawing.Size(198, 23);
+            this.l30.TabIndex = 1;
+            this.l30.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // l60
+            // 
+            this.l60.Font = new System.Drawing.Font("Ode to Idle Gaming", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.l60.ForeColor = System.Drawing.Color.DimGray;
+            this.l60.Location = new System.Drawing.Point(103, 375);
+            this.l60.Margin = new System.Windows.Forms.Padding(1);
+            this.l60.Name = "l60";
+            this.l60.Size = new System.Drawing.Size(198, 23);
+            this.l60.TabIndex = 1;
+            this.l60.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // l20
+            // 
+            this.l20.Font = new System.Drawing.Font("Ode to Idle Gaming", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.l20.ForeColor = System.Drawing.Color.DimGray;
+            this.l20.Location = new System.Drawing.Point(103, 275);
+            this.l20.Margin = new System.Windows.Forms.Padding(1);
+            this.l20.Name = "l20";
+            this.l20.Size = new System.Drawing.Size(198, 23);
+            this.l20.TabIndex = 1;
+            this.l20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // l51
+            // 
+            this.l51.Font = new System.Drawing.Font("Ode to Idle Gaming", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.l51.ForeColor = System.Drawing.Color.DimGray;
+            this.l51.Location = new System.Drawing.Point(303, 350);
+            this.l51.Margin = new System.Windows.Forms.Padding(1);
+            this.l51.Name = "l51";
+            this.l51.Size = new System.Drawing.Size(198, 23);
+            this.l51.TabIndex = 1;
+            this.l51.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // l10
+            // 
+            this.l10.Font = new System.Drawing.Font("Ode to Idle Gaming", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.l10.ForeColor = System.Drawing.Color.DimGray;
+            this.l10.Location = new System.Drawing.Point(103, 250);
+            this.l10.Margin = new System.Windows.Forms.Padding(1);
+            this.l10.Name = "l10";
+            this.l10.Size = new System.Drawing.Size(198, 23);
+            this.l10.TabIndex = 1;
+            this.l10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // l50
+            // 
+            this.l50.Font = new System.Drawing.Font("Ode to Idle Gaming", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.l50.ForeColor = System.Drawing.Color.DimGray;
+            this.l50.Location = new System.Drawing.Point(103, 350);
+            this.l50.Margin = new System.Windows.Forms.Padding(1);
+            this.l50.Name = "l50";
+            this.l50.Size = new System.Drawing.Size(198, 23);
+            this.l50.TabIndex = 1;
+            this.l50.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // l01
+            // 
+            this.l01.Font = new System.Drawing.Font("Ode to Idle Gaming", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.l01.ForeColor = System.Drawing.Color.DimGray;
+            this.l01.Location = new System.Drawing.Point(303, 225);
+            this.l01.Margin = new System.Windows.Forms.Padding(1);
+            this.l01.Name = "l01";
+            this.l01.Size = new System.Drawing.Size(198, 23);
+            this.l01.TabIndex = 1;
+            this.l01.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // l00
+            // 
+            this.l00.Font = new System.Drawing.Font("Ode to Idle Gaming", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.l00.ForeColor = System.Drawing.Color.DimGray;
+            this.l00.Location = new System.Drawing.Point(103, 225);
+            this.l00.Margin = new System.Windows.Forms.Padding(1);
+            this.l00.Name = "l00";
+            this.l00.Size = new System.Drawing.Size(198, 23);
+            this.l00.TabIndex = 1;
+            this.l00.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // timer
             // 
             this.timer.Interval = 500;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
-            // label1
+            // timer2
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(385, 225);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "label1";
+            this.timer2.Interval = 1000;
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
             // Form1
             // 
@@ -2801,9 +3322,15 @@ namespace Tetris
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form_KeyDown);
             this.mainMenuPanel.ResumeLayout(false);
+            this.helpPanel.ResumeLayout(false);
             this.playMenuPanel.ResumeLayout(false);
             this.gamePanel.ResumeLayout(false);
             this.gamePanel.PerformLayout();
+            this.hsPanel.ResumeLayout(false);
+            this.hsPanel.PerformLayout();
+            this.pausePanel.ResumeLayout(false);
+            this.timePanel.ResumeLayout(false);
+            this.timePanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.f1810)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.f1210)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.f610)).EndInit();
@@ -3003,6 +3530,7 @@ namespace Tetris
             this.checkSurePanel.ResumeLayout(false);
             this.checkSurePanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainMenuPictureBox)).EndInit();
+            this.scoresPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -3029,7 +3557,7 @@ namespace Tetris
         private System.Windows.Forms.Panel gamePanel;
         private Custom sfxButton3;
         private Custom musicButton3;
-        private Custom menuButton;
+        private Custom pauseButton;
         private System.Windows.Forms.PictureBox n13;
         private System.Windows.Forms.PictureBox n14;
         private System.Windows.Forms.PictureBox n15;
@@ -3233,7 +3761,46 @@ namespace Tetris
         private System.Windows.Forms.Label linesLabel;
         private System.Windows.Forms.Label levelLabel2;
         private System.Windows.Forms.Label linesLabel2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel timePanel;
+        private System.Windows.Forms.Label timeLabel;
+        private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.Panel pausePanel;
+        private System.Windows.Forms.Label pauseQuitLabel;
+        private System.Windows.Forms.Label pauseResumeLabel;
+        private System.Windows.Forms.Label pauseLabel;
+        private System.Windows.Forms.Label scorePauseLabel;
+        private System.Windows.Forms.Panel hsPanel;
+        private System.Windows.Forms.TextBox nameTextBox;
+        private System.Windows.Forms.Label hsQuitLabel;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label hsResumeLabel;
+        private System.Windows.Forms.Label score2Label;
+        private System.Windows.Forms.Label hsLabel;
+        private System.Windows.Forms.Label gameOverLabel;
+        private System.Windows.Forms.Panel scoresPanel;
+        private System.Windows.Forms.Label l00;
+        private System.Windows.Forms.Label l91;
+        private System.Windows.Forms.Label l81;
+        private System.Windows.Forms.Label l41;
+        private System.Windows.Forms.Label l71;
+        private System.Windows.Forms.Label l31;
+        private System.Windows.Forms.Label l61;
+        private System.Windows.Forms.Label l21;
+        private System.Windows.Forms.Label l90;
+        private System.Windows.Forms.Label l11;
+        private System.Windows.Forms.Label l80;
+        private System.Windows.Forms.Label l40;
+        private System.Windows.Forms.Label l70;
+        private System.Windows.Forms.Label l30;
+        private System.Windows.Forms.Label l60;
+        private System.Windows.Forms.Label l20;
+        private System.Windows.Forms.Label l51;
+        private System.Windows.Forms.Label l10;
+        private System.Windows.Forms.Label l50;
+        private System.Windows.Forms.Label l01;
+        private Custom backButton2;
+        private System.Windows.Forms.Panel helpPanel;
+        private Custom backButton3;
     }
 }
 
